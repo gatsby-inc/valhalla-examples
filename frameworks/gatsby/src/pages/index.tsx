@@ -1,54 +1,122 @@
 import React from "react";
 import { Layout } from "../components/Layout";
-import { AnimalDisplay, Animals } from "../components/Animals";
+import { Animals } from "../components/Animals";
+import { graphql } from "gatsby";
 
-import {
-  ContentfulDogsFieldsEnum,
-  SortOrderEnum,
-} from "../generated-client/types";
-import { GatsbyBinding } from "../generated-client/binding";
+export default function Catalog({ data }) {
+  const [animals, setAnimals] = React.useState(
+    data?.allContentfulAnimal?.nodes || []
+  );
+  const [animalState, setAnimalState] = React.useState("");
 
-export default function Catalog({ serverData }) {
-  const [randomDog, setRandomDog] = React.useState();
-  console.log(serverData);
   return (
     <Layout title="Our Snugglers" isDogs active="home">
       <main>
         <title>Pup Snuggles</title>
       </main>
-      <button
-        onClick={() => {
-          fetch("/api/giveMeARandomDog")
-            .then((res) => {
-              return res.json();
-            })
-            .then(({ dog }) => {
-              return setRandomDog(dog);
-            });
+
+      <div
+        style={{
+          display: `flex`,
+          margin: "30px 30px",
+          justifyContent: `space-between`,
+          maxWidth: `320px`,
         }}
       >
-        Give me a random dog
-      </button>
+        <button
+          onClick={() => {
+            setAnimalState("dog");
+            window
+              .fetch("/api/animalFilter", {
+                method: `POST`,
+                headers: {
+                  "Content-Type": `application/json`,
+                },
+                body: JSON.stringify({ type: `Boo` }),
+              })
+              .then((res) => {
+                return res.json();
+              })
+              .then((data: any) => {
+                setAnimals(data?.animals);
+              });
+          }}
+          style={{
+            background: animalState === `dog` ? `green` : `none`,
+            padding: `16px 24px`,
+            borderRadius: `4px`,
+          }}
+        >
+          Dogs
+        </button>
 
-      {randomDog && <AnimalDisplay animal={randomDog} type="dogs" />}
-      <Animals type={`dogs`} data={serverData?.nodes || []} />
+        <button
+          onClick={() => {
+            setAnimalState("cat");
+            window
+              .fetch("/api/animalFilter", {
+                method: `POST`,
+                headers: {
+                  "Content-Type": `application/json`,
+                },
+                body: JSON.stringify({ type: `Ralph` }),
+              })
+              .then((res) => {
+                return res.json();
+              })
+              .then((data: any) => {
+                setAnimals(data?.animals);
+              });
+          }}
+          style={{
+            background: animalState === `cat` ? `green` : `none`,
+            padding: `16px 24px`,
+            borderRadius: `4px`,
+          }}
+        >
+          Cats
+        </button>
+
+        <button
+          onClick={() => {
+            setAnimalState("exotic");
+            window
+              .fetch("/api/animalFilter", {
+                method: `POST`,
+                headers: {
+                  "Content-Type": `application/json`,
+                },
+                body: JSON.stringify({ type: `Bert` }),
+              })
+              .then((res) => {
+                return res.json();
+              })
+              .then((data: any) => {
+                setAnimals(data?.animals);
+              });
+          }}
+          style={{
+            background: animalState === `exotic` ? `green` : `none`,
+            padding: `16px 24px`,
+            borderRadius: `4px`,
+          }}
+        >
+          Exotics
+        </button>
+      </div>
+
+      <Animals type={animalState || `dogs`} data={animals || []} />
     </Layout>
   );
 }
 
-export async function getServerData() {
-  const { gatsbyClient }: { gatsbyClient: GatsbyBinding} = require('../generated-client/binding')
-
-  const dogs = await gatsbyClient.query.allContentfulDogs({
-    sort: {
-      fields: [ContentfulDogsFieldsEnum.Name],
-      order: [SortOrderEnum.Asc]
-    }
-  }, `
-    {
+export const catalogQuery = graphql`
+  query {
+    allContentfulAnimal {
       nodes {
         id
         name
+        type
         about {
           about
         }
@@ -57,9 +125,5 @@ export async function getServerData() {
         }
       }
     }
-  `)
-
-  return {
-    props: dogs
   }
-}
+`;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import { Link } from "gatsby";
-import { gql, useSubscription } from "@apollo/client";
+import { gql, useMutation, useSubscription } from "@apollo/client";
 // import { createAndRedirectStripeSession } from "./utils";
 
 const AnimalList = styled.section`
@@ -99,20 +99,11 @@ const DOG_SUB = gql`
   }
 `;
 
+
+
 export function AnimalDisplay({ animal, type, disableDetails = false }) {
-
-  const [animalState, setAnimalState] = useState(animal)
-
-  useSubscription(DOG_SUB, {
-    variables: {
-      id: animal?.id,
-    },
-    onSubscriptionData: ({ subscriptionData: { data } }) => {
-      // do something with `data` here
-      console.log(data)
-      setAnimalState(data?.contentfulDogsChanged)
-    }
-  });
+  const [animalState, setAnimalState] = useState(animal);
+  const [name, setName] = useState(animal?.name);
 
   return (
     <>
@@ -120,33 +111,36 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
         <AnimalImage src={animalState?.image?.url} alt={animalState?.name} />
       )}
       <AnimalName>{animalState?.name || `Good Boy`}</AnimalName>
+      <p>{type}</p>
       {/* <p className={styles.dogCardLocation}>{dog?.city}</p> */}
       {animalState?.about?.about && (
         <p style={{ height: `57px` }}>{animalState?.about?.about}</p>
       )}
       {!disableDetails && (
-        <div style={{ marginBottom: `16px` }}>
-          <ViewDetails to={`/${type}/${animalState?.id}/`}>View Details</ViewDetails>
+        <div style={{ margin: `46px 0 16px` }}>
+          <ViewDetails to={`/${type}/${animalState?.id}/`}>
+            View Details
+          </ViewDetails>
         </div>
       )}
     </>
   );
 }
 
-export function Animal({ animal, type }) {
+export function Animal({ animal }) {
   return (
     <Card key={animal?.id}>
-      <AnimalDisplay animal={animal} type={type} />
+      <AnimalDisplay animal={animal} type={animal.type} />
     </Card>
   );
 }
 
-export function Animals({ data, type }) {
+export function Animals({ data }) {
   return (
     <AnimalList>
       {data?.map((animal, i) => {
         return (
-          <Animal key={`${animal.name}${i}`} animal={animal} type={type} />
+          <Animal key={`${animal.name}${i}`} animal={animal} />
         );
       })}
     </AnimalList>

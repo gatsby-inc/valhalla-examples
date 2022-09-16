@@ -5,8 +5,8 @@ import "../assets/fonts/futura-pt/Webfonts/futurapt_book_macroman/stylesheet.css
 import "../assets/fonts/futura-pt/Webfonts/futurapt_demi_macroman/stylesheet.css";
 import "../assets/fonts/futura-pt/Webfonts/futurapt_bold/stylesheet.css";
 
-import logo from "../../public/assets/puggo.jpeg";
-import catto from "../../public/assets/catto.png";
+import logo from "../assets/puggo.jpeg";
+import catto from "../assets/catto.png";
 import { Link } from "gatsby";
 
 const PageWrapper = styled.div`
@@ -155,21 +155,13 @@ export function Layout({ children, isDogs, title, active }) {
         </FlexItem>
         <FlexItem style={{ alignSelf: `center` }}>
           <NavItem
-            to="/catalog/"
+            to="/"
             style={{
               marginRight: `16px`,
               color: active === "home" ? `#d65108` : `black`,
             }}
           >
             Home
-          </NavItem>
-          <NavItem
-            to="/theme/projects/"
-            style={{
-              color: active === "themes" ? `#d65108` : `black`,
-            }}
-          >
-            Themes
           </NavItem>
         </FlexItem>
         <FlexItem style={{ alignSelf: `center` }}>

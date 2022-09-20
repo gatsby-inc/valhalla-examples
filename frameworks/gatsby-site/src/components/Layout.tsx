@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
-import "../assets/fonts/futura-pt/Webfonts/futurapt_book_macroman/stylesheet.css";
-import "../assets/fonts/futura-pt/Webfonts/futurapt_demi_macroman/stylesheet.css";
-import "../assets/fonts/futura-pt/Webfonts/futurapt_bold/stylesheet.css";
+import "@fontsource/inter";
 
 import logo from "../assets/puggo.jpeg";
 import catto from "../assets/catto.png";
@@ -13,7 +10,7 @@ const PageWrapper = styled.div`
   color: #232129;
   max-width: 1024px;
   margin: 24px auto;
-  font-family: Futura PT, Roboto, "sans-serif";
+  font-family: Inter, Roboto, "sans-serif";
   @media only screen and (max-width: 500px) {
     max-width: 100vw;
   }
@@ -37,7 +34,7 @@ const PupLogo = styled.img`
 
 const NavTitle = styled.h1`
   //styleName: Heading / Small (24\30);
-  font-family: Futura PT, Roboto, "sans-serif";
+  font-family: Inter, Roboto, "sans-serif";
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
@@ -60,7 +57,7 @@ const NavTitle = styled.h1`
 
 const Subtitle = styled.h2`
   //styleName: Heading / Medium (28\35);
-  font-family: Futura PT, Roboto, "sans-serif";
+  font-family: Inter, Roboto, "sans-serif";
   font-size: 32px;
   font-style: normal;
   font-weight: 700;
@@ -103,7 +100,7 @@ const PoweredBy = styled.p`
   position: absolute;
   right: 0;
   //styleName: Heading / X Small (20\25);
-  font-family: Futura PT, Roboto, sans-serif;
+  font-family: Inter, Roboto, sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;

@@ -47,7 +47,6 @@ const AnimalImage = styled.img`
 `;
 
 const AnimalName = styled.p`
-  font-family: Futura PT;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
@@ -98,8 +97,6 @@ const DOG_SUB = gql`
     }
   }
 `;
-
-
 
 export function AnimalDisplay({ animal, type, disableDetails = false }) {
   const [animalState, setAnimalState] = useState(animal);

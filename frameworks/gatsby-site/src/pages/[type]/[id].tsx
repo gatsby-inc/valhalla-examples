@@ -32,7 +32,7 @@ export default function AnimalTemplate({ serverData }) {
 import { createClient } from "@urql/core";
 
 const API_URL =
-  "https://technicaldemomaster76337-01gcw5bcex6hjf0kcc25b5x8va.staging-valhalla-api.io/graphql";
+  "https://valhallaexamplesmain-01gdejpq7n35w70d63ex5cmkey.staging-valhalla-api.io/graphql";
 
 const client = createClient({
   url: API_URL,

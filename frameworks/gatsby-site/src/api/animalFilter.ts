@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 import { createClient } from "@urql/core";
 
 const API_URL =
-  "https://technicaldemomaster76337-01gcw5bcex6hjf0kcc25b5x8va.staging-valhalla-api.io/graphql";
+  "https://valhallaexamplesmain-01gdejpq7n35w70d63ex5cmkey.staging-valhalla-api.io/graphql";
 
 const client = createClient({
   url: API_URL,
@@ -12,7 +12,7 @@ const client = createClient({
 export default async function getAnimals(req, res) {
   const QUERY = `
     query search {
-        allContentfulAnimal(filter: { name: { eq: "${req.body.type}" } } ) {
+        allContentfulAnimal(filter: { animalType: { eq: "${req.body.type}" } } ) {
           nodes {
             __typename
             id
@@ -31,7 +31,7 @@ export default async function getAnimals(req, res) {
     `;
 
   const result = await client
-    .query(QUERY, { name: { eq: req.body.type } })
+    .query(QUERY, { animalType: { eq: req.body.type } })
     .toPromise();
 
   console.log(result);

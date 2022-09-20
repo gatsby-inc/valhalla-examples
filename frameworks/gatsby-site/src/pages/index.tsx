@@ -32,7 +32,7 @@ export default function Catalog({ data }) {
                 headers: {
                   "Content-Type": `application/json`,
                 },
-                body: JSON.stringify({ type: `Boo` }),
+                body: JSON.stringify({ type: `dog` }),
               })
               .then((res) => {
                 return res.json();
@@ -59,7 +59,7 @@ export default function Catalog({ data }) {
                 headers: {
                   "Content-Type": `application/json`,
                 },
-                body: JSON.stringify({ type: `Ralph` }),
+                body: JSON.stringify({ type: `cat` }),
               })
               .then((res) => {
                 return res.json();
@@ -86,7 +86,7 @@ export default function Catalog({ data }) {
                 headers: {
                   "Content-Type": `application/json`,
                 },
-                body: JSON.stringify({ type: `Bert` }),
+                body: JSON.stringify({ type: `exotic` }),
               })
               .then((res) => {
                 return res.json();

@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.5.10",
+    "@fontsource/inter": "^4.5.12",
     "@graphql-tools/schema": "^8.3.10",
     "@graphql-tools/wrap": "^8.4.16",
     "@urql/core": "^3.0.3",

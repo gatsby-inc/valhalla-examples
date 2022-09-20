@@ -9,6 +9,7 @@ const PageWrapper = styled.div`
   color: #232129;
   max-width: 1024px;
   margin: 24px auto;
+  padding: 0 32px;
   font-family: Inter, Roboto, "sans-serif";
   @media only screen and (max-width: 500px) {
     max-width: 100vw;
@@ -19,7 +20,7 @@ const Navbar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin: 0 32px 32px;
+  margin-bottom: 32px;
 `;
 
 const FlexItem = styled.div`

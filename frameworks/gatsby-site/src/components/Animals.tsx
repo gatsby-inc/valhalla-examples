@@ -15,7 +15,6 @@ const AnimalList = styled.section`
 `;
 
 const Card = styled.div`
-  border-radius: 8px;
   width: 200px;
   flex: 0 0 200px;
   align-self: flex-start;
@@ -23,6 +22,8 @@ const Card = styled.div`
   box-sizing: content-box;
   font-size: 14px;
   color: #66333370;
+  line-height: 1.5;
+  position: relative;
   @media only screen and (max-width: 500px) {
     width: 100%;
     flex: auto;
@@ -56,7 +57,7 @@ const AnimalType = styled.span`
   font-size: 12px;
   line-height: 1;
   color: #666633a0;
-  background: #66333320;
+  background: #66333310;
   padding: 6px 8px;
   border-radius: 1000px;
   text-transform: capitalize;
@@ -65,11 +66,57 @@ const AnimalType = styled.span`
 `;
 
 const ViewDetails = styled(Link)`
-  color: #d65108;
-  &:active {
-    color: #d65108;
+  font-weight: 600;
+  color: #66333380;
+  line-height: 1;
+  text-underline-offset: 2px;
+  margin: 24px 0 0;
+  display: flex;
+  align-items: baseline;
+
+  :hover {
+    color: #ff6566;
+  }
+
+  :before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
   }
 `;
+
+const ViewDetailsIcon = styled.span`
+  text-decoration: none;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+
+  > svg {
+    vertical-align: middle;
+  }
+`;
+
+const ChevronRight = () => (
+  <svg
+    width="1em"
+    height="1em"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M9 18L15 12L9 6"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
 
 const DOG_SUB = gql`
   subscription ($id: ID!) {
@@ -100,11 +147,12 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
       {/* <p className={styles.dogCardLocation}>{dog?.city}</p> */}
       {animalState?.about?.about && <p>{animalState?.about?.about}</p>}
       {!disableDetails && (
-        <div style={{ margin: `24px 0 0` }}>
-          <ViewDetails to={`/${type}/${animalState?.id}/`}>
-            View Details
-          </ViewDetails>
-        </div>
+        <ViewDetails to={`/${type}/${animalState?.id}/`}>
+          View Details{" "}
+          <ViewDetailsIcon>
+            <ChevronRight />
+          </ViewDetailsIcon>
+        </ViewDetails>
       )}
     </>
   );

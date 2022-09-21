@@ -20,19 +20,8 @@ const FilterButton = styled.button`
   ${(props) =>
     props.active &&
     css`
-      color: #663;
+      color: #633;
     `}
-`;
-
-const AllButton = styled(Link)`
-  font-size: 18px;
-  font-weight: 700;
-  color: #633;
-  text-decoration: none;
-
-  :hover {
-    color: #ff6566;
-  }
 `;
 
 export default function Catalog({ data }) {
@@ -51,7 +40,15 @@ export default function Catalog({ data }) {
           alignItems: "center",
         }}
       >
-        <AllButton to="/">All Snugglers</AllButton>
+        <FilterButton
+          onClick={() => {
+            setAnimalState("");
+            // TODO handle reseting `Animals` to all
+          }}
+          active={animalState === ``}
+        >
+          All Snugglers
+        </FilterButton>
         <FilterButton
           onClick={() => {
             setAnimalState("dog");

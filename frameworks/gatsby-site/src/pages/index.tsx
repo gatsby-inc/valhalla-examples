@@ -1,7 +1,39 @@
 import React from "react";
+import { graphql, Link } from "gatsby";
+import styled, { css } from "styled-components";
 import { Layout } from "../components/Layout";
 import { Animals } from "../components/Animals";
-import { graphql } from "gatsby";
+
+const FilterButton = styled.button`
+  background: transparent;
+  border-radius: 4px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #66663399;
+
+  :hover {
+    color: #ff6566;
+  }
+
+  ${(props) =>
+    props.active &&
+    css`
+      color: #663;
+    `}
+`;
+
+const AllButton = styled(Link)`
+  font-size: 18px;
+  font-weight: 600;
+  color: #663;
+  text-decoration: none;
+
+  :hover {
+    color: #ff6566;
+  }
+`;
 
 export default function Catalog({ data }) {
   const [animals, setAnimals] = React.useState(
@@ -11,19 +43,16 @@ export default function Catalog({ data }) {
 
   return (
     <Layout title="Our Snugglers" isDogs active="home">
-      <main>
-        <title>Pup Snuggles</title>
-      </main>
-
       <div
         style={{
           display: `flex`,
-          margin: "30px 30px",
-          justifyContent: `space-between`,
-          maxWidth: `320px`,
+          margin: "32px 0",
+          gap: 16,
+          alignItems: "center",
         }}
       >
-        <button
+        <AllButton to="/">All Snugglers</AllButton>
+        <FilterButton
           onClick={() => {
             setAnimalState("dog");
             window
@@ -41,16 +70,11 @@ export default function Catalog({ data }) {
                 setAnimals(data?.animals);
               });
           }}
-          style={{
-            background: animalState === `dog` ? `green` : `none`,
-            padding: `16px 24px`,
-            borderRadius: `4px`,
-          }}
+          active={animalState === `dog`}
         >
           Dogs
-        </button>
-
-        <button
+        </FilterButton>
+        <FilterButton
           onClick={() => {
             setAnimalState("cat");
             window
@@ -68,16 +92,11 @@ export default function Catalog({ data }) {
                 setAnimals(data?.animals);
               });
           }}
-          style={{
-            background: animalState === `cat` ? `green` : `none`,
-            padding: `16px 24px`,
-            borderRadius: `4px`,
-          }}
+          active={animalState === `cat`}
         >
           Cats
-        </button>
-
-        <button
+        </FilterButton>
+        <FilterButton
           onClick={() => {
             setAnimalState("exotic");
             window
@@ -95,16 +114,11 @@ export default function Catalog({ data }) {
                 setAnimals(data?.animals);
               });
           }}
-          style={{
-            background: animalState === `exotic` ? `green` : `none`,
-            padding: `16px 24px`,
-            borderRadius: `4px`,
-          }}
+          active={animalState === `exotic`}
         >
           Exotics
-        </button>
+        </FilterButton>
       </div>
-
       <Animals type={animalState || `dogs`} data={animals || []} />
     </Layout>
   );

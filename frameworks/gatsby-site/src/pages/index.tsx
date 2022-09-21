@@ -36,7 +36,7 @@ export default function Catalog({ data }) {
       <div
         style={{
           display: `flex`,
-          margin: "32px 0",
+          margin: "64px 0",
           gap: 16,
           alignItems: "center",
         }}

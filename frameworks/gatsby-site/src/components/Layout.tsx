@@ -8,19 +8,19 @@ import logo from "../assets/logo.svg";
 const PageWrapper = styled.div`
   color: #232129;
   max-width: 1024px;
-  margin: 24px auto;
+  margin: 32px auto 32px;
   padding: 0 32px;
   font-family: Inter, Roboto, "sans-serif";
-  @media only screen and (max-width: 500px) {
-    max-width: 100vw;
-  }
 `;
 
 const Navbar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 32px;
+  margin-bottom: 64px;
+  @media only screen and (max-width: 500px) {
+    margin-bottom: 32px;
+  }
 `;
 
 const FlexItem = styled.div`
@@ -36,6 +36,7 @@ const NavTitle = styled.h1`
   color: #633;
   font-size: 18px;
   line-height: 1;
+  margin: 0;
 `;
 
 const PoweredBy = styled.p`

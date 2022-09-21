@@ -71,9 +71,6 @@ const Search = styled.input`
 
 const Pagination = styled.nav`
   margin: 32px 0;
-`;
-
-const PaginationList = styled.ul`
   display: flex;
   flex-direction: row;
   gap: 16px;
@@ -81,22 +78,22 @@ const PaginationList = styled.ul`
   padding: 0;
 `;
 
-const PaginationItem = styled.li``;
-
 const PaginationLink = styled(Link)`
   border-radius: 4px;
   text-decoration: none;
   font-weight: 500;
   position: relative;
   display: block;
-  padding: 6px 12px;
+  padding: 8px 12px;
   font-size: 14px;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: #663;
+  background: #66663310;
 
   :hover {
-    background: yellow;
-    color: red;
+    background: #ff656610;
+    color: #ff6566;
   }
 
   ${(props) =>
@@ -224,28 +221,16 @@ export default function Catalog({ data }) {
       <Animals type={animalState || `dogs`} data={animals || []} />
 
       <Pagination>
-        <PaginationList>
-          <PaginationItem>
-            <PaginationLink to="/">1</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink to="/">2</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink to="/">3</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink to="/">4</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink to="/">5</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink to="/" active>
-              6
-            </PaginationLink>
-          </PaginationItem>
-        </PaginationList>
+        <PaginationLink to="/">1</PaginationLink>
+        <PaginationLink to="/">2</PaginationLink>
+        <PaginationLink to="/">3</PaginationLink>
+        <PaginationLink to="/">4</PaginationLink>
+        <PaginationLink to="/">5</PaginationLink>
+        <PaginationLink to="/" active>
+          6
+        </PaginationLink>
+        <PaginationLink to="/">7</PaginationLink>
+        <PaginationLink to="/">99</PaginationLink>
       </Pagination>
     </Layout>
   );

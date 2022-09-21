@@ -43,7 +43,7 @@ export default function Catalog({ data }) {
         <FilterButton
           onClick={() => {
             setAnimalState("");
-            // TODO handle reseting `Animals` to all
+            setAnimals(data?.allContentfulAnimal?.nodes);
           }}
           active={animalState === ``}
         >

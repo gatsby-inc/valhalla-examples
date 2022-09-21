@@ -26,7 +26,8 @@ const config: GatsbyConfig = {
         host,
       },
     },
-    'gatsby-plugin-image'
+    `gatsby-plugin-styled-components`,
+    "gatsby-plugin-image",
   ],
 };
 

@@ -8,7 +8,7 @@ import logo from "../assets/logo.svg";
 const PageWrapper = styled.div`
   color: #232129;
   max-width: 1024px;
-  margin: 32px auto 32px;
+  margin: 32px auto 64px;
   padding: 0 32px;
   font-family: Inter, Roboto, "sans-serif";
 `;
@@ -17,7 +17,7 @@ const Navbar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 64px;
+  margin-bottom: 32px;
   @media only screen and (max-width: 500px) {
     margin-bottom: 32px;
   }

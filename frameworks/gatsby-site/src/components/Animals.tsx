@@ -9,7 +9,7 @@ const AnimalList = styled.section`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 64px 0;
+  margin: 32px 0;
   gap: 64px;
   // justify-content: space-between;
 `;
@@ -73,9 +73,11 @@ const ViewDetails = styled(Link)`
   margin: 24px 0 0;
   display: flex;
   align-items: baseline;
+  text-decoration: none;
 
   :hover {
     color: #ff6566;
+    text-decoration: underline;
   }
 
   :before {

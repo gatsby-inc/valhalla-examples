@@ -10,8 +10,8 @@ const FilterButton = styled.button`
   border: none;
   font-size: 18px;
   cursor: pointer;
-  font-weight: 600;
-  color: #66663399;
+  font-weight: 700;
+  color: #66333380;
 
   :hover {
     color: #ff6566;
@@ -26,8 +26,8 @@ const FilterButton = styled.button`
 
 const AllButton = styled(Link)`
   font-size: 18px;
-  font-weight: 600;
-  color: #663;
+  font-weight: 700;
+  color: #633;
   text-decoration: none;
 
   :hover {

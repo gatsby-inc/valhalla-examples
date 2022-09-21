@@ -8,24 +8,21 @@ import { gql, useMutation, useSubscription } from "@apollo/client";
 const AnimalList = styled.section`
   display: flex;
   flex-direction: row;
-  // align-items: flex-start;
-  padding: 12px;
   flex-wrap: wrap;
-  // justify-content: space-evenly;
-  margin: 8px;
+  margin: 64px 0;
+  gap: 64px;
+  // justify-content: space-between;
 `;
 
 const Card = styled.div`
-  background: #ffffff;
-  border: 1px solid #f0f0f2;
   border-radius: 8px;
-  width: 219px;
+  width: 200px;
   flex: 0 0 200px;
   align-self: center;
   overflow: hidden;
-  padding: 12px;
   box-sizing: content-box;
-  margin: 8px;
+  font-size: 14px;
+  color: #66333370;
   @media only screen and (max-width: 500px) {
     width: 100%;
     flex: auto;
@@ -34,12 +31,12 @@ const Card = styled.div`
 `;
 
 const AnimalImage = styled.img`
-  width: 195px;
+  width: 200px;
   margin: 0 auto;
   object-fit: cover;
-  height: 160px;
+  height: 200px;
   display: inherit;
-  border-radius: 4px;
+  border-radius: 16px;
   @media only screen and (max-width: 500px) {
     width: 100%;
     height: 200px;
@@ -47,33 +44,24 @@ const AnimalImage = styled.img`
 `;
 
 const AnimalName = styled.p`
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 30px;
-  letter-spacing: 0px;
-  text-align: left;
-  margin: 12px 0 0 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #663;
+  margin: 12px 0 0;
+  display: inline-block;
 `;
 
-const SnugButton = styled.button`
-  background-color: white;
-  color: #d65108;
-  border: none;
-  border-radius: 100px;
-  font-weight: 600;
-  padding: 8px 32px;
-  cursor: pointer;
-  font-size: 14px;
-  line-height: 21px;
-  border: 1px solid #d65108;
-  width: 100%;
-  margin-top: 10px;
-  &:hover {
-    background-color: #d65108;
-    color: white;
-    transition: all 0.3s ease-in-out;
-  }
+const AnimalType = styled.span`
+  font-size: 12px;
+  line-height: 1;
+  color: #666633a0;
+  background: #66333320;
+  padding: 6px 8px;
+  border-radius: 1000px;
+  text-transform: capitalize;
+  float: right;
+  margin: 12px 0 0;
 `;
 
 const ViewDetails = styled(Link)`
@@ -108,13 +96,11 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
         <AnimalImage src={animalState?.image?.url} alt={animalState?.name} />
       )}
       <AnimalName>{animalState?.name || `Good Boy`}</AnimalName>
-      <p>{type}</p>
+      {type && <AnimalType>{type}</AnimalType>}
       {/* <p className={styles.dogCardLocation}>{dog?.city}</p> */}
-      {animalState?.about?.about && (
-        <p style={{ height: `57px` }}>{animalState?.about?.about}</p>
-      )}
+      {animalState?.about?.about && <p>{animalState?.about?.about}</p>}
       {!disableDetails && (
-        <div style={{ margin: `46px 0 16px` }}>
+        <div style={{ margin: `24px 0 0` }}>
           <ViewDetails to={`/${type}/${animalState?.id}/`}>
             View Details
           </ViewDetails>
@@ -136,9 +122,7 @@ export function Animals({ data }) {
   return (
     <AnimalList>
       {data?.map((animal, i) => {
-        return (
-          <Animal key={`${animal.name}${i}`} animal={animal} />
-        );
+        return <Animal key={`${animal.name}${i}`} animal={animal} />;
       })}
     </AnimalList>
   );

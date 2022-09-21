@@ -18,7 +18,7 @@ const Card = styled.div`
   border-radius: 8px;
   width: 200px;
   flex: 0 0 200px;
-  align-self: center;
+  align-self: flex-start;
   overflow: hidden;
   box-sizing: content-box;
   font-size: 14px;

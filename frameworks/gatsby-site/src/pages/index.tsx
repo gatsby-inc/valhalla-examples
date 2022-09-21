@@ -12,6 +12,7 @@ const FilterButton = styled.button`
   cursor: pointer;
   font-weight: 700;
   color: #66333380;
+  font-family: Inter, sans-serif;
 
   :hover {
     color: #ff6566;

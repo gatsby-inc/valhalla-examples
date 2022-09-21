@@ -9,6 +9,7 @@ const PageWrapper = styled.div`
   color: #232129;
   max-width: 1024px;
   margin: 24px auto;
+  padding: 0 32px;
   font-family: Inter, Roboto, "sans-serif";
   @media only screen and (max-width: 500px) {
     max-width: 100vw;
@@ -19,7 +20,7 @@ const Navbar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin: 0 32px 32px;
+  margin-bottom: 32px;
 `;
 
 const FlexItem = styled.div`
@@ -37,42 +38,6 @@ const NavTitle = styled.h1`
   line-height: 1;
 `;
 
-const Subtitle = styled.h2`
-  font-family: Inter, Roboto, "sans-serif";
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 35px;
-  letter-spacing: -0.25px;
-`;
-
-const NavItem = styled(Link)`
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0px;
-  text-align: center;
-  text-decoration: none;
-  color: black;
-  @media only screen and (max-width: 500px) {
-    position: relative;
-    transform: none;
-    margin-left: 0;
-    text-align: left;
-    padding: 8px 0;
-  }
-  &:active {
-    color: inherit;
-  }
-  &:hover {
-    color: #d65108;
-    transition: all 0.3s ease-in-out;
-  }
-`;
-
 const PoweredBy = styled.p`
   font-size: 14px;
   margin: 0;
@@ -80,6 +45,17 @@ const PoweredBy = styled.p`
   flex-direction: row;
   align-items: center;
   gap: 8px;
+`;
+
+const PoweredByLink = styled.a`
+  font-weight: 600;
+  color: #7026b9;
+  text-decoration: none;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;
+  gap: 6px;
 `;
 
 const GatsbyIcon = (
@@ -101,7 +77,7 @@ const GatsbyIcon = (
   </svg>
 );
 
-export function Layout({ children, isDogs, title, active }) {
+export function Layout({ children, isDogs, active }) {
   return (
     <PageWrapper>
       <Navbar>
@@ -117,27 +93,16 @@ export function Layout({ children, isDogs, title, active }) {
         </Link>
         <PoweredBy>
           Powered by{" "}
-          <a
+          <PoweredByLink
             href="https://www.gatsbyjs.com/"
             target="_blank"
             rel="noreferrer"
-            style={{
-              fontWeight: 600,
-              color: `#7026B9`,
-              textDecoration: `none`,
-              display: "inline-flex",
-              flexDirection: `row`,
-              alignItems: "center",
-              alignSelf: "center",
-              gap: 6,
-            }}
           >
             {GatsbyIcon}
             Gatsby
-          </a>
+          </PoweredByLink>
         </PoweredBy>
       </Navbar>
-      <Subtitle style={{ marginLeft: `30px` }}>{title}</Subtitle>
       <div>{children}</div>
     </PageWrapper>
   );

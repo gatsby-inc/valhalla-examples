@@ -15,114 +15,118 @@ const FilterAndSearch = styled.div`
   z-index: 1;
   background-image: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0.95)
+    rgba(var(--color-background-rgb), 1),
+    rgba(var(--color-background-rgb), 0.95)
   );
 `;
 
 const Filters = styled.div`
   display: flex;
-  margin: 32px 0;
-  gap: 16px;
+  margin: var(--size-5) 0;
+  gap: var(--size-3);
   align-items: center;
 `;
 
 const FilterButton = styled.button`
   background: transparent;
-  border-radius: 4px;
+  border-radius: var(--radius-2);
   border: none;
-  font-size: 18px;
+  font-size: var(--font-size-3);
   cursor: pointer;
-  font-weight: 700;
-  color: #66333380;
-  font-family: Inter, sans-serif;
+  font-weight: var(--font-weight-7);
+  color: var(--color-text-calm);
 
   :hover {
-    color: #ff6566;
+    color: var(--color-active);
   }
 
   ${(props) =>
     props.active &&
     css`
-      color: #633;
+      color: var(--color-text);
     `}
 `;
 
 const SearchContainer = styled.div`
-  background: #6633330f;
-  border-radius: 6px;
+  background: var(--color-text-lighter);
+  border-radius: var(--radius-3);
   position: relative;
-  color: #66333380;
+  color: var(--color-text-calm);
 `;
 
 const Search = styled.input`
-  border-radius: 6px;
-  font-family: Inter, sans-serif;
-  font-size: 16px;
-  color: #633;
+  border-radius: var(--radius-3);
   border: none;
   background: none;
-  padding: 9px 16px 9px 36px;
+  padding: var(--size-2) var(--size-3) var(--size-2) 36px;
+  min-height: 40px;
 
   :placeholder {
-    color: #66333380;
+    color: var(--color-text-calm);
   }
 `;
 
+const SearchIconSvg = styled.svg`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: var(--size-2);
+`;
+
 const Pagination = styled.nav`
-  margin: 32px 0;
+  margin: var(--size-6) 0;
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: var(--size-3);
   list-style: none;
   padding: 0;
 `;
 
 const PaginationLink = styled(Link)`
-  border-radius: 4px;
+  border-radius: var(--radius-2);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: var(--font-weight-5);
   position: relative;
   display: block;
-  padding: 8px 12px;
-  font-size: 14px;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  color: #663;
-  background: #66663310;
+  padding: var(--size-2) var(--size-3);
+  font-size: var(--font-size-2);
+  transition-property: color, background-color;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-in-out;
+  color: var(--color-text);
+  background: var(--color-text-light);
 
   :hover {
-    background: #ff656610;
-    color: #ff6566;
+    background: var(--color-active-light);
+    color: var(--color-active);
   }
 
   ${(props) =>
     props.active &&
     css`
-      background: #ff6566;
-      color: #fff;
+      background: var(--color-active);
+      color: var(--color-on-emphasis);
     `}
 `;
 
 const SearchIcon = () => (
-  <svg
+  <SearchIconSvg
     width="20"
     height="20"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    style={{ position: "absolute", top: 8, left: 8 }}
   >
     <g
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       <path d="M11 19.1758C15.4183 19.1758 19 15.5941 19 11.1758C19 6.7575 15.4183 3.17578 11 3.17578C6.58172 3.17578 3 6.7575 3 11.1758C3 15.5941 6.58172 19.1758 11 19.1758Z" />
       <path d="M21.0004 21.1742L16.6504 16.8242" />
     </g>
-  </svg>
+  </SearchIconSvg>
 );
 
 export default function Catalog({ data }) {

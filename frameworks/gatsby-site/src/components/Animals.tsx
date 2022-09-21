@@ -9,9 +9,10 @@ const AnimalList = styled.section`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 32px 0;
-  gap: 64px;
-  // justify-content: space-between;
+  margin: var(--size-5) 0;
+  padding-bottom: var(--size-5);
+  gap: var(--size-6);
+  justify-content: space-between;
 `;
 
 const Card = styled.div`
@@ -20,10 +21,11 @@ const Card = styled.div`
   align-self: flex-start;
   overflow: hidden;
   box-sizing: content-box;
-  font-size: 14px;
-  color: #66333370;
-  line-height: 1.5;
+  font-size: var(--font-size-1);
+  color: var(--color-text-calm);
+  line-height: var(--line-height-3);
   position: relative;
+
   @media only screen and (max-width: 500px) {
     width: 100%;
     flex: auto;
@@ -37,7 +39,8 @@ const AnimalImage = styled.img`
   object-fit: cover;
   height: 200px;
   display: inherit;
-  border-radius: 16px;
+  border-radius: var(--radius-5);
+
   @media only screen and (max-width: 500px) {
     width: 100%;
     height: 200px;
@@ -45,38 +48,38 @@ const AnimalImage = styled.img`
 `;
 
 const AnimalName = styled.p`
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.25;
-  color: #663;
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-7);
+  line-height: var(--lineheight-1);
+  color: var(--color-text);
   margin: 12px 0 0;
   display: inline-block;
 `;
 
 const AnimalType = styled.span`
-  font-size: 12px;
-  line-height: 1;
-  color: #666633a0;
-  background: #66333310;
-  padding: 6px 8px;
-  border-radius: 1000px;
+  font-size: var(--font-size-0);
+  line-height: var(--lineheight-0);
+  color: var(--color-text-calm);
+  background: var(--color-text-light);
+  padding: 6px var(--size-2);
+  border-radius: var(--radius-100);
   text-transform: capitalize;
   float: right;
   margin: 12px 0 0;
 `;
 
 const ViewDetails = styled(Link)`
-  font-weight: 600;
-  color: #66333380;
-  line-height: 1;
+  font-weight: var(--font-weight-6);
+  color: var(--color-text-calm);
+  line-height: var(--lineheight-00);
   text-underline-offset: 2px;
-  margin: 24px 0 0;
+  margin: var(--size-4) 0 0;
   display: flex;
   align-items: baseline;
   text-decoration: none;
 
   :hover {
-    color: #ff6566;
+    color: var(--color-active);
     text-decoration: underline;
   }
 
@@ -94,8 +97,8 @@ const ViewDetails = styled(Link)`
 const ViewDetailsIcon = styled.span`
   text-decoration: none;
   display: inline-block;
-  width: 16px;
-  height: 16px;
+  width: var(--size-3);
+  height: var(--size-3);
 
   > svg {
     vertical-align: middle;
@@ -113,9 +116,9 @@ const ChevronRight = () => (
     <path
       d="M9 18L15 12L9 6"
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );

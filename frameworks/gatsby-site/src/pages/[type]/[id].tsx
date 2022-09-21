@@ -4,14 +4,15 @@ import { Layout } from "../../components/Layout";
 import { AnimalDisplay } from "../../components/Animals";
 
 const Card = styled.div`
-  background: #ffffff;
-  border-radius: 8px;
+  background: var(--color-background);
+  border-radius: var(--radius-4);
   max-width: 640px;
-  margin: 24px auto;
+  margin: var(--size-4) auto;
   align-self: center;
   overflow: hidden;
-  padding: 20px;
+  padding: var(--size-4);
   box-sizing: content-box;
+
   @media only screen and (max-width: 500px) {
     width: 100%;
     flex: auto;

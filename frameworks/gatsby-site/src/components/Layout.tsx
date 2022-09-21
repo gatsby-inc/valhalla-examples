@@ -4,53 +4,61 @@ import styled from "styled-components";
 import "@fontsource/inter";
 
 import logo from "../assets/logo.svg";
+import GlobalStyles from "./GlobalStyles";
 
 const PageWrapper = styled.div`
-  color: #232129;
   max-width: 1024px;
-  margin: 32px auto 64px;
-  padding: 0 32px;
-  font-family: Inter, Roboto, "sans-serif";
+  margin: var(--size-5) auto var(--size-6);
+  padding: 0 var(--size-5);
 `;
 
 const Navbar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 32px;
-  @media only screen and (max-width: 500px) {
-    margin-bottom: 32px;
+  margin-bottom: var(--size-5);
+`;
+
+const HomeLink = styled(Link)`
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: flex-end;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-in-out;
+
+  :hover {
+    transform: scale(1.1);
   }
 `;
 
-const FlexItem = styled.div`
-  display: flex;
-`;
-
-const PupLogo = styled.img`
-  height: 48px;
-  width: 48px;
+const Logo = styled.img`
+  height: var(--size-6);
+  width: var(--size-6);
 `;
 
 const NavTitle = styled.h1`
-  color: #633;
-  font-size: 18px;
-  line-height: 1;
+  alignself: flex-end;
+  color: var(--color-text);
+  font-size: var(--font-size-3);
+  line-height: var(--lineheight-00);
   margin: 0;
 `;
 
 const PoweredBy = styled.p`
-  font-size: 14px;
+  font-size: var(--font-size-1);
   margin: 0;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  gap: 8px;
+  gap: var(--size-2);
 `;
 
 const PoweredByLink = styled.a`
-  font-weight: 600;
-  color: #7026b9;
+  font-weight: var(--font-weight-6);
+  color: var(--color-gatsby);
   text-decoration: none;
   display: inline-flex;
   flex-direction: row;
@@ -80,31 +88,32 @@ const GatsbyIcon = (
 
 export function Layout({ children, isDogs, active }) {
   return (
-    <PageWrapper>
-      <Navbar>
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <FlexItem style={{ flexDirection: `row`, gap: 12 }}>
-            <PupLogo src={logo} alt="Pet Snuggles" />
-            <NavTitle style={{ alignSelf: "flex-end" }}>
+    <>
+      <GlobalStyles />
+      <PageWrapper>
+        <Navbar>
+          <HomeLink to="/">
+            <Logo src={logo} alt="Pet Snuggles" />
+            <NavTitle>
               Pet
               <br />
               Snuggles
             </NavTitle>
-          </FlexItem>
-        </Link>
-        <PoweredBy>
-          Powered by{" "}
-          <PoweredByLink
-            href="https://www.gatsbyjs.com/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {GatsbyIcon}
-            Gatsby
-          </PoweredByLink>
-        </PoweredBy>
-      </Navbar>
-      <div>{children}</div>
-    </PageWrapper>
+          </HomeLink>
+          <PoweredBy>
+            Powered by{" "}
+            <PoweredByLink
+              href="https://www.gatsbyjs.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {GatsbyIcon}
+              Gatsby
+            </PoweredByLink>
+          </PoweredBy>
+        </Navbar>
+        <div>{children}</div>
+      </PageWrapper>
+    </>
   );
 }

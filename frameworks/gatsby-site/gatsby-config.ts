@@ -19,6 +19,14 @@ const config: GatsbyConfig = {
   },
   plugins: [
     {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        url:
+          process.env.WPGRAPHQL_URL ||
+          `https://valhallademo.wpengine.com/graphql`,
+      },
+    },
+    {
       resolve: "gatsby-source-contentful",
       options: {
         accessToken,

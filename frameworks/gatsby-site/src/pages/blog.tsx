@@ -36,7 +36,7 @@ const BlogIndex = ({
               >
                 <header>
                   <h2>
-                    <Link to={post.uri} itemProp="url">
+                    <Link to={`/post/${post.id}/`} itemProp="url">
                       <span itemProp="headline">{parse(title)}</span>
                     </Link>
                   </h2>
@@ -70,6 +70,7 @@ export const pageQuery = graphql`
       nodes {
         excerpt
         uri
+        id
         date(formatString: "MMMM DD, YYYY")
         title
         excerpt

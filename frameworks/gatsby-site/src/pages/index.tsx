@@ -129,7 +129,27 @@ export default function Catalog({ data }) {
   const [animals, setAnimals] = React.useState(
     data?.allContentfulAnimal?.nodes || []
   );
+
+  const [page, setPage] = React.useState(0);
   const [animalState, setAnimalState] = React.useState("");
+
+  React.useEffect(() => {
+    console.log(page);
+    window
+      .fetch(`/api/getAnimals?limit=5&skip=${page * 5}`, {
+        method: `GET`,
+        headers: {
+          "Content-Type": `application/json`,
+        },
+      })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data: any) => {
+        console.log(data);
+        setAnimals(data?.animals);
+      });
+  }, [page]);
 
   return (
     <Layout title="Our Snugglers" isDogs active="home">
@@ -221,16 +241,21 @@ export default function Catalog({ data }) {
       <Animals type={animalState || `dogs`} data={animals || []} />
 
       <Pagination>
-        <PaginationLink to="/">1</PaginationLink>
-        <PaginationLink to="/">2</PaginationLink>
-        <PaginationLink to="/">3</PaginationLink>
-        <PaginationLink to="/">4</PaginationLink>
-        <PaginationLink to="/">5</PaginationLink>
-        <PaginationLink to="/" active>
-          6
-        </PaginationLink>
-        <PaginationLink to="/">7</PaginationLink>
-        <PaginationLink to="/">99</PaginationLink>
+        {[...Array(data?.allContentfulAnimal?.pageInfo?.pageCount).keys()].map(
+          (i) => {
+            return (
+              <PaginationLink
+                active={page === i}
+                to="/"
+                onClick={() => {
+                  setPage(i);
+                }}
+              >
+                {i + 1}
+              </PaginationLink>
+            );
+          }
+        )}
       </Pagination>
     </Layout>
   );
@@ -238,17 +263,21 @@ export default function Catalog({ data }) {
 
 export const catalogQuery = graphql`
   query {
-    allContentfulAnimal {
+    allContentfulAnimal(limit: 5, skip: 0, sort: { fields: name }) {
       nodes {
         id
         name
-        type
+        animalType
         about {
           about
         }
         image {
           url
         }
+      }
+      pageInfo {
+        pageCount
+        currentPage
       }
     }
   }

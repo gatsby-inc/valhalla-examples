@@ -163,7 +163,7 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
 export function Animal({ animal }) {
   return (
     <Card key={animal?.id}>
-      <AnimalDisplay animal={animal} type={animal.type} />
+      <AnimalDisplay animal={animal} type={animal.animalType} />
     </Card>
   );
 }

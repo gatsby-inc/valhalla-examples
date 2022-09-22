@@ -8,14 +8,15 @@ const client = createClient({
   fetch,
 });
 
-export default async function getAnimalFilter(req, res) {
+export default async function getAnimals(req, res) {
   const QUERY = `
-    query search {
-        allContentfulAnimal(filter: { animalType: { eq: "${req.body.type}" } } ) {
+    query search($skip: Int!, $limit: Int!) {
+        allContentfulAnimal(skip: $skip, limit: $limit, sort: { fields: name } ) {
           nodes {
             __typename
             id
             name
+            animalType
             about {
               __typename
               about
@@ -30,7 +31,7 @@ export default async function getAnimalFilter(req, res) {
     `;
 
   const result = await client
-    .query(QUERY, { animalType: { eq: req.body.type } })
+    .query(QUERY, { skip: parseInt(req.query.skip, 10), limit: parseInt(req.query.limit, 10) })
     .toPromise();
 
   console.log(result);

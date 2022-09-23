@@ -27,7 +27,7 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: "gatsby-source-contentful",
+      resolve: `gatsby-source-contentful`,
       options: {
         accessToken,
         spaceId: process.env.CONTENTFUL_SPACE_ID,
@@ -35,7 +35,9 @@ const config: GatsbyConfig = {
       },
     },
     `gatsby-plugin-styled-components`,
-    "gatsby-plugin-image",
+    `gatsby-plugin-image`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
   ],
 };
 

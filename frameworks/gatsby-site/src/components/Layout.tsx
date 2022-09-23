@@ -34,13 +34,33 @@ const HomeLink = styled(Link)`
   }
 `;
 
+const NavLinks = styled.nav`
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  gap: var(--size-5);
+  margin-left: var(--size-5);
+  margin-right: auto;
+`;
+
+const NavLink = styled(Link)`
+  font-weight: var(--font-weight-7);
+  text-decoration: none;
+  font-size: var(--font-size-3);
+  color: var(--color-text-calm);
+  line-height: var(--lineheight-00);
+
+  :hover {
+    color: var(--color-active);
+  }
+`;
+
 const Logo = styled.img`
   height: var(--size-6);
   width: var(--size-6);
 `;
 
 const NavTitle = styled.h1`
-  alignself: flex-end;
   color: var(--color-text);
   font-size: var(--font-size-3);
   line-height: var(--lineheight-00);
@@ -100,6 +120,10 @@ export function Layout({ children, isDogs, active }) {
               Snuggles
             </NavTitle>
           </HomeLink>
+          <NavLinks>
+            <NavLink to="/">Pets</NavLink>
+            <NavLink to="/blog/">Blog</NavLink>
+          </NavLinks>
           <PoweredBy>
             Powered by{" "}
             <PoweredByLink

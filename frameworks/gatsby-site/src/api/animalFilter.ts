@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 import { createClient } from "@urql/core";
 
-const API_URL = process.env.VALHALLA_API_URL;
+const API_URL = process.env.GATSBY_VALHALLA_API_URL;
 
 const client = createClient({
   url: API_URL,
@@ -11,7 +11,7 @@ const client = createClient({
 export default async function getAnimalFilter(req, res) {
   const QUERY = `
     query search {
-        allContentfulAnimal(filter: { animalType: { eq: "${req.body.type}" } } ) {
+        allContentfulAnimal(filter: { animalType: { eq: "${req.body.type}" } }, sort: { fields: name }) {
           nodes {
             __typename
             id

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import parse from "html-react-parser";
 
 import { Layout } from "../components/Layout";
@@ -20,17 +20,34 @@ const PostTitle = styled.h2`
   }
 `;
 
+const Article = styled.article`
+  display: flex;
+  flex-direction: row;
+`;
+
 const PageTitle = styled.h1`
   margin: var(--size-6) 0;
   font-size: var(--font-size-6);
 `;
 
+const Post = styled.li`
+  margin: var(--size-6) 0;
+`;
+
 const Thumbnail = styled.div`
   width: 192px;
+  flex: 0 0 auto;
   border-radius: var(--radius-4);
   overflow: hidden;
   float: left;
   margin-right: var(--size-5);
+
+  ${(props) =>
+    props.placeholder &&
+    css`
+      background: var(--color-text-lighter);
+      height: 192px;
+    `}
 `;
 
 const BlogIndex = ({
@@ -64,31 +81,35 @@ const BlogIndex = ({
           };
 
           return (
-            <li key={post.uri}>
-              <article
+            <Post key={post.uri}>
+              <Article
                 className="post-list-item"
                 itemScope
                 itemType="http://schema.org/Article"
               >
-                <header>
-                  {featuredImage?.data && (
-                    <Thumbnail>
-                      <GatsbyImage
-                        image={featuredImage.data}
-                        alt={featuredImage.alt}
-                      />
-                    </Thumbnail>
-                  )}
+                {featuredImage?.data ? (
+                  <Thumbnail>
+                    <GatsbyImage
+                      image={featuredImage.data}
+                      alt={featuredImage.alt}
+                    />
+                  </Thumbnail>
+                ) : (
+                  <Thumbnail placeholder />
+                )}
+                <div>
                   <PostTitle>
                     <Link to={`/post/${post.id}/`} itemProp="url">
                       <span itemProp="headline">{parse(title)}</span>
                     </Link>
                   </PostTitle>
                   <small>{post.date}</small>
-                </header>
-                <section itemProp="description">{parse(post.excerpt)}</section>
-              </article>
-            </li>
+                  <section itemProp="description">
+                    {parse(post.excerpt)}
+                  </section>
+                </div>
+              </Article>
+            </Post>
           );
         })}
       </Posts>

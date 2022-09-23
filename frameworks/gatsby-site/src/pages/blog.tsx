@@ -1,8 +1,32 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import styled from "styled-components";
 import parse from "html-react-parser";
 
 import { Layout } from "../components/Layout";
+
+const Posts = styled.ol`
+  padding: 0;
+  list-style: none;
+`;
+
+const PostTitle = styled.h2`
+  margin: 0;
+
+  a {
+    text-decoration: none;
+    color: var(--color-active);
+  }
+`;
+
+const Thumbnail = styled.div`
+  width: 192px;
+  border-radius: var(--radius-4);
+  overflow: hidden;
+  float: left;
+  margin-right: var(--size-5);
+`;
 
 const BlogIndex = ({
   data,
@@ -23,9 +47,15 @@ const BlogIndex = ({
 
   return (
     <Layout>
-      <ol style={{ listStyle: `none` }}>
+      <Posts>
         {posts.map((post) => {
           const title = post.title;
+
+          const featuredImage = {
+            data: post.featuredImage?.node?.localFile?.childImageSharp
+              ?.gatsbyImageData,
+            alt: post.featuredImage?.node?.alt || ``,
+          };
 
           return (
             <li key={post.uri}>
@@ -35,11 +65,19 @@ const BlogIndex = ({
                 itemType="http://schema.org/Article"
               >
                 <header>
-                  <h2>
+                  {featuredImage?.data && (
+                    <Thumbnail>
+                      <GatsbyImage
+                        image={featuredImage.data}
+                        alt={featuredImage.alt}
+                      />
+                    </Thumbnail>
+                  )}
+                  <PostTitle>
                     <Link to={`/post/${post.id}/`} itemProp="url">
                       <span itemProp="headline">{parse(title)}</span>
                     </Link>
-                  </h2>
+                  </PostTitle>
                   <small>{post.date}</small>
                 </header>
                 <section itemProp="description">{parse(post.excerpt)}</section>
@@ -47,7 +85,7 @@ const BlogIndex = ({
             </li>
           );
         })}
-      </ol>
+      </Posts>
 
       {previousPagePath && (
         <>
@@ -73,7 +111,20 @@ export const pageQuery = graphql`
         id
         date(formatString: "MMMM DD, YYYY")
         title
-        excerpt
+        featuredImage {
+          node {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  quality: 100
+                  placeholder: TRACED_SVG
+                  layout: FULL_WIDTH
+                )
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -10,6 +10,86 @@ const PostTitle = styled.h1`
   font-size: var(--font-size-6);
 `;
 
+const ArticleBody = styled.section`
+  margin: 0 0 var(--size-7);
+  line-height: var(--lineheight-4);
+  max-width: 768px;
+  font-size: var(--font-size-3);
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    font-weight: var(--font-weight-6);
+  }
+
+  ul,
+  ol {
+    padding-left: 0;
+  }
+
+  ul ul,
+  ol ol,
+  ul ol,
+  ol ul {
+    padding-left: var(--size-4);
+  }
+
+  ul li,
+  ol li {
+    padding: var(--size-1) 0;
+  }
+
+  blockquote {
+    border-left: 2px solid var(--color-active);
+    color: var(--color-active);
+    margin: 0;
+    padding-left: var(--size-4);
+
+    code {
+      color: var(--color-active);
+      background: var(--color-active-light);
+    }
+  }
+
+  a {
+    color: var(--color-active);
+    text-underline-offset: 2px;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code,
+  pre {
+    font-family: Menlo, monospace;
+  }
+
+  code {
+    background: var(--color-text-lighter);
+    padding: var(--size-1);
+    border-radius: var(--radius-4);
+    font-size: 92%;
+  }
+
+  pre {
+    overflow: scroll;
+    background: var(--color-text-lighter);
+    padding: var(--size-5);
+    border-radius: var(--radius-4);
+  }
+
+  pre code {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+`;
+
 export default function PostTemplate({ serverData }) {
   const featuredImage = {
     data: serverData?.data?.featuredImage?.node?.mediaItemUrl,
@@ -37,9 +117,9 @@ export default function PostTemplate({ serverData }) {
           )}
         </header>
         {!!serverData.data.content && (
-          <section itemProp="articleBody">
+          <ArticleBody itemProp="articleBody">
             {parse(serverData?.data.content)}
-          </section>
+          </ArticleBody>
         )}
       </article>
     </Layout>

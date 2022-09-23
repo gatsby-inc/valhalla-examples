@@ -20,6 +20,11 @@ const PostTitle = styled.h2`
   }
 `;
 
+const PageTitle = styled.h1`
+  margin: var(--size-6) 0;
+  font-size: var(--font-size-6);
+`;
+
 const Thumbnail = styled.div`
   width: 192px;
   border-radius: var(--radius-4);
@@ -47,6 +52,7 @@ const BlogIndex = ({
 
   return (
     <Layout>
+      <PageTitle>Blog</PageTitle>
       <Posts>
         {posts.map((post) => {
           const title = post.title;

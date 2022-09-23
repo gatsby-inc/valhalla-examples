@@ -1,7 +1,14 @@
 import React from "react";
+import styled from "styled-components";
 import parse from "html-react-parser";
 
 import { Layout } from "../../components/Layout";
+
+const PostTitle = styled.h1`
+  margin: var(--size-6) 0 var(--size-1);
+  font-size: auto;
+  font-size: var(--font-size-6);
+`;
 
 export default function PostTemplate({ serverData }) {
   const featuredImage = {
@@ -17,7 +24,9 @@ export default function PostTemplate({ serverData }) {
         itemType="http://schema.org/Article"
       >
         <header>
-          <h1 itemProp="headline">{parse(serverData?.data.title)}</h1>
+          <PostTitle itemProp="headline">
+            {parse(serverData?.data.title)}
+          </PostTitle>
           <p>{serverData?.data.date}</p>
           {featuredImage?.data && (
             <img

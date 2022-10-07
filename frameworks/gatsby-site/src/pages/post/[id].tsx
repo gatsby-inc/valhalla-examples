@@ -96,6 +96,8 @@ export default function PostTemplate({ serverData }) {
     alt: serverData?.data?.featuredImage?.node?.altText || ``,
   };
 
+  console.log(new Date(serverData?.data.date))
+
   return (
     <Layout>
       <article
@@ -107,7 +109,7 @@ export default function PostTemplate({ serverData }) {
           <PostTitle itemProp="headline">
             {parse(serverData?.data.title)}
           </PostTitle>
-          <p>{serverData?.data.date}</p>
+          <p>{`${new Date(serverData?.data.date)}`}</p>
           {featuredImage?.data && (
             <img
               src={featuredImage.data}
@@ -128,7 +130,7 @@ export default function PostTemplate({ serverData }) {
 
 import { createClient } from "@urql/core";
 
-const API_URL = "https://valhallademo.wpengine.com/graphql";
+const API_URL = process.env.GATSBY_VALHALLA_API_URL as string;
 
 const client = createClient({
   url: API_URL,
@@ -136,11 +138,11 @@ const client = createClient({
 
 export async function getServerData({ params }) {
   const QUERY = `
-      query PostQuery($id: ID!) {
-        post(id: $id) {
+      query PostQuery($id: String!) {
+        wpPost(id: { eq: $id }) {
           id
-          date
           title
+          date
           content
           featuredImage {
             node {
@@ -157,7 +159,7 @@ export async function getServerData({ params }) {
   return {
     props: {
       result: result,
-      data: result?.data?.post,
+      data: result?.data?.wpPost,
     },
   };
 }

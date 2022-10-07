@@ -34,7 +34,5 @@ export default async function getAnimals(req, res) {
     .query(QUERY, { skip: parseInt(req.query.skip, 10), limit: parseInt(req.query.limit, 10) })
     .toPromise();
 
-  console.log(result);
-
   return res.json({ animals: result?.data?.allContentfulAnimal?.nodes });
 }

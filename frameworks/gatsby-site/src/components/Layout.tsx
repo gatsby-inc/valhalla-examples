@@ -123,6 +123,7 @@ export function Layout({ children, isDogs, active }) {
           <NavLinks>
             <NavLink to="/">Pets</NavLink>
             <NavLink to="/blog/">Blog</NavLink>
+            <NavLink to="/store/">Swag</NavLink>
           </NavLinks>
           <PoweredBy>
             Powered by{" "}

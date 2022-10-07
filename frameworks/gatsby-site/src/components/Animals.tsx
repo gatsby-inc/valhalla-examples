@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 import { gql, useMutation, useSubscription } from "@apollo/client";
 // import { createAndRedirectStripeSession } from "./utils";
 
-const AnimalList = styled.section`
+export const AnimalList = styled.section`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

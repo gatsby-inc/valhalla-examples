@@ -1,35 +1,135 @@
 ---
 export interface Props {
-	title: string;
+  title: string;
 }
-
+import logo from "../assets/logo.svg";
 const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="navbar">
+        <a href="/" class="home-link">
+          <img src={logo} />
+          <h1 class="nav-title">Pet <br /> Snuggles</h1>
+        </a>
+        <nav class="nav-links">
+          <a href="/" class="nav-link">Pets</a>
+          <a href="/blog/" class="nav-link">Blog</a>
+          <a href="/store/" class="nav-link">Swag</a>
+        </nav>
+        <p class="powered-by">
+          Powered by{" "}
+          <a
+            class="powered-by-link"
+            href="https://www.gatsbyjs.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 28 28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle fill="#7026B9" cx="14" cy="14" r="14"></circle>
+              <g fill="#fff">
+                <path
+                  d="M6.2,21.8C4.1,19.7,3,16.9,3,14.2L13.9,25C11.1,24.9,8.3,23.9,6.2,21.8z"
+                ></path>
+                <path
+                  d="M16.4,24.7L3.3,11.6C4.4,6.7,8.8,3,14,3c3.7,0,6.9,1.8,8.9,4.5l-1.5,1.3C19.7,6.5,17,5,14,5
+				  c-3.9,0-7.2,2.5-8.5,6L17,22.5c2.9-1,5.1-3.5,5.8-6.5H18v-2h7C25,19.2,21.3,23.6,16.4,24.7z"
+                ></path>
+              </g>
+            </svg>
+            Gatsby
+          </a>
+        </p>
+      </div>
+
+      <slot />
+    </div>
+    <style is:global>
+      .powered-by-link {
+        font-weight: var(--font-weight-6);
+        color: var(--color-gatsby);
+        text-decoration: none;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        align-self: center;
+        gap: 6px;
+      }
+      .powered-by {
+        font-size: var(--font-size-1);
+        margin: 0;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--size-2);
+      }
+      .nav-links {
+        align-self: flex-end;
+        display: flex;
+        flex-direction: row;
+        gap: var(--size-5);
+        margin-left: var(--size-5);
+        margin-right: auto;
+      }
+
+      .nav-link {
+        font-weight: var(--font-weight-7);
+        text-decoration: none;
+        font-size: var(--font-size-3);
+        color: var(--color-text-calm);
+        line-height: var(--lineheight-00);
+
+        :hover {
+          color: var(--color-active);
+        }
+      }
+      .nav-title {
+        color: var(--color-text);
+        font-size: var(--font-size-3);
+        line-height: var(--lineheight-00);
+        margin: 0;
+      }
+      .home-link {
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        align-items: flex-end;
+        transition-property: transform;
+        transition-duration: 0.15s;
+        transition-timing-function: ease-in-out;
+
+        :hover {
+          transform: scale(1.1);
+        }
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: var(--size-5);
+      }
+      .page-wrapper {
+        max-width: 1024px;
+        margin: var(--size-5) auto var(--size-6);
+        padding: 0 var(--size-5);
+      }
+    </style>
+  </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-</style>

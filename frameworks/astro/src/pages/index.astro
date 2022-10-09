@@ -43,49 +43,64 @@ console.log(result);
 ---
 
 <Layout title="Welcome to Astro.">
-
-  <main>
-    <h1>Welcome to <span class="text-gradient">Astro</span></h1>
-
-	<section class="animals-list">
-		{
-		  result.data.allContentfulAnimal.nodes.map((an) => {
-			return <Animals name={an.name} image={an.image} type={an.animalType} about={an.about} />;
-		  })
-		}
-	  </section>
-	  
-    <p class="instructions">
-      To get started, open the directory <code>src/pages</code> in your project.<br
-      />
-      <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-    </p>
-    <ul role="list" class="link-card-grid">
-      <Card
-        href="https://docs.astro.build/"
-        title="Documentation"
-        body="Learn how Astro works and explore the official API docs."
-      />
-      <Card
-        href="https://astro.build/integrations/"
-        title="Integrations"
-        body="Supercharge your project with new frameworks and libraries."
-      />
-      <Card
-        href="https://astro.build/themes/"
-        title="Themes"
-        body="Explore a galaxy of community-built starter themes."
-      />
-      <Card
-        href="https://astro.build/chat/"
-        title="Community"
-        body="Come say hi to our amazing Discord community. ❤️"
-      />
-    </ul>
-  </main>
+  <section class="animals-list">
+    {
+      result.data.allContentfulAnimal.nodes.map((an) => {
+        return (
+          <Animals
+            name={an.name}
+            image={an.image}
+            type={an.animalType}
+            about={an.about}
+          />
+        );
+      })
+    }
+  </section>
+  <nav class="page-nav">
+    {
+      [
+        ...Array(result.data?.allContentfulAnimal?.pageInfo?.pageCount).keys(),
+      ].map((i) => {
+        return (
+          <a href="/" class="page-link">
+            {i + 1}
+          </a>
+        );
+      })
+    }
+  </nav>
 </Layout>
 
 <style>
+  .page-link {
+    border-radius: var(--radius-2);
+    text-decoration: none;
+    font-weight: var(--font-weight-5);
+    position: relative;
+    display: block;
+    padding: var(--size-2) var(--size-3);
+    font-size: var(--font-size-2);
+    transition-property: color, background-color;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-in-out;
+    color: var(--color-text);
+    background: var(--color-text-light);
+
+    :hover {
+      background: var(--color-active-light);
+      color: var(--color-active);
+    }
+  }
+  .page-nav {
+    margin: var(--size-6) 0;
+    display: flex;
+    flex-direction: row;
+    gap: var(--size-3);
+    list-style: none;
+    padding: 0;
+  }
+
   .animals-list {
     display: flex;
     flex-direction: row;

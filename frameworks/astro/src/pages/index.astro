@@ -1,0 +1,213 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Animals from "../components/Animals.astro";
+import Card from "../components/Card.astro";
+import { createClient } from "@urql/core";
+
+const QUERY = `
+query {
+  allContentfulAnimal(limit: 5, skip: 0, sort: { fields: name }) {
+	nodes {
+	  id
+	  name
+	  animalType
+	  about {
+		about
+	  }
+	  image {
+		url
+	  }
+	}
+	pageInfo {
+	  pageCount
+	  currentPage
+	}
+  }
+}
+`;
+
+const result = await (
+  await fetch(import.meta.env.PUBLIC_VALHALLA_API_URL, {
+    method: `POST`,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      query: QUERY,
+      variables: {},
+    }),
+  })
+).json();
+
+console.log(result);
+---
+
+<Layout title="Welcome to Astro.">
+
+  <main>
+    <h1>Welcome to <span class="text-gradient">Astro</span></h1>
+
+	<section class="animals-list">
+		{
+		  result.data.allContentfulAnimal.nodes.map((an) => {
+			return <Animals name={an.name} image={an.image} type={an.animalType} about={an.about} />;
+		  })
+		}
+	  </section>
+	  
+    <p class="instructions">
+      To get started, open the directory <code>src/pages</code> in your project.<br
+      />
+      <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
+    </p>
+    <ul role="list" class="link-card-grid">
+      <Card
+        href="https://docs.astro.build/"
+        title="Documentation"
+        body="Learn how Astro works and explore the official API docs."
+      />
+      <Card
+        href="https://astro.build/integrations/"
+        title="Integrations"
+        body="Supercharge your project with new frameworks and libraries."
+      />
+      <Card
+        href="https://astro.build/themes/"
+        title="Themes"
+        body="Explore a galaxy of community-built starter themes."
+      />
+      <Card
+        href="https://astro.build/chat/"
+        title="Community"
+        body="Come say hi to our amazing Discord community. ❤️"
+      />
+    </ul>
+  </main>
+</Layout>
+
+<style>
+  .animals-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: var(--size-5) 0;
+    padding-bottom: var(--size-5);
+    gap: var(--size-6);
+    justify-content: space-between;
+  }
+
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .instructions {
+    line-height: 1.6;
+    margin: 1rem 0;
+    border: 1px solid rgba(var(--accent), 25%);
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.4rem;
+  }
+  .instructions code {
+    font-size: 0.875em;
+    font-weight: bold;
+    background: rgba(var(--accent), 12%);
+    color: rgb(var(--accent));
+    border-radius: 4px;
+    padding: 0.3em 0.45em;
+  }
+  .instructions strong {
+    color: rgb(var(--accent));
+  }
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+  }
+
+  html {
+    --size-1: 4px;
+    --size-2: 8px;
+    --size-3: 16px;
+    --size-4: 24px;
+    --size-5: 32px;
+    --size-6: 48px;
+    --size-7: 64px;
+
+    --color-text: #663333;
+    --color-text-calm: #66333380;
+    --color-text-light: #66663310;
+    --color-text-lighter: #6633330f;
+
+    --color-background: #ffffff;
+    --color-on-emphasis: #ffffff;
+    --color-background-rgb: 255, 255, 255;
+
+    --color-primary: rebeccapurple;
+    --color-gatsby: #7026b9;
+    --color-active: #ff6566;
+    --color-active-light: #ff656610;
+
+    --font-sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+      Cantarell, Noto Sans, sans-serif;
+
+    --lineheight-00: 1;
+    --lineheight-0: 1.1;
+    --lineheight-1: 1.25;
+    --lineheight-2: 1.375;
+    --lineheight-3: 1.5;
+    --lineheight-4: 1.75;
+    --lineheight-5: 2;
+
+    --font-size-00: 0.5rem;
+    --font-size-0: 0.75rem;
+    --font-size-1: 0.875rem;
+    --font-size-2: 1rem;
+    --font-size-3: 1.125rem;
+    --font-size-4: 1.25rem;
+    --font-size-5: 1.5rem;
+    --font-size-6: 2rem;
+
+    --font-weight-1: 100;
+    --font-weight-2: 200;
+    --font-weight-3: 300;
+    --font-weight-4: 400;
+    --font-weight-5: 500;
+    --font-weight-6: 600;
+    --font-weight-7: 700;
+    --font-weight-8: 800;
+    --font-weight-9: 900;
+
+    --radius-1: 2px;
+    --radius-2: 4px;
+    --radius-3: 6px;
+    --radius-4: 8px;
+    --radius-5: 16px;
+    --radius-100: 9999px;
+
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    line-height: var(--lineheight-3);
+
+    input,
+    button {
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+    }
+  }
+</style>

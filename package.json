@@ -1,6 +1,3 @@
 {
-  "private": true,
-  "workspaces": [
-    "frameworks/*"
-  ]
+  "private": true
 }

@@ -141,7 +141,7 @@ export default function Catalog({ data }) {
   React.useEffect(() => {
     console.log(page);
     window
-      .fetch(`/api/getAnimals?limit=5&skip=${page * 5}`, {
+      .fetch(`/api/getAnimals?limit=8&skip=${page * 8}`, {
         method: `GET`,
         headers: {
           "Content-Type": `application/json`,
@@ -277,7 +277,7 @@ export async function getServerSideProps() {
 
   const QUERY = `
   query {
-    allContentfulAnimal(limit: 5, skip: 0, sort: { fields: name }) {
+    allContentfulAnimal(limit: 8, skip: 0, sort: { fields: name }) {
       nodes {
         id
         name

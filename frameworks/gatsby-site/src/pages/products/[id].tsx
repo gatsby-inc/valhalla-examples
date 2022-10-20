@@ -36,6 +36,7 @@ const API_URL = process.env.GATSBY_VALHALLA_API_URL;
 
 const client = createClient({
   url: API_URL,
+  requestPolicy: `network-only`,
 });
 
 export async function getServerData({ params }) {

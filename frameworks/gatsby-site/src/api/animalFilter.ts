@@ -6,6 +6,7 @@ const API_URL = process.env.GATSBY_VALHALLA_API_URL;
 const client = createClient({
   url: API_URL,
   fetch,
+  requestPolicy: `network-only`,
 });
 
 export default async function getAnimalFilter(req, res) {

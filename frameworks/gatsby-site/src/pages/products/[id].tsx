@@ -45,6 +45,9 @@ export async function getServerData({ params }) {
             id
             title
             description
+            featuredImage {
+              originalSrc
+            }
         }
       }
       `;
@@ -63,6 +66,7 @@ export async function getServerData({ params }) {
         about: {
           about: data?.description,
         },
+        image: { url: data?.featuredImage?.originalSrc },
       },
       type: "products",
     },

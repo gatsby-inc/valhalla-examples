@@ -1,13 +1,5 @@
-import fetch from "node-fetch";
-import { createClient } from "@urql/core";
-
-const API_URL = process.env.GATSBY_VALHALLA_API_URL;
-
-const client = createClient({
-  url: API_URL,
-  fetch,
-});
-
+import { client } from '../lib/client'
+ 
 export default async function getAnimals(req, res) {
   const QUERY = `
     query search($skip: Int!, $limit: Int!) {

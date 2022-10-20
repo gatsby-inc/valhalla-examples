@@ -11,6 +11,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^1.4.6"
+    "@urql/core": "^3.0.4",
+    "astro": "^1.4.6",
+    "graphql": "^16.6.0"
   }
 }

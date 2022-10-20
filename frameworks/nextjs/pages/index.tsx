@@ -1,6 +1,4 @@
 import React from "react";
-import fetch from "node-fetch";
-import { createClient } from "@urql/core";
 import styled, { css } from "styled-components";
 import Link from "next/link";
 import { Layout } from "./components/Layout";
@@ -284,15 +282,13 @@ export async function getServerSideProps() {
           url
         }
       }
-      pageInfo {
-        pageCount
-        currentPage
-      }
     }
   }
   `;
 
   const result = await client.query(QUERY, {}).toPromise();
+
+  console.log(result)
 
   return {
     props: { data: result.data },

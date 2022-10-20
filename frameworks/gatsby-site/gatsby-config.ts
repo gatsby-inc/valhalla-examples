@@ -24,6 +24,11 @@ const config: GatsbyConfig = {
         url:
           process.env.WPGRAPHQL_URL ||
           `https://valhallademo.wpengine.com/graphql`,
+				type: {
+					MediaItem: {
+						createFileNodes: false,
+					}
+				}
       },
     },
     {

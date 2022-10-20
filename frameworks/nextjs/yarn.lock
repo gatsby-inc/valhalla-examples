@@ -1347,7 +1347,7 @@
     tslib "~2.3.0"
     value-or-promise "1.0.11"
 
-"@graphql-typed-document-node/core@^3.0.0":
+"@graphql-typed-document-node/core@^3.0.0", "@graphql-typed-document-node/core@^3.1.1":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.1.1.tgz#076d78ce99822258cf813ecc1e7fa460fa74d052"
   integrity sha512-NQ17ii0rK1b34VZonlmT2QMJFI70m0TRwbknO/ihlbatXyaktDhN/98vBiUU6kNBPljqGqyIrl2T4nY2RpFANg==
@@ -1706,6 +1706,14 @@
   dependencies:
     "@typescript-eslint/types" "5.10.1"
     eslint-visitor-keys "^3.0.0"
+
+"@urql/core@^3.0.4":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@urql/core/-/core-3.0.4.tgz#6eee0908f98c6f3d677e3abbe6f04e9fdbc0a498"
+  integrity sha512-7c12WLHKjmxcxM8nrVdtaYHQnS0WXSfYCf5lg28eRL2ySbo2rOPINLblblDo8UwGTeyrNzjSRVd0I0NlTN6XTA==
+  dependencies:
+    "@graphql-typed-document-node/core" "^3.1.1"
+    wonka "^6.0.0"
 
 "@wry/context@^0.6.0":
   version "0.6.1"
@@ -4090,6 +4098,11 @@ which@^2.0.1:
   integrity sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==
   dependencies:
     isexe "^2.0.0"
+
+wonka@^6.0.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/wonka/-/wonka-6.1.0.tgz#65297ebf7031ae46d4b0c56da93950fb3ae5baaa"
+  integrity sha512-VgiMCz7BXOiDbgpVhf5iNhK7hurteY5Jv0fDJewUkY0s4fbxQD2iKqfGxNXNTwp2v3bgT8QVu2l5H7YdkZ5WIA==
 
 word-wrap@^1.2.3:
   version "1.2.3"

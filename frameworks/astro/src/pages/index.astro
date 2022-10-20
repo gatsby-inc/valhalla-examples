@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Animals from "../components/Animals.astro";
 import Card from "../components/Card.astro";
-import { createClient } from "@urql/core";
+import { client } from '../lib/client'
 
 const QUERY = `
 query {
@@ -18,28 +18,11 @@ query {
 		url
 	  }
 	}
-	pageInfo {
-	  pageCount
-	  currentPage
-	}
   }
 }
 `;
 
-const result = await (
-  await fetch(import.meta.env.PUBLIC_VALHALLA_API_URL, {
-    method: `POST`,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query: QUERY,
-      variables: {},
-    }),
-  })
-).json();
-
-console.log(result);
+const result = await client.query(QUERY).toPromise()
 ---
 
 <Layout title="Welcome to Astro.">

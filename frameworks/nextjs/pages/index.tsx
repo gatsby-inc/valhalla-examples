@@ -1,10 +1,10 @@
 import React from "react";
-import fetch from "node-fetch";
-import { createClient } from "@urql/core";
 import styled, { css } from "styled-components";
 import Link from "next/link";
 import { Layout } from "./components/Layout";
 import { Animals } from "./components/Animals";
+
+import { client } from "./lib/client"
 
 const FilterAndSearch = styled.div`
   display: flex;
@@ -141,7 +141,7 @@ export default function Catalog({ data }) {
   React.useEffect(() => {
     console.log(page);
     window
-      .fetch(`/api/getAnimals?limit=8&skip=${page * 8}`, {
+      .fetch(`/api/get-animal?limit=8&skip=${page * 8}`, {
         method: `GET`,
         headers: {
           "Content-Type": `application/json`,
@@ -268,13 +268,6 @@ export default function Catalog({ data }) {
 }
 
 export async function getServerSideProps() {
-  const API_URL = process.env.GATSBY_VALHALLA_API_URL;
-
-  const client = createClient({
-    url: API_URL,
-    fetch,
-  });
-
   const QUERY = `
   query {
     allContentfulAnimal(limit: 8, skip: 0, sort: { fields: name }) {
@@ -289,17 +282,13 @@ export async function getServerSideProps() {
           url
         }
       }
-      pageInfo {
-        pageCount
-        currentPage
-      }
     }
   }
   `;
 
   const result = await client.query(QUERY, {}).toPromise();
 
-  console.log(result);
+  console.log(result)
 
   return {
     props: { data: result.data },

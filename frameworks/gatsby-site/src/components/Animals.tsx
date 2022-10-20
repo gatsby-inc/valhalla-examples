@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import { Link } from "gatsby";
 import { gql, useMutation, useSubscription } from "@apollo/client";
@@ -144,8 +144,15 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
 
   return (
     <>
-      {animalState?.image?.url && (
-        <AnimalImage src={animalState?.image?.url} alt={animalState?.name} />
+      {animalState?.image?.gatsbyImageData ? (
+        <GatsbyImage
+          image={animalState?.image?.gatsbyImageData}
+          style={{ borderRadius: "var(--radius-5)" }}
+        />
+      ) : (
+        animalState?.image?.url && (
+          <AnimalImage src={animalState?.image?.url} alt={animalState?.name} />
+        )
       )}
       <AnimalName>{animalState?.name || `Good Boy`}</AnimalName>
       {type && <AnimalType>{type}</AnimalType>}

@@ -139,7 +139,6 @@ export default function Catalog({ data }) {
   const [animalState, setAnimalState] = React.useState("");
 
   React.useEffect(() => {
-    console.log(page);
     window
       .fetch(`/api/get-animal?limit=8&skip=${page * 8}`, {
         method: `GET`,

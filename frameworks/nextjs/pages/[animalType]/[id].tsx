@@ -22,11 +22,11 @@ const Card = styled.div`
   }
 `;
 
-export default function AnimalTemplate() {
+export default function AnimalTemplate({ contentfulAnimal }) {
   return (
     <Layout isDogs={true}>
       <Card>
-        {/* <AnimalDisplay animal={serverData?.data} disableDetails /> */}
+        <AnimalDisplay animal={contentfulAnimal} disableDetails />
       </Card>
     </Layout>
   )
@@ -34,10 +34,26 @@ export default function AnimalTemplate() {
 
 export async function getStaticProps(context) {
   const query = `
-    query GetAnimal()
+    query GetAnimalById($id: String!) {
+      contentfulAnimal(id: { eq: $id }) {
+        id
+        name
+        about {
+          about
+        }
+        image {
+          url
+        }
+      }
+    }
   `
-  return {
 
+  const { data } = await client.query(query, {
+    id: context.params.id
+  }).toPromise()
+
+  return {
+    props: data
   }
 }
 
@@ -53,13 +69,9 @@ export async function getStaticPaths() {
     }`
   ).toPromise()
 
-    console.log(data.allContentfulAnimal.nodes)
-
   return {
     paths: data.allContentfulAnimal.nodes.map(node => ({
-      params: Object.assign({}, node, {
-        type: node.animalType
-      })
+      params: node
     })),
     fallback: false
   }

@@ -139,7 +139,6 @@ export default function Catalog({ data }) {
   const [animalState, setAnimalState] = React.useState("");
 
   React.useEffect(() => {
-    console.log(page);
     window
       .fetch(`/api/get-animal?limit=8&skip=${page * 8}`, {
         method: `GET`,
@@ -239,7 +238,36 @@ export default function Catalog({ data }) {
 
         <SearchContainer>
           <SearchIcon />
-          <Search type="search" placeholder="Search pets" />
+          <Search
+            type="search"
+            placeholder="Search pets"
+            onBlur={(e: any) => {
+              setAnimalState("");
+              
+              if (!e.currentTarget.value) {
+                setAnimalState("");
+                setAnimals(data?.allContentfulAnimal?.nodes);
+              }
+
+              window
+                .fetch(
+                  `/api/search?searchText=${e.currentTarget.value}`,
+                  {
+                    method: `POST`,
+                    headers: {
+                      "Content-Type": `application/json`,
+                    },
+                  }
+                )
+                .then((res) => {
+                  return res.json();
+                })
+                .then((data: any) => {
+                  console.log(data)
+                  setAnimals(data?.animals);
+                });
+            }}
+          />
         </SearchContainer>
       </FilterAndSearch>
 
@@ -290,8 +318,6 @@ export async function getServerSideProps() {
   `;
 
   const result = await client.query(QUERY, {}).toPromise();
-
-  console.log(result)
 
   return {
     props: { data: result.data },

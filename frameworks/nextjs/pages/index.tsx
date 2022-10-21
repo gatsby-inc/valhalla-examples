@@ -282,6 +282,9 @@ export async function getServerSideProps() {
           url
         }
       }
+      pageInfo {
+        pageCount
+      }
     }
   }
   `;

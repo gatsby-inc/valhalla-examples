@@ -243,10 +243,10 @@ export default function Catalog({ data }) {
             placeholder="Search pets"
             onBlur={(e: any) => {
               setAnimalState("");
-              
+
               if (!e.currentTarget.value) {
                 setAnimalState("");
-                setAnimals(data?.allContentfulAnimal?.nodes);
+                return setAnimals(data?.allContentfulAnimal?.nodes);
               }
 
               window

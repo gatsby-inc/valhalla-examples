@@ -288,8 +288,6 @@ export async function getServerSideProps() {
 
   const result = await client.query(QUERY, {}).toPromise();
 
-  console.log(result)
-
   return {
     props: { data: result.data },
   };

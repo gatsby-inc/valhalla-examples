@@ -238,7 +238,35 @@ export default function Catalog({ data }) {
 
         <SearchContainer>
           <SearchIcon />
-          <Search type="search" placeholder="Search pets" />
+          <Search
+            type="search"
+            placeholder="Search pets"
+            onBlur={(e: any) => {
+              setAnimalState("");
+              
+              if (!e.currentTarget.value) {
+                setAnimalState("");
+                setAnimals(data?.allContentfulAnimal?.nodes);
+              }
+
+              window
+                .fetch(
+                  `/api/searchAnimals?searchText=${e.currentTarget.value}`,
+                  {
+                    method: `POST`,
+                    headers: {
+                      "Content-Type": `application/json`,
+                    },
+                  }
+                )
+                .then((res) => {
+                  return res.json();
+                })
+                .then((data: any) => {
+                  setAnimals(data?.animals);
+                });
+            }}
+          />
         </SearchContainer>
       </FilterAndSearch>
 

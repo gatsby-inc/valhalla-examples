@@ -69,8 +69,6 @@ export async function getStaticPaths() {
     }`
   ).toPromise()
 
-  console.log(data)
-
   return {
     paths: data.allContentfulAnimal.nodes.map(node => ({
       params: node

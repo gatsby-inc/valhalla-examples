@@ -96,8 +96,6 @@ export default function PostTemplate({ serverData }) {
     alt: serverData?.data?.featuredImage?.node?.altText || ``,
   };
 
-  console.log(new Date(serverData?.data.date))
-
   return (
     <Layout>
       <article
@@ -109,7 +107,7 @@ export default function PostTemplate({ serverData }) {
           <PostTitle itemProp="headline">
             {parse(serverData?.data.title)}
           </PostTitle>
-          <p>{`${new Date(serverData?.data.date)}`}</p>
+          <p>{`${new Date(Number(serverData?.data.date))}`}</p>
           {featuredImage?.data && (
             <img
               src={featuredImage.data}

@@ -9,7 +9,23 @@
 https://valhallaexamples.staging-gatsbyjs.io/
 
 ```bash
-yarn workspace gatsby start
+cd frameworks/gatsby-site
+yarn start
+```
+
+#### Next.js
+
+```bash
+cd frameworks/nextjs
+yarn dev
+
+```
+
+#### Astro
+
+```bash
+cd frameworks/astro
+yarn dev
 ```
 
 ### CMSs

@@ -28,33 +28,31 @@ const { title } = Astro.props;
           <a href="/store/" class="nav-link">Swag</a>
         </nav>
         <p class="powered-by">
-          Powered by{" "}
-          <a
-            class="powered-by-link"
-            href="https://www.gatsbyjs.com/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 28 28"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+          <span>
+            Powered by{" "}
+            <a
+              class="powered-by-link"
+              href="https://www.gatsbyjs.com/"
+              target="_blank"
+              rel="noreferrer"
             >
-              <circle fill="#7026B9" cx="14" cy="14" r="14"></circle>
-              <g fill="#fff">
-                <path
-                  d="M6.2,21.8C4.1,19.7,3,16.9,3,14.2L13.9,25C11.1,24.9,8.3,23.9,6.2,21.8z"
-                ></path>
-                <path
-                  d="M16.4,24.7L3.3,11.6C4.4,6.7,8.8,3,14,3c3.7,0,6.9,1.8,8.9,4.5l-1.5,1.3C19.7,6.5,17,5,14,5
-				  c-3.9,0-7.2,2.5-8.5,6L17,22.5c2.9-1,5.1-3.5,5.8-6.5H18v-2h7C25,19.2,21.3,23.6,16.4,24.7z"
-                ></path>
-              </g>
-            </svg>
-            Gatsby
-          </a>
+              Valhalla
+            </a>
+            and <b style={{ fontWeight: "var(--font-weight-6)" }}>Astro</b>
+          </span>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M13.162 1.52486C12.9954 0.977552 12.9121 0.703909 12.7487 0.501125C12.6045 0.322098 12.4168 0.183034 12.2036 0.097213C11.962 0 11.676 0 11.1039 0H8.49155C7.92021 0 7.63455 0 7.39319 0.0970096C7.18012 0.182654 6.99254 0.321439 6.84833 0.50014C6.68497 0.702548 6.60142 0.975693 6.43433 1.52195L6.43429 1.52208H6.43427L2.77686 13.479C4.12826 12.7784 5.5978 12.2741 7.14772 12.0036L9.48876 4.0006C9.52721 3.86912 9.64779 3.77876 9.78479 3.77876C9.92141 3.77876 10.0418 3.86865 10.0805 3.99968L12.4503 12.0077C13.993 12.2793 15.4559 12.7828 16.8015 13.4809L13.162 1.52486ZM10.0076 14.9127C11.387 14.9127 12.5846 14.5628 13.1846 14.0498C13.2645 14.3006 13.3075 14.5678 13.3075 14.845C13.3075 15.2959 13.1936 15.72 12.9929 16.0905C12.6084 16.8003 12.0506 17.1541 11.5484 17.4726L11.5482 17.4727C10.917 17.8731 10.3739 18.2176 10.3739 19.1427C10.3739 19.45 10.4445 19.7409 10.5704 19.9999C9.72736 19.6493 9.13454 18.8178 9.13454 17.8479L9.13459 17.7909V17.7909C9.13541 17.1518 9.13643 16.3643 8.2336 16.3643C7.70687 16.3643 7.27986 16.7912 7.27986 17.3179C6.26544 16.3034 6.35414 14.845 6.35414 14.845C6.35414 14.548 6.38432 14.083 6.51894 13.6768C6.89549 14.3856 8.31455 14.9127 10.0076 14.9127Z"
+              fill="#663333"></path>
+          </svg>
         </p>
       </div>
 
@@ -63,17 +61,15 @@ const { title } = Astro.props;
     <style is:global>
       .powered-by-link {
         font-weight: var(--font-weight-6);
-        color: var(--color-gatsby);
-        text-decoration: none;
-        display: inline-flex;
-        flex-direction: row;
-        align-items: center;
-        align-self: center;
-        gap: 6px;
+        color: var(--color-text);
+        text-decoration: underline;
+        text-decoration-thickness: 1.5px;
+        text-underline-offset: 2px;
       }
       .powered-by {
-        font-size: var(--font-size-1);
-        margin: 0;
+        font-size: var(--font-size-2);
+        font-weight: var(--font-weight-5);
+        margin: 0 0 calc(-1 * var(--size-1));
         display: inline-flex;
         flex-direction: row;
         align-items: center;
@@ -122,7 +118,7 @@ const { title } = Astro.props;
       .navbar {
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: flex-end;
         margin-bottom: var(--size-5);
       }
       .page-wrapper {

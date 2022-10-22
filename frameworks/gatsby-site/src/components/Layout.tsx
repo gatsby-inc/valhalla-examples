@@ -15,7 +15,7 @@ const PageWrapper = styled.div`
 const Navbar = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
   margin-bottom: var(--size-5);
 `;
 
@@ -68,8 +68,9 @@ const NavTitle = styled.h1`
 `;
 
 const PoweredBy = styled.p`
-  font-size: var(--font-size-1);
-  margin: 0;
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-5);
+  margin: 0 0 calc(-1 * var(--size-1));
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -78,16 +79,13 @@ const PoweredBy = styled.p`
 
 const PoweredByLink = styled.a`
   font-weight: var(--font-weight-6);
-  color: var(--color-gatsby);
-  text-decoration: none;
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  align-self: center;
-  gap: 6px;
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
 `;
 
-const GatsbyIcon = (
+const FrameworkLogo = (
   <svg
     width="20"
     height="20"
@@ -95,7 +93,7 @@ const GatsbyIcon = (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle fill="#7026B9" cx="14" cy="14" r="14" />
+    <circle fill="#663333" cx="14" cy="14" r="14" />
     <g fill="#fff">
       <path d="M6.2,21.8C4.1,19.7,3,16.9,3,14.2L13.9,25C11.1,24.9,8.3,23.9,6.2,21.8z" />
       <path
@@ -126,15 +124,18 @@ export function Layout({ children, isDogs, active }) {
             <NavLink to="/store/">Swag</NavLink>
           </NavLinks>
           <PoweredBy>
-            Powered by{" "}
-            <PoweredByLink
-              href="https://www.gatsbyjs.com/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {GatsbyIcon}
-              Gatsby
-            </PoweredByLink>
+            <span>
+              Powered by{" "}
+              <PoweredByLink
+                href="https://www.gatsbyjs.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Valhalla
+              </PoweredByLink>{" "}
+              and <b style={{ fontWeight: "var(--font-weight-6)" }}>Gatsby</b>
+            </span>{" "}
+            {FrameworkLogo}
           </PoweredBy>
         </Navbar>
         <div>{children}</div>

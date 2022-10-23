@@ -227,12 +227,12 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
         )}
       </ImageWrapper>
       <div>
-        {!disableDetails ? (
+        {disableDetails ? (
+          <PageTitle>{animalState?.name || `Good Boy`}</PageTitle>
+        ) : (
           <DetailLink to={`/${type}/${animalState?.id}/`}>
             {animalState?.name || `Good Boy`}
           </DetailLink>
-        ) : (
-          <PageTitle>{animalState?.name || `Good Boy`}</PageTitle>
         )}
         {type && <AnimalType>{type}</AnimalType>}
         {disableDetails && animalState?.about?.about && (

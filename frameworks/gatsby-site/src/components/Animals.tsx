@@ -78,18 +78,18 @@ const ViewDetailsIcon = styled.span`
   }
 `;
 
-const Card = styled.div`
+const Card = styled.div(
+  ({ disableDetails }) => `
   align-self: flex-start;
   box-sizing: content-box;
   color: var(--color-text-calm);
   line-height: var(--line-height-3);
   position: relative;
   display: flex;
-  flex-direction: ${(props) => (props.disableDetails ? "row" : "column")};
+  flex-direction: ${disableDetails ? "row" : "column"};
   font-size: var(--font-size-1);
-  gap: ${(props) => (props.disableDetails ? "var(--size-6)" : "var(--size-0)")};
-  margin-top: ${(props) =>
-    props.disableDetails ? "var(--size-7)" : "var(--size-0)"};
+  gap: ${disableDetails ? "var(--size-6)" : "var(--size-0)"};
+  margin-top: ${disableDetails ? "var(--size-7)" : "var(--size-0)"};
 
   ${ImageWrapper} {
     box-shadow: var(--shadow-elevation-medium);
@@ -98,8 +98,8 @@ const Card = styled.div`
     transition-timing-function: ease-in-out;
   }
 
-  ${(props) =>
-    !props.disableDetails
+  ${
+    disableDetails
       ? css`
           &:hover ${ImageWrapper} {
             box-shadow: var(--shadow-elevation-high);
@@ -126,14 +126,16 @@ const Card = styled.div`
           ${ImageWrapper} {
             box-shadow: var(--shadow-elevation-high);
           }
-        `}
+        `
+  }
 
   @media only screen and (max-width: 500px) {
     width: 100%;
     flex: auto;
     height: auto;
   }
-`;
+`
+);
 
 const AnimalImage = styled.img`
   width: 200px;

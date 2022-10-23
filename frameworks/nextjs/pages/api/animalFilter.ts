@@ -8,6 +8,7 @@ export default async function getAnimalFilter(req, res) {
             __typename
             id
             name
+            animalType
             about {
               __typename
               about

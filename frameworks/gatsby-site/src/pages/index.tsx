@@ -279,6 +279,7 @@ export default function Catalog({ data }) {
               <PaginationLink
                 active={page === i}
                 to="/"
+                key={`catalog-pagination-link-${i}`}
                 onClick={() => {
                   setPage(i);
                 }}

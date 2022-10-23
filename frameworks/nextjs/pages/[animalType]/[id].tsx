@@ -1,35 +1,16 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components";
 import { Layout } from "../components/Layout";
 import { AnimalDisplay } from "../components/Animals";
 
-import { client } from "../lib/client"
-
-const Card = styled.div`
-  background: var(--color-background);
-  border-radius: var(--radius-4);
-  max-width: 640px;
-  margin: var(--size-4) auto;
-  align-self: center;
-  overflow: hidden;
-  padding: var(--size-4);
-  box-sizing: content-box;
-
-  @media only screen and (max-width: 500px) {
-    width: 100%;
-    flex: auto;
-    height: auto;
-  }
-`;
+import { client } from "../lib/client";
 
 export default function AnimalTemplate({ contentfulAnimal }) {
   return (
     <Layout isDogs={true}>
-      <Card>
-        <AnimalDisplay animal={contentfulAnimal} disableDetails />
-      </Card>
+      <AnimalDisplay animal={contentfulAnimal} disableDetails />
     </Layout>
-  )
+  );
 }
 
 export async function getStaticProps(context) {
@@ -46,20 +27,23 @@ export async function getStaticProps(context) {
         }
       }
     }
-  `
+  `;
 
-  const { data } = await client.query(query, {
-    id: context.params.id
-  }).toPromise()
+  const { data } = await client
+    .query(query, {
+      id: context.params.id,
+    })
+    .toPromise();
 
   return {
-    props: data
-  }
+    props: data,
+  };
 }
 
 export async function getStaticPaths() {
-  const { data } = await client.query(
-    `{
+  const { data } = await client
+    .query(
+      `{
       allContentfulAnimal {
         nodes {
           id
@@ -67,13 +51,13 @@ export async function getStaticPaths() {
         }
       }
     }`
-  ).toPromise()
+    )
+    .toPromise();
 
   return {
-    paths: data.allContentfulAnimal.nodes.map(node => ({
-      params: node
+    paths: data.allContentfulAnimal.nodes.map((node) => ({
+      params: node,
     })),
-    fallback: false
-  }
+    fallback: false,
+  };
 }
-

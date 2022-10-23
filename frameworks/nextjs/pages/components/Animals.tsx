@@ -131,7 +131,6 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
       )}
       <AnimalName>{animalState?.name || `Good Boy`}</AnimalName>
       {type && <AnimalType>{type}</AnimalType>}
-      {/* <p className={styles.dogCardLocation}>{dog?.city}</p> */}
       {animalState?.about?.about && <p>{animalState?.about?.about}</p>}
       {!disableDetails && (
         <Link href={`/${type}/${animalState?.id}/`}>

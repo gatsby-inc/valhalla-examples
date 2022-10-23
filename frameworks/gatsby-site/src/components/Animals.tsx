@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "gatsby";
 import { gql, useMutation, useSubscription } from "@apollo/client";
 // import { createAndRedirectStripeSession } from "./utils";
+
+const PageTitle = styled.h1`
+  color: var(--color-text);
+  margin: 0 0 var(--size-4);
+  font-size: var(--font-size-6);
+`;
 
 export const AnimalList = styled.section`
   display: flex;
@@ -15,36 +21,13 @@ export const AnimalList = styled.section`
   justify-content: space-between;
 `;
 
-const Card = styled.div`
-  width: 200px;
-  flex: 0 0 200px;
-  align-self: flex-start;
+const ImageWrapper = styled.div`
+  border-radius: var(--radius-5);
   overflow: hidden;
-  box-sizing: content-box;
-  font-size: var(--font-size-1);
-  color: var(--color-text-calm);
-  line-height: var(--line-height-3);
-  position: relative;
-
-  @media only screen and (max-width: 500px) {
-    width: 100%;
-    flex: auto;
-    height: auto;
-  }
 `;
 
-const AnimalImage = styled.img`
-  width: 200px;
-  margin: 0 auto;
-  object-fit: cover;
-  height: 200px;
-  display: inherit;
-  border-radius: var(--radius-5);
-
-  @media only screen and (max-width: 500px) {
-    width: 100%;
-    height: 200px;
-  }
+const ContentWrapper = styled.div`
+  max-width: 1000px;
 `;
 
 const AnimalName = styled.p`
@@ -56,32 +39,11 @@ const AnimalName = styled.p`
   display: inline-block;
 `;
 
-const AnimalType = styled.span`
-  font-size: var(--font-size-0);
-  line-height: var(--lineheight-0);
-  color: var(--color-text-calm);
-  background: var(--color-text-light);
-  padding: 6px var(--size-2);
-  border-radius: var(--radius-100);
-  text-transform: capitalize;
-  float: right;
-  margin: 12px 0 0;
-`;
-
 const ViewDetails = styled(Link)`
-  font-weight: var(--font-weight-6);
-  color: var(--color-text-calm);
-  line-height: var(--lineheight-00);
-  text-underline-offset: 2px;
-  margin: var(--size-4) 0 0;
-  display: flex;
+  display: inline-flex;
   align-items: baseline;
   text-decoration: none;
-
-  :hover {
-    color: var(--color-active);
-    text-decoration: underline;
-  }
+  text-underline-offset: 2px;
 
   :before {
     content: "";
@@ -99,10 +61,96 @@ const ViewDetailsIcon = styled.span`
   display: inline-block;
   width: var(--size-3);
   height: var(--size-3);
+  color: var(--color-text-calm);
+  transition-property: all;
+  transition-duration: 0.125s;
+  transition-timing-function: ease-in-out;
 
   > svg {
     vertical-align: middle;
   }
+`;
+
+const Card = styled.div`
+  align-self: flex-start;
+  box-sizing: content-box;
+  color: var(--color-text-calm);
+  line-height: var(--line-height-3);
+  position: relative;
+  display: flex;
+  flex-direction: ${(props) => (props.disableDetails ? "row" : "column")};
+  font-size: var(--font-size-1);
+  gap: ${(props) => (props.disableDetails ? "var(--size-6)" : "var(--size-0)")};
+  margin-top: ${(props) =>
+    props.disableDetails ? "var(--size-7)" : "var(--size-0)"};
+
+  ${ImageWrapper} {
+    box-shadow: var(--shadow-elevation-medium);
+    transition-property: all;
+    transition-duration: 0.125s;
+    transition-timing-function: ease-in-out;
+  }
+
+  ${(props) =>
+    !props.disableDetails
+      ? css`
+          &:hover ${ImageWrapper} {
+            box-shadow: var(--shadow-elevation-high);
+            transform: scale(1.025);
+          }
+
+          &:hover ${ViewDetails} {
+            color: var(--color-active);
+          }
+
+          &:hover ${AnimalName} {
+            color: var(--color-active);
+          }
+
+          &:hover ${ViewDetailsIcon} {
+            color: var(--color-active);
+            left: 5px;
+            transition-property: all;
+            transition-duration: 0.125s;
+            transition-timing-function: ease-in-out;
+          }
+        `
+      : css`
+          ${ImageWrapper} {
+            box-shadow: var(--shadow-elevation-high);
+          }
+        `}
+
+  @media only screen and (max-width: 500px) {
+    width: 100%;
+    flex: auto;
+    height: auto;
+  }
+`;
+
+const AnimalImage = styled.img`
+  width: 200px;
+  margin: 0 auto;
+  object-fit: cover;
+  height: 200px;
+  display: block;
+
+  @media only screen and (max-width: 500px) {
+    width: 100%;
+    height: 200px;
+  }
+`;
+
+const AnimalType = styled.span`
+  font-size: var(--font-size-0);
+  line-height: var(--lineheight-0);
+  color: var(--color-text-calm);
+  // background: var(--color-text-light);
+  padding: 6px 0;
+  // border-radius: var(--radius-100);
+  text-transform: capitalize;
+  float: right;
+  margin: 12px 0 0;
 `;
 
 const ChevronRight = () => (
@@ -143,39 +191,54 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
   const [name, setName] = useState(animal?.name);
 
   return (
-    <>
-      {animalState?.image?.gatsbyImageData ? (
-        <GatsbyImage
-          image={animalState?.image?.gatsbyImageData}
-          style={{ borderRadius: "var(--radius-5)" }}
-          alt={animalState?.name}
-        />
-      ) : (
-        animalState?.image?.url && (
-          <AnimalImage src={animalState?.image?.url} alt={animalState?.name} />
-        )
-      )}
-      <AnimalName>{animalState?.name || `Good Boy`}</AnimalName>
-      {type && <AnimalType>{type}</AnimalType>}
-      {/* <p className={styles.dogCardLocation}>{dog?.city}</p> */}
-      {animalState?.about?.about && <p>{animalState?.about?.about}</p>}
-      {!disableDetails && (
-        <ViewDetails to={`/${type}/${animalState?.id}/`}>
-          View Details{" "}
-          <ViewDetailsIcon>
-            <ChevronRight />
-          </ViewDetailsIcon>
-        </ViewDetails>
-      )}
-    </>
+    <Card disableDetails={disableDetails}>
+      <ImageWrapper>
+        {animalState?.image?.gatsbyImageData ? (
+          <GatsbyImage
+            image={animalState?.image?.gatsbyImageData}
+            style={{
+              borderRadius: "var(--radius-5)",
+              height: disableDetails ? 400 : 200,
+              width: disableDetails ? 400 : 200,
+            }}
+            alt={animalState?.name}
+          />
+        ) : (
+          animalState?.image?.url && (
+            <AnimalImage
+              src={animalState?.image?.url}
+              alt={animalState?.name}
+              style={{
+                height: disableDetails ? 400 : 200,
+                width: disableDetails ? 400 : 200,
+              }}
+            />
+          )
+        )}
+      </ImageWrapper>
+      <ContentWrapper>
+        {!disableDetails ? (
+          <ViewDetails to={`/${type}/${animalState?.id}/`}>
+            <AnimalName>{animalState?.name || `Good Boy`}</AnimalName>
+            <ViewDetailsIcon>
+              <ChevronRight />
+            </ViewDetailsIcon>
+          </ViewDetails>
+        ) : (
+          <PageTitle>{animalState?.name || `Good Boy`}</PageTitle>
+        )}
+        {type && <AnimalType>{type}</AnimalType>}
+        {disableDetails && animalState?.about?.about && (
+          <p>{animalState?.about?.about}</p>
+        )}
+      </ContentWrapper>
+    </Card>
   );
 }
 
 export function Animal({ animal }) {
   return (
-    <Card key={animal?.id}>
-      <AnimalDisplay animal={animal} type={animal.animalType} />
-    </Card>
+    <AnimalDisplay key={animal?.id} animal={animal} type={animal.animalType} />
   );
 }
 

@@ -148,6 +148,7 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
         <GatsbyImage
           image={animalState?.image?.gatsbyImageData}
           style={{ borderRadius: "var(--radius-5)" }}
+          alt={animalState?.name}
         />
       ) : (
         animalState?.image?.url && (

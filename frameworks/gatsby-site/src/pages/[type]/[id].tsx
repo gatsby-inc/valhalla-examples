@@ -19,11 +19,13 @@ const Card = styled.div`
     height: auto;
   }
 `;
+import { Info } from "../../components/Info";
 
 export default function AnimalTemplate({ serverData }) {
   return (
     <Layout isDogs={serverData?.type === `dog`}>
       <Card>
+        <Info cms="Contentful" renderer="ssg" />
         <AnimalDisplay animal={serverData?.data} disableDetails />
       </Card>
     </Layout>

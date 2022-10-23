@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+
 import { Layout } from "../../components/Layout";
+import { Info } from "../../components/Info";
 import { AnimalDisplay } from "../../components/Animals";
 
 const Card = styled.div`
@@ -23,6 +25,7 @@ const Card = styled.div`
 export default function AnimalTemplate({ serverData }) {
   return (
     <Layout isDogs={serverData?.type === `dog`}>
+      <Info cms="Shopify" renderer="ssg" />
       <Card>
         <AnimalDisplay animal={serverData?.data} disableDetails />
       </Card>

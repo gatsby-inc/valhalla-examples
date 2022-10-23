@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby";
 import styled, { css } from "styled-components";
 
 import { Layout } from "../components/Layout";
+import { Info } from "../components/Info";
 import { Animal, AnimalList } from "../components/Animals";
 
 const FilterAndSearch = styled.div`
@@ -132,6 +133,7 @@ const SearchIcon = () => (
 export default function Catalog({ data }) {
   return (
     <Layout title="Our Swag" isDogs active="Store">
+      <Info cms="Shopify" renderer="ssg" />
       {/* <FilterAndSearch>
         <Filters>
           <FilterButton
@@ -223,7 +225,7 @@ export default function Catalog({ data }) {
             return (
               <Animal
                 animal={{
-                  id: shopifyId.replace('gid://shopify/Product/', ''),
+                  id: shopifyId.replace("gid://shopify/Product/", ""),
                   name: title,
                   image: { url: featuredMedia?.preview?.image?.originalSrc },
                   about: {

@@ -11,6 +11,12 @@ const PageTitle = styled.h1`
   font-size: var(--font-size-6);
 `;
 
+const Description = styled.div`
+  color: var(--color-text);
+  font-size: var(--font-size-3);
+  line-height: var(--lineheight-4);
+`;
+
 export const AnimalList = styled.section`
   display: flex;
   flex-direction: row;
@@ -24,6 +30,7 @@ export const AnimalList = styled.section`
 const ImageWrapper = styled.div`
   border-radius: var(--radius-5);
   overflow: hidden;
+  flex-shrink: 0;
 `;
 
 const ContentWrapper = styled.div`
@@ -229,7 +236,7 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
         )}
         {type && <AnimalType>{type}</AnimalType>}
         {disableDetails && animalState?.about?.about && (
-          <p>{animalState?.about?.about}</p>
+          <Description>{animalState?.about?.about}</Description>
         )}
       </ContentWrapper>
     </Card>

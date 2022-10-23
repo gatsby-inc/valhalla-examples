@@ -30,20 +30,16 @@ const ImageWrapper = styled.div`
   flex-shrink: 0;
 `;
 
-const ContentWrapper = styled.div`
-  max-width: 1000px;
-`;
-
-const AnimalName = styled.p`
+const AnimalName = styled.a`
   font-size: var(--font-size-2);
   font-weight: var(--font-weight-7);
   line-height: var(--lineheight-1);
   color: var(--color-text);
-  margin: 12px 0 0;
+  margin: 0;
   display: inline-block;
 `;
 
-const ViewDetails = styled(Link)`
+const ViewDetails = styled.a`
   display: inline-flex;
   align-items: baseline;
   text-decoration: none;
@@ -84,7 +80,10 @@ const Card = styled.div`
   display: flex;
   flex-direction: ${(props) => (props.disableDetails ? "row" : "column")};
   font-size: var(--font-size-1);
-  gap: ${(props) => (props.disableDetails ? "var(--size-6)" : "var(--size-0)")};
+  gap: ${(props) =>
+    props.disableDetails
+      ? "var(--size-6)"
+      : "calc(var(--size-2) + var(--size-2))"};
   margin-top: ${(props) =>
     props.disableDetails ? "var(--size-7)" : "var(--size-0)"};
 
@@ -149,30 +148,36 @@ const AnimalType = styled.span`
   font-size: var(--font-size-0);
   line-height: var(--lineheight-0);
   color: var(--color-text-calm);
-  // background: var(--color-text-light);
-  padding: 6px 0;
-  // border-radius: var(--radius-100);
+  padding-top: 6px;
   text-transform: capitalize;
   float: right;
-  margin: 12px 0 0;
 `;
 
-const ChevronRight = () => (
-  <svg
-    width="1em"
-    height="1em"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M9 18L15 12L9 6"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
+const DetailLink = ({ children, href }) => (
+  <Link passHref href={href}>
+    <ViewDetails>
+      <AnimalName>
+        {children}
+        <ViewDetailsIcon>
+          <svg
+            width="1em"
+            height="1em"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 18L15 12L9 6"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </ViewDetailsIcon>
+      </AnimalName>
+    </ViewDetails>
+  </Link>
 );
 
 export function AnimalDisplay({ animal, type, disableDetails = false }) {
@@ -193,16 +198,11 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
           />
         )}
       </ImageWrapper>
-      <ContentWrapper>
+      <div>
         {!disableDetails ? (
-          <ViewDetails href={`/${type}/${animalState?.id}/`}>
-            <span>
-              <AnimalName>{animalState?.name || `Good Boy`}</AnimalName>
-              <ViewDetailsIcon>
-                <ChevronRight />
-              </ViewDetailsIcon>
-            </span>
-          </ViewDetails>
+          <DetailLink href={`/${type}/${animalState?.id}/`}>
+            {animalState?.name || `Good Boy`}
+          </DetailLink>
         ) : (
           <PageTitle>{animalState?.name || `Good Boy`}</PageTitle>
         )}
@@ -210,7 +210,7 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
         {disableDetails && animalState?.about?.about && (
           <Description>{animalState?.about?.about}</Description>
         )}
-      </ContentWrapper>
+      </div>
     </Card>
   );
 }

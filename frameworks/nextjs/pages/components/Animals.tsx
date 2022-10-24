@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import Link from "next/link";
+import Image from "next/image";
 
 const PageTitle = styled.h1`
   color: var(--color-text);
@@ -92,6 +93,10 @@ const Card = styled.div`
     transition-property: all;
     transition-duration: 0.125s;
     transition-timing-function: ease-in-out;
+    // because Next's <Image> is rendered as inline-block
+    // and https://github.com/vercel/next.js/issues/18915 is a rabbit hole
+    // i don't have time for
+    height: ${(props) => (props.disableDetails ? `400px` : `200px`)};
   }
 
   ${(props) =>
@@ -188,13 +193,12 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
     <Card disableDetails={disableDetails}>
       <ImageWrapper>
         {animalState?.image?.url && (
-          <AnimalImage
+          <Image
             src={animalState?.image?.url}
             alt={animalState?.name}
-            style={{
-              height: disableDetails ? 400 : 200,
-              width: disableDetails ? 400 : 200,
-            }}
+            height={disableDetails ? 400 : 200}
+            width={disableDetails ? 400 : 200}
+            layout="fixed"
           />
         )}
       </ImageWrapper>

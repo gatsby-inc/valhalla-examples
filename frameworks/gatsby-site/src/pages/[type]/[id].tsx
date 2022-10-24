@@ -2,10 +2,12 @@ import React from "react";
 
 import { Layout } from "../../components/Layout";
 import { AnimalDisplay } from "../../components/Animals";
+import { Info } from "../../components/Info";
 
 export default function AnimalTemplate({ serverData }) {
   return (
     <Layout isDogs={serverData?.type === `dog`}>
+      <Info cms="Contentful" renderer="ssg" />
       <AnimalDisplay animal={serverData?.data} disableDetails />
     </Layout>
   );

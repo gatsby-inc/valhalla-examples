@@ -1,10 +1,13 @@
 import React from "react";
+
 import { Layout } from "../../components/Layout";
+import { Info } from "../../components/Info";
 import { AnimalDisplay } from "../../components/Animals";
 
 export default function AnimalTemplate({ serverData }) {
   return (
     <Layout isDogs={serverData?.type === `dog`}>
+      <Info cms="Shopify" renderer="ssg" />
       <AnimalDisplay animal={serverData?.data} disableDetails />
     </Layout>
   );

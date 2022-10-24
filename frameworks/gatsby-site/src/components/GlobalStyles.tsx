@@ -10,19 +10,20 @@ const GlobalStyles = createGlobalStyle`
     --size-6: 48px;
     --size-7: 64px;
 
-    --color-text:            #663333;
-    --color-text-calm:       #66333380;
-    --color-text-light:      #66663310;
-    --color-text-lighter:    #6633330f;
+    --color-text:             #663333;
+    --color-text-calm:        #66333380;
+    --color-text-light:       #66663310;
+    --color-text-lighter:     #6633330f;
 
-    --color-background:      #ffffff;
-    --color-on-emphasis:     #ffffff;
-    --color-background-rgb:  255, 255, 255;
+    --color-background:       #ffffff;
+    --color-background-muted: rgba(102, 51, 51, 0.025);
+    --color-on-emphasis:      #ffffff;
+    --color-background-rgb:   255, 255, 255;
 
-    --color-primary:         rebeccapurple;
-    --color-gatsby:          #7026b9;
-    --color-active:          #ff6566;
-    --color-active-light:    #ff656610;
+    --color-primary:          rebeccapurple;
+    --color-gatsby:           #7026b9;
+    --color-active:           #ff6566;
+    --color-active-light:     #ff656610;
 
 
     --font-sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;

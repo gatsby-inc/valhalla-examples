@@ -54,7 +54,7 @@ export function Info({ cms, renderer }) {
           </>
         )}
       </Logos>{" "}
-      Rendered {renderer === "ssg" ? "server-side" : "at build time"} using data
+      Rendered {renderer === "ssg" ? "at build time" : "server-side"} using data
       from {cms}.
     </Container>
   );

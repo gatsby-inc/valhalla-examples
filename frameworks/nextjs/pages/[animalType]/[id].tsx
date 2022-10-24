@@ -24,6 +24,7 @@ export async function getStaticProps(context) {
         }
         image {
           url
+          gatsbyImageData(height: 200, width: 200)
         }
       }
     }
@@ -50,7 +51,8 @@ export async function getStaticPaths() {
           animalType
         }
       }
-    }`
+    }`,
+      {}
     )
     .toPromise();
 

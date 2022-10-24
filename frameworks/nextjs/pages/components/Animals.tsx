@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
 import styled, { css } from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
@@ -192,7 +193,17 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
   return (
     <Card disableDetails={disableDetails}>
       <ImageWrapper>
-        {animalState?.image?.url && (
+        {animalState?.image?.gatsbyImageData ? (
+          <GatsbyImage
+            image={animalState?.image?.gatsbyImageData}
+            alt={animalState?.name}
+            style={{
+              borderRadius: "var(--radius-5)",
+              height: disableDetails ? 400 : 200,
+              width: disableDetails ? 400 : 200,
+            }}
+          />
+        ) : (
           <Image
             src={animalState?.image?.url}
             alt={animalState?.name}

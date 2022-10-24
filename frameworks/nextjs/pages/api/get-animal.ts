@@ -16,6 +16,7 @@ export default async function getAnimals(req, res) {
             image {
               __typename
               url
+              gatsbyImageData(height: 200, width: 200)
             }
           }
         }

@@ -308,6 +308,7 @@ export async function getServerSideProps() {
         }
         image {
           url
+          gatsbyImageData(height: 200, width: 200)
         }
       }
       pageInfo {

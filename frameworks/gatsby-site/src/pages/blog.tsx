@@ -5,6 +5,7 @@ import styled, { css } from "styled-components";
 import parse from "html-react-parser";
 
 import { Layout } from "../components/Layout";
+import { Info } from "../components/Info";
 
 const Posts = styled.ol`
   padding: 0;
@@ -70,6 +71,7 @@ const BlogIndex = ({
   return (
     <Layout>
       <PageTitle>Blog</PageTitle>
+      <Info cms="WordPress" renderer="ssg" />
       <Posts>
         {posts.map((post) => {
           const title = post.title;

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import parse from "html-react-parser";
 
 import { Layout } from "../../components/Layout";
+import { Info } from "../../components/Info";
 
 const PostTitle = styled.h1`
   margin: var(--size-6) 0 var(--size-1);
@@ -98,6 +99,7 @@ export default function PostTemplate({ serverData }) {
 
   return (
     <Layout>
+      <Info cms="WordPress" renderer="ssg" />
       <article
         className="blog-post"
         itemScope

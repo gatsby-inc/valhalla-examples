@@ -3,6 +3,8 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import styled, { css } from "styled-components";
 import { Link } from "gatsby";
 import { gql, useMutation, useSubscription } from "@apollo/client";
+
+import { Info } from "./Info";
 // import { createAndRedirectStripeSession } from "./utils";
 
 const PageTitle = styled.h1`
@@ -251,10 +253,13 @@ export function Animal({ animal }) {
 
 export function Animals({ data }) {
   return (
-    <AnimalList>
-      {data?.map((animal, i) => {
-        return <Animal key={`${animal.name}${i}`} animal={animal} />;
-      })}
-    </AnimalList>
+    <>
+      <Info cms="Contentful" renderer="ssr" />
+      <AnimalList>
+        {data?.map((animal, i) => {
+          return <Animal key={`${animal.name}${i}`} animal={animal} />;
+        })}
+      </AnimalList>
+    </>
   );
 }

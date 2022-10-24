@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import styled, { css } from "styled-components";
 
 import { Layout } from "../components/Layout";
@@ -82,7 +82,9 @@ const Pagination = styled.nav`
   padding: 0;
 `;
 
-const PaginationLink = styled(Link)`
+const PaginationLink = styled.button`
+  appearance: none;
+  border: none;
   border-radius: var(--radius-2);
   text-decoration: none;
   font-weight: var(--font-weight-5);
@@ -279,6 +281,7 @@ export default function Catalog({ data }) {
               <PaginationLink
                 active={page === i}
                 to="/"
+                key={`catalog-pagination-link-${i}`}
                 onClick={() => {
                   setPage(i);
                 }}

@@ -73,6 +73,26 @@ const GlobalStyles = createGlobalStyle`
       font-family: var(--font-sans);
       font-size: 1rem;
     }
+
+    --shadow-color: 0deg 0% 80%;
+    --shadow-elevation-low:
+      0px 0.2px 0.2px hsl(var(--shadow-color) / 0.16),
+      0px 0.3px 0.3px -1.2px hsl(var(--shadow-color) / 0.16),
+      0px 0.7px 0.8px -2.4px hsl(var(--shadow-color) / 0.17);
+    --shadow-elevation-medium:
+      0px 0.2px 0.2px hsl(var(--shadow-color) / 0.17),
+      0px 0.6px 0.7px -0.8px hsl(var(--shadow-color) / 0.17),
+      0px 1.5px 1.7px -1.6px hsl(var(--shadow-color) / 0.18),
+      0px 3.5px 4px -2.4px hsl(var(--shadow-color) / 0.18);
+    --shadow-elevation-high:
+      0px 0.2px 0.2px hsl(var(--shadow-color) / 0.16),
+      0px 0.8px 0.9px -0.3px hsl(var(--shadow-color) / 0.16),
+      0px 1.4px 1.6px -0.7px hsl(var(--shadow-color) / 0.16),
+      0px 2.2px 2.5px -1px hsl(var(--shadow-color) / 0.16),
+      0px 3.5px 4px -1.4px hsl(var(--shadow-color) / 0.16),
+      -0.1px 5.3px 6px -1.7px hsl(var(--shadow-color) / 0.16),
+      -0.1px 8px 9.1px -2.1px hsl(var(--shadow-color) / 0.17),
+      -0.1px 11.7px 13.3px -2.4px hsl(var(--shadow-color) / 0.17);
 }
 `;
 

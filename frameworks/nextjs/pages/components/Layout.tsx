@@ -92,7 +92,7 @@ export function Layout({ children, isDogs, active }) {
       <GlobalStyles />
       <PageWrapper>
         <Navbar>
-          <Link href="/">
+          <Link href="/" passHref>
             <HomeLink>
               <LogoComp />
               <NavTitle>
@@ -103,7 +103,7 @@ export function Layout({ children, isDogs, active }) {
             </HomeLink>
           </Link>
           <NavLinks>
-            <Link href="/">
+            <Link href="/" passHref>
               <NavLink>Pets</NavLink>
             </Link>
             <NavLink href="/blog/">Blog</NavLink>

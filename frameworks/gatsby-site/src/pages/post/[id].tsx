@@ -99,7 +99,7 @@ export default function PostTemplate({ serverData }) {
 
   return (
     <Layout>
-      <Info cms="WordPress" renderer="ssg" />
+      <Info cms="WordPress" renderer="ssr" />
       <article
         className="blog-post"
         itemScope

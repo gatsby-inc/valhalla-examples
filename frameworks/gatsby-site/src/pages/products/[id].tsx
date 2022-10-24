@@ -7,7 +7,7 @@ import { AnimalDisplay } from "../../components/Animals";
 export default function AnimalTemplate({ serverData }) {
   return (
     <Layout isDogs={serverData?.type === `dog`}>
-      <Info cms="Shopify" renderer="ssg" />
+      <Info cms="Shopify" renderer="ssr" />
       <AnimalDisplay animal={serverData?.data} disableDetails />
     </Layout>
   );

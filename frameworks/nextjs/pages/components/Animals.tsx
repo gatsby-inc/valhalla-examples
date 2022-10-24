@@ -30,7 +30,7 @@ const ImageWrapper = styled.div`
   flex-shrink: 0;
 `;
 
-const AnimalName = styled.a`
+const AnimalName = styled.span`
   font-size: var(--font-size-2);
   font-weight: var(--font-weight-7);
   line-height: var(--lineheight-1);

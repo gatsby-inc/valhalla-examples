@@ -138,9 +138,18 @@ export default function Catalog({ data }) {
 
   const [page, setPage] = React.useState(0);
   const [animalState, setAnimalState] = React.useState("");
+  const ssg = React.useRef(true);
 
   React.useEffect(() => {
+    if (ssg.current) {
+      console.log("prevent initial fetching from API + re-rendering");
+      ssg.current = false;
+      return;
+    }
+
+    console.log("fetching from API");
     console.log(page);
+
     window
       .fetch(`/api/getAnimals?limit=8&skip=${page * 8}`, {
         method: `GET`,
@@ -272,7 +281,11 @@ export default function Catalog({ data }) {
         </SearchContainer>
       </FilterAndSearch>
 
-      <Animals type={animalState || `dogs`} data={animals || []} />
+      <Animals
+        type={animalState || `dogs`}
+        data={animals || []}
+        ssg={ssg.current}
+      />
 
       <Pagination>
         {[...Array(data?.allContentfulAnimal?.pageInfo?.pageCount).keys()].map(

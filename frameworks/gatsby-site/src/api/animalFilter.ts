@@ -25,7 +25,7 @@ export default async function getAnimalFilter(req, res) {
             image {
               __typename
               url
-              gatsbyImage(height: 200, width: 200, placeholder: NONE)
+              gatsbyImageData(height: 200, width: 200, placeholder: NONE)
             }
           }
         }

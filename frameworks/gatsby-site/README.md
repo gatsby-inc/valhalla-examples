@@ -4,7 +4,7 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby minimal TypeScript starter
+  Pet Snuggles -  Valhalla + Gatsby
 </h1>
 
 ## 🚀 Quick start

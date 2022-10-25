@@ -54,8 +54,10 @@ export function Info({ cms, renderer }) {
           </>
         )}
       </Logos>{" "}
-      Rendered {renderer === "ssg" ? "server-side" : "at build time"} using data
-      from {cms}.
+      <span>
+        Rendered <b>{renderer === "ssg" ? "at build time" : "server-side"}</b>{" "}
+        using data from <b>{cms}</b>.
+      </span>
     </Container>
   );
 }

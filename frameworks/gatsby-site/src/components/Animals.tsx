@@ -251,10 +251,10 @@ export function Animal({ animal }) {
   );
 }
 
-export function Animals({ data }) {
+export function Animals({ data, ssg }) {
   return (
     <>
-      <Info cms="Contentful" renderer="ssr" />
+      <Info cms="Contentful" renderer={ssg ? "ssg" : "ssr"} />
       <AnimalList>
         {data?.map((animal, i) => {
           return <Animal key={`${animal.name}${i}`} animal={animal} />;

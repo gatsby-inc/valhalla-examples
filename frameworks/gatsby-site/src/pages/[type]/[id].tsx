@@ -7,7 +7,7 @@ import { Info } from "../../components/Info";
 export default function AnimalTemplate({ serverData }) {
   return (
     <Layout isDogs={serverData?.type === `dog`}>
-      <Info cms="Contentful" renderer="ssg" />
+      <Info cms="Contentful" renderer="ssr" />
       <AnimalDisplay animal={serverData?.data} disableDetails />
     </Layout>
   );

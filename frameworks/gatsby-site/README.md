@@ -7,25 +7,9 @@
   Pet Snuggles -  Valhalla + Gatsby
 </h1>
 
-## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
+This repository shows Valhalla powering a Gatsby website.
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
-
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby
-    ```
-
-2.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
-
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
 
 3.  **Open the code and start customizing!**
 

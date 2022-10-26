@@ -83,18 +83,20 @@ const GlobalStyles = createGlobalStyle`
     color: var(--color-fg);
     font-family: var(--font-sans);
     line-height: var(--lineheight-3);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
 
-    input,
-    button {
-      color: var(--color-fg);
-      font-family: var(--font-sans);
-      font-size: 1rem;
-    }
+  input,
+  button {
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+  }
 
-    input::placeholder {
-      color: var(--color-fg-calm);
-    }
-}
+  input::placeholder {
+    color: var(--color-fg-calm);
+  }
 `;
 
 export default GlobalStyles;

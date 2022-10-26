@@ -146,21 +146,22 @@ const result = await client.query(QUERY).toPromise()
     --size-6: 48px;
     --size-7: 64px;
 
-    --color-fg: #663333;
-    --color-fg-calm: #66333380;
-    --color-fg-on-emphasis: #ffffff;
-    --color-bg-muted: #66663310;
-    --color-bg-calm: #6633330f;
+    --color-fg-base:         0deg, 15%;
+    --color-fg:              hsl(var(--color-fg-base), 20%);
+    --color-fg-calm:         hsl(var(--color-fg-base), 45%);
+    --color-fg-on-emphasis:  #ffffff;
 
-    --color-bg: #ffffff;
-    --color-bg-rgb: 255, 255, 255;
+    --color-bg:              #ffffff;
+    --color-bg-rgb:          255, 255, 255;
+    --color-bg-muted:        hsl(var(--color-fg-base), 97%);
+    --color-bg-calm:         hsl(var(--color-fg-base), 98.5%);
 
-    --color-active: #ff6566;
-    --color-active-muted: #ff656610;
+    --color-active-base:     360deg, 100%;
+    --color-active:          hsl(var(--color-active-base), 70%);
+    --color-active-muted:    hsl(var(--color-active-base), 97%);
 
-    --font-sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
-      Cantarell, Noto Sans, sans-serif;
-
+    --font-sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    
     --lineheight-00: 1;
     --lineheight-0: 1.1;
     --lineheight-1: 1.25;
@@ -169,9 +170,9 @@ const result = await client.query(QUERY).toPromise()
     --lineheight-4: 1.75;
     --lineheight-5: 2;
 
-    --font-size-00: 0.5rem;
-    --font-size-0: 0.75rem;
-    --font-size-1: 0.875rem;
+    --font-size-00: .5rem;
+    --font-size-0: .75rem;
+    --font-size-1: .875rem;
     --font-size-2: 1rem;
     --font-size-3: 1.125rem;
     --font-size-4: 1.25rem;
@@ -218,16 +219,18 @@ const result = await client.query(QUERY).toPromise()
     color: var(--color-fg);
     font-family: var(--font-sans);
     line-height: var(--lineheight-3);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
 
-    input,
-    button {
-      color: var(--color-fg);
-      font-family: var(--font-sans);
-      font-size: 1rem;
-    }
+  input,
+  button {
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+  }
 
-    input::placeholder {
-      color: var(--color-fg-calm);
-    }
+  input::placeholder {
+    color: var(--color-fg-calm);
   }
 </style>

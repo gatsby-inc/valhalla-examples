@@ -44,9 +44,9 @@ const Thumbnail = styled.div`
   margin-right: var(--size-5);
 
   ${(props) =>
-    props.placeholder &&
+    props.$placeholder &&
     css`
-      background: var(--color-bg-muted);
+      background: var(--color-bg-calm);
       height: 192px;
     `}
 `;
@@ -97,7 +97,7 @@ const BlogIndex = ({
                     />
                   </Thumbnail>
                 ) : (
-                  <Thumbnail placeholder />
+                  <Thumbnail $placeholder />
                 )}
                 <div>
                   <PostTitle>

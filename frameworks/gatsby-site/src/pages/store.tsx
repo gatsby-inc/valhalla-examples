@@ -111,7 +111,7 @@ const PaginationLink = styled(Link)`
     props.active &&
     css`
       background: var(--color-active);
-      color: var(--color-on-emphasis);
+      color: var(--color-fg-on-emphasis);
     `}
 `;
 

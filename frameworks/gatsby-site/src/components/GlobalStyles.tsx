@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
 
     --color-text:             #663333;
     --color-text-calm:        #66333380;
-    --color-on-emphasis:      #ffffff;
+    --color-fg-on-emphasis:   #ffffff;
     --color-text-light:       #66663310;
     --color-text-lighter:     #6633330f;
 

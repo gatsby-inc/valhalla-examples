@@ -90,6 +90,10 @@ const GlobalStyles = createGlobalStyle`
       font-family: var(--font-sans);
       font-size: 1rem;
     }
+
+    input::placeholder {
+      color: var(--color-fg-calm);
+    }
 }
 `;
 

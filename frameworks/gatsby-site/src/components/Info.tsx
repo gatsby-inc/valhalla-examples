@@ -27,7 +27,7 @@ const Logos = styled.span`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: var(--size-2);
+  gap: var(--size-1);
 `;
 
 const Container = styled.p`
@@ -36,11 +36,11 @@ const Container = styled.p`
   border-radius: var(--radius-4);
   color: var(--color-fg-calm);
   display: flex;
-  font-size: var(--font-size-2);
+  font-size: var(--font-size-1);
   flex-direction: row;
   font-weight: var(--font-weight-5);
   gap: var(--size-3);
-  padding: var(--size-3) var(--size-3);
+  padding: var(--size-2);
 `;
 
 export function Info({ cms, renderer }) {

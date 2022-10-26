@@ -47,12 +47,15 @@ const NavLinks = styled.nav`
 const NavLink = styled(Link)`
   font-weight: var(--font-weight-7);
   text-decoration: none;
-  font-size: var(--font-size-3);
+  font-size: var(--font-size-2);
   color: var(--color-fg-calm);
   line-height: var(--lineheight-00);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
 
   :hover {
     color: var(--color-accent);
+    text-decoration: underline;
   }
 `;
 
@@ -63,7 +66,7 @@ const Logo = styled.img`
 
 const NavTitle = styled.h1`
   color: var(--color-fg);
-  font-size: var(--font-size-3);
+  font-size: var(--font-size-2);
   line-height: var(--lineheight-00);
   margin: 0;
 `;

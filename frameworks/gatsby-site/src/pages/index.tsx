@@ -22,28 +22,37 @@ const FilterAndSearch = styled.div`
 
 const Filters = styled.div`
   display: flex;
-  margin: var(--size-5) 0;
+  margin: var(--size-3) 0;
   gap: var(--size-3);
   align-items: center;
+  // padding: var(--size-2);
+  // border-radius: var(--radius-3);
+  // background: var(--color-bg-muted);
 `;
 
 const FilterButton = styled.button`
   background: transparent;
-  border-radius: var(--radius-2);
+  border-radius: var(--radius-5);
   border: none;
-  font-size: var(--font-size-3);
+  font-size: var(--font-size-2);
   cursor: pointer;
   font-weight: var(--font-weight-7);
+  padding: var(--size-1) calc(var(--size-1) + var(--size-2));
   color: var(--color-fg-calm);
 
   :hover {
+    background: var(--color-accent-muted);
     color: var(--color-accent);
+    box-shadow: var(--shadow-elevation-low);
+
   }
 
   ${(props) =>
     props.active &&
     css`
-      color: var(--color-fg);
+      background: var(--color-bg);
+      color: var(--color-accent);
+      box-shadow: var(--shadow-elevation-large);
     `}
 `;
 

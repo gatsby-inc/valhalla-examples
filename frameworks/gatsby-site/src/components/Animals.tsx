@@ -115,6 +115,7 @@ const Card = styled.div`
 
           &:hover ${AnimalName} {
             color: var(--color-accent);
+            text-decoration: underline;
           }
 
           &:hover ${ViewDetailsIcon} {

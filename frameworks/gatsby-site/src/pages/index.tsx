@@ -331,3 +331,9 @@ export const catalogQuery = graphql`
     }
   }
 `;
+
+export function Head() {
+  return (
+    <title>Pet Snuggles (Gatsby)</title>
+  )
+}

@@ -48,3 +48,9 @@ export async function getServerData({ params }) {
     },
   };
 }
+
+export function Head() {
+  return (
+    <title>Pet / Pet Snuggles (Gatsby)</title>
+  )
+}

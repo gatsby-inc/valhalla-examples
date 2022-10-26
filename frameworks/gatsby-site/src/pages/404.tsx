@@ -20,7 +20,6 @@ const NotFoundPage = () => {
   return (
     <Layout>
       <Main>
-        <title>404 not found</title>
         <Heading>
           404
           <br />
@@ -41,3 +40,10 @@ const NotFoundPage = () => {
 };
 
 export default NotFoundPage;
+
+
+export function Head() {
+  return (
+    <title>404 not found / Pet Snuggles (Gatsby)</title>
+  )
+}

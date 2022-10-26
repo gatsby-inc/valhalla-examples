@@ -56,3 +56,9 @@ export async function getServerData({ params }) {
     },
   };
 }
+
+export function Head() {
+  return (
+    <title>Products / Pet Snuggles (Gatsby)</title>
+  )
+}

@@ -154,3 +154,9 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export function Head() {
+  return (
+    <title>Blog / Pet Snuggles (Gatsby)</title>
+  )
+}

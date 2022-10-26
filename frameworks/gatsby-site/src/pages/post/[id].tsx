@@ -164,3 +164,9 @@ export async function getServerData({ params }) {
     },
   };
 }
+
+export function Head() {
+  return (
+    <title>Post / Pet Snuggles (Gatsby)</title>
+  )
+}

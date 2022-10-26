@@ -47,6 +47,21 @@ const config: GatsbyConfig = {
         shopifyConnections: ["collections"],
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Pet Snuggles (Gatsby)`,
+        short_name: `Pet Snuggles`,
+        description: `Examples for Valhalla: The Enterprise Content Hub`,
+        start_url: `/`,
+        background_color: `#fff`,
+        // This will impact how browsers show your PWA/website
+        // https://css-tricks.com/meta-theme-color-and-trickery/
+        // theme_color: `#6B46C1`,
+        display: `standalone`,
+        icon: `src/assets/icon.png`,
+      },
+    },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,

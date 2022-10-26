@@ -242,6 +242,7 @@ export default function Catalog({ data }) {
                   },
                   animalType: "products",
                 }}
+                key={shopifyId.replace("gid://shopify/Product/", "")}
               />
             );
           }

@@ -47,10 +47,10 @@ export function Info({ cms, renderer }) {
   return (
     <Container>
       <Logos>
-        <Logo src={cmsIcons[cms]} />
+        <Logo src={cmsIcons[cms]} alt={`${cms} logo`} />
         {renderer && (
           <>
-            + <Logo src={rendererIcons[renderer]} />
+            + <Logo src={rendererIcons[renderer]} alt="" />
           </>
         )}
       </Logos>{" "}

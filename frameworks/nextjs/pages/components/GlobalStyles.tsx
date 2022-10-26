@@ -20,7 +20,7 @@ const GlobalStyles = createGlobalStyle`
     --color-bg-muted:        hsl(var(--color-fg-base), 97%);
     --color-bg-calm:         hsl(var(--color-fg-base), 98.5%);
 
-    --color-accent-base:     360deg, 100%;
+    --color-accent-base:     270deg, 100%;
     --color-accent:          hsl(var(--color-accent-base), 70%);
     --color-accent-muted:    hsl(var(--color-accent-base), 97%);
 

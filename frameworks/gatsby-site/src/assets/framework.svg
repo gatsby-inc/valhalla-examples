@@ -5,7 +5,7 @@
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle fill="#663333" cx="14" cy="14" r="14" />
+    <circle fill="#3b2b2b" cx="14" cy="14" r="14" />
     <g fill="#fff">
       <path d="M6.2,21.8C4.1,19.7,3,16.9,3,14.2L13.9,25C11.1,24.9,8.3,23.9,6.2,21.8z" />
       <path

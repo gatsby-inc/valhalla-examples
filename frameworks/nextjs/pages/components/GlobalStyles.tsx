@@ -58,18 +58,6 @@ const GlobalStyles = createGlobalStyle`
     --radius-5: 16px;
     --radius-100: 9999px;
 
-
-    color: var(--color-text);
-    font-family: var(--font-sans);
-    line-height: var(--lineheight-3);
-
-    input,
-    button {
-      color: var(--color-text);
-      font-family: var(--font-sans);
-      font-size: 1rem;
-    }
-
     --shadow-color: 0deg 0% 80%;
     --shadow-elevation-low:
       0px 0.2px 0.2px hsl(var(--shadow-color) / 0.16),
@@ -89,6 +77,17 @@ const GlobalStyles = createGlobalStyle`
       -0.1px 5.3px 6px -1.7px hsl(var(--shadow-color) / 0.16),
       -0.1px 8px 9.1px -2.1px hsl(var(--shadow-color) / 0.17),
       -0.1px 11.7px 13.3px -2.4px hsl(var(--shadow-color) / 0.17);
+
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    line-height: var(--lineheight-3);
+
+    input,
+    button {
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+    }
 }
 `;
 

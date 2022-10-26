@@ -46,7 +46,7 @@ const Thumbnail = styled.div`
   ${(props) =>
     props.placeholder &&
     css`
-      background: var(--color-text-lighter);
+      background: var(--color-bg-muted);
       height: 192px;
     `}
 `;

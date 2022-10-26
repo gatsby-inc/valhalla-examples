@@ -62,7 +62,7 @@ const Logo = styled.img`
 `;
 
 const NavTitle = styled.h1`
-  color: var(--color-text);
+  color: var(--color-fg);
   font-size: var(--font-size-3);
   line-height: var(--lineheight-00);
   margin: 0;

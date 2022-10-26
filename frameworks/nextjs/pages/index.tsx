@@ -249,17 +249,18 @@ export default function Catalog({ data }) {
           <Search
             type="search"
             placeholder="Search pets"
-            onBlur={(e: any) => {
+            onChange={(e: any) => {
+              const searchText = e.currentTarget.value
               setAnimalState("");
               
-              if (!e.currentTarget.value) {
+              if (!searchText || searchText.length < 2) {
                 setAnimalState("");
                 setAnimals(data?.allContentfulAnimal?.nodes);
               }
 
               window
                 .fetch(
-                  `/api/search?searchText=${e.currentTarget.value}`,
+                  `/api/search?searchText=${searchText}`,
                   {
                     method: `POST`,
                     headers: {

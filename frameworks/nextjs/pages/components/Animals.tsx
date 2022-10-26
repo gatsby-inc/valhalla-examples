@@ -63,7 +63,7 @@ const ViewDetailsIcon = styled.span`
   display: inline-block;
   width: var(--size-3);
   height: var(--size-3);
-  color: var(--color-text-calm);
+  color: var(--color-fg-calm);
   transition-property: all;
   transition-duration: 0.125s;
   transition-timing-function: ease-in-out;
@@ -76,7 +76,7 @@ const ViewDetailsIcon = styled.span`
 const Card = styled.div`
   align-self: flex-start;
   box-sizing: content-box;
-  color: var(--color-text-calm);
+  color: var(--color-fg-calm);
   line-height: var(--line-height-3);
   position: relative;
   display: flex;
@@ -153,7 +153,7 @@ const AnimalImage = styled.img`
 const AnimalType = styled.span`
   font-size: var(--font-size-0);
   line-height: var(--lineheight-0);
-  color: var(--color-text-calm);
+  color: var(--color-fg-calm);
   padding-top: 6px;
   text-transform: capitalize;
   float: right;

@@ -40,7 +40,7 @@ const FilterButton = styled.button`
   font-size: var(--font-size-3);
   cursor: pointer;
   font-weight: var(--font-weight-7);
-  color: var(--color-text-calm);
+  color: var(--color-fg-calm);
 
   :hover {
     color: var(--color-active);
@@ -57,7 +57,7 @@ const SearchContainer = styled.div`
   background: var(--color-text-lighter);
   border-radius: var(--radius-3);
   position: relative;
-  color: var(--color-text-calm);
+  color: var(--color-fg-calm);
 `;
 
 const Search = styled.input`
@@ -68,7 +68,7 @@ const Search = styled.input`
   min-height: 40px;
 
   :placeholder {
-    color: var(--color-text-calm);
+    color: var(--color-fg-calm);
   }
 `;
 

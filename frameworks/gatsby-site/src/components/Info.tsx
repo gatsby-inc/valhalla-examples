@@ -34,7 +34,7 @@ const Container = styled.p`
   align-items: center;
   background: var(--color-background-muted);
   border-radius: var(--radius-4);
-  color: var(--color-text-calm);
+  color: var(--color-fg-calm);
   display: flex;
   font-size: var(--font-size-2);
   flex-direction: row;

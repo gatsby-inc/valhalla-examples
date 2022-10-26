@@ -88,8 +88,11 @@ const Pagination = styled.nav`
   padding: 0;
 `;
 
-const PaginationLink = styled(Link)`
+const PaginationLink = styled.button`
+  appearance: none;
+  border: none;
   border-radius: var(--radius-2);
+  cursor: pointer;
   text-decoration: none;
   font-weight: var(--font-weight-5);
   position: relative;

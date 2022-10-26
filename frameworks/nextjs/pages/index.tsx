@@ -284,7 +284,7 @@ export default function Catalog({ data }) {
         {[...Array(data?.allContentfulAnimal?.pageInfo?.pageCount).keys()].map(
           (i) => {
             return (
-              <Link href="/">
+              <Link passHref href="/">
                 <PaginationLink
                   active={page === i}
                   to="/"

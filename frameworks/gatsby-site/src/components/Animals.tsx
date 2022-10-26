@@ -92,6 +92,7 @@ const Card = styled.div`
       : "calc(var(--size-2) + var(--size-2))"};
   margin-top: ${(props) =>
     props.disableDetails ? "var(--size-7)" : "var(--size-0)"};
+  width: min-content;
 
   ${ImageWrapper} {
     box-shadow: var(--shadow-elevation-medium);

@@ -16,8 +16,12 @@ const PostTitle = styled.h2`
   margin: 0;
 
   a {
+    color: var(--color-text);
     text-decoration: none;
-    color: var(--color-accent);
+
+    :hover {
+      color: var(--color-accent);
+    }
   }
 `;
 

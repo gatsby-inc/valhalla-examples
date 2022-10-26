@@ -107,8 +107,8 @@ const BlogIndex = ({
                 )}
                 <div>
                   <PostTitle>
-                    <Link href={`/post/${post.id}/`} itemProp="url">
-                      <span itemProp="headline">{parse(title)}</span>
+                    <Link href={`/post/${post.id}/`} passHref itemProp="url">
+                      <a itemProp="headline">{parse(title)}</a>
                     </Link>
                   </PostTitle>
                   <small>{post.date}</small>

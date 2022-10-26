@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import Head from 'next/head'
+
 import { Layout } from "../components/Layout";
 import { AnimalDisplay } from "../components/Animals";
 
@@ -8,6 +10,9 @@ import { client } from "../lib/client";
 export default function AnimalTemplate({ contentfulAnimal }) {
   return (
     <Layout isDogs={true}>
+      <Head>
+        <title>{contentfulAnimal?.name ? contentfulAnimal.name : "Pet"} / Pet Snuggles (Next.js)</title>
+      </Head>
       <AnimalDisplay animal={contentfulAnimal} disableDetails />
     </Layout>
   );

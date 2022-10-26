@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import parse from "html-react-parser";
+import Head from 'next/head'
 
 import { Layout } from "../components/Layout";
 
@@ -104,6 +105,9 @@ export default function PostTemplate({ data }) {
         itemType="http://schema.org/Article"
       >
         <header>
+          <Head>
+            <title>{data?.title ? parse(data?.title) : "Post"} / Pet Snuggles (Next.js)</title>
+          </Head>
           <PostTitle itemProp="headline">
             {parse(data?.title)}
           </PostTitle>

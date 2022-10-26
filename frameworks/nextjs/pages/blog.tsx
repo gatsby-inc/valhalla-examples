@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import Link from 'next/link'
+import Head from 'next/head'
 import parse from "html-react-parser";
 
 import { client } from './lib/client'
@@ -69,6 +70,9 @@ const BlogIndex = ({
 
   return (
     <Layout>
+      <Head>
+        <title>Blog / Pet Snuggles (Next.js)</title>
+      </Head>
       <PageTitle>Blog</PageTitle>
       <Posts>
         {posts.map((post) => {

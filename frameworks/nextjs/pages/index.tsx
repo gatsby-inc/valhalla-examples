@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import Link from "next/link";
+import Head from "next/head";
+
 import { Layout } from "./components/Layout";
 import { Animals } from "./components/Animals";
 
@@ -157,6 +159,9 @@ export default function Catalog({ data }) {
 
   return (
     <Layout title="Our Snugglers" isDogs active="home">
+      <Head>
+        <title>Pet Snuggles (Next.js)</title>
+      </Head>
       <FilterAndSearch>
         <Filters>
           <FilterButton

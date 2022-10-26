@@ -40,7 +40,7 @@ const FilterButton = styled.button`
   color: var(--color-fg-calm);
 
   :hover {
-    color: var(--color-active);
+    color: var(--color-accent);
   }
 
   ${(props) =>
@@ -103,14 +103,14 @@ const PaginationLink = styled.button`
   background: var(--color-bg-calm);
 
   :hover {
-    background: var(--color-active-muted);
-    color: var(--color-active);
+    background: var(--color-accent-muted);
+    color: var(--color-accent);
   }
 
   ${(props) =>
     props.active &&
     css`
-      background: var(--color-active);
+      background: var(--color-accent);
       color: var(--color-fg-on-emphasis);
     `}
 `;

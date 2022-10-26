@@ -20,9 +20,9 @@ const GlobalStyles = createGlobalStyle`
     --color-bg-muted:        hsl(var(--color-fg-base), 97%);
     --color-bg-calm:         hsl(var(--color-fg-base), 98.5%);
 
-    --color-active-base:     360deg, 100%;
-    --color-active:          hsl(var(--color-active-base), 70%);
-    --color-active-muted:    hsl(var(--color-active-base), 97%);
+    --color-accent-base:     360deg, 100%;
+    --color-accent:          hsl(var(--color-accent-base), 70%);
+    --color-accent-muted:    hsl(var(--color-accent-base), 97%);
 
     --font-sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
     

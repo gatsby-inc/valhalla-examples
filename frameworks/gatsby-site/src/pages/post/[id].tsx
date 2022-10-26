@@ -45,19 +45,19 @@ const ArticleBody = styled.section`
   }
 
   blockquote {
-    border-left: 2px solid var(--color-active);
-    color: var(--color-active);
+    border-left: 2px solid var(--color-accent);
+    color: var(--color-accent);
     margin: 0;
     padding-left: var(--size-4);
 
     code {
-      color: var(--color-active);
-      background: var(--color-active-muted);
+      color: var(--color-accent);
+      background: var(--color-accent-muted);
     }
   }
 
   a {
-    color: var(--color-active);
+    color: var(--color-accent);
     text-underline-offset: 2px;
   }
 

@@ -52,7 +52,7 @@ const NavLink = styled(Link)`
   line-height: var(--lineheight-00);
 
   :hover {
-    color: var(--color-active);
+    color: var(--color-accent);
   }
 `;
 

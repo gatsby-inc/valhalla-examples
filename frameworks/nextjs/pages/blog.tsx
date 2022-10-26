@@ -17,7 +17,7 @@ const PostTitle = styled.h2`
 
   a {
     text-decoration: none;
-    color: var(--color-active);
+    color: var(--color-accent);
   }
 `;
 

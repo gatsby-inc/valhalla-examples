@@ -110,15 +110,15 @@ const Card = styled.div`
           }
 
           &:hover ${ViewDetails} {
-            color: var(--color-active);
+            color: var(--color-accent);
           }
 
           &:hover ${AnimalName} {
-            color: var(--color-active);
+            color: var(--color-accent);
           }
 
           &:hover ${ViewDetailsIcon} {
-            color: var(--color-active);
+            color: var(--color-accent);
             left: 5px;
             transition-property: all;
             transition-duration: 0.125s;

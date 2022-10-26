@@ -30,6 +30,7 @@ export const AnimalList = styled.section`
 `;
 
 const ImageWrapper = styled.div`
+  background: var(--color-bg-calm);
   border-radius: var(--radius-5);
   overflow: hidden;
   flex-shrink: 0;

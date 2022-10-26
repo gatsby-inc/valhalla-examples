@@ -16,8 +16,8 @@ const FilterAndSearch = styled.div`
   z-index: 1;
   background-image: linear-gradient(
     to bottom,
-    rgba(var(--color-background-rgb), 1),
-    rgba(var(--color-background-rgb), 0.95)
+    rgba(var(--color-bg-rgb), 1),
+    rgba(var(--color-bg-rgb), 0.95)
   );
 `;
 
@@ -35,7 +35,7 @@ const FilterButton = styled.button`
   font-size: var(--font-size-3);
   cursor: pointer;
   font-weight: var(--font-weight-7);
-  color: var(--color-text-calm);
+  color: var(--color-fg-calm);
 
   :hover {
     color: var(--color-active);
@@ -44,15 +44,15 @@ const FilterButton = styled.button`
   ${(props) =>
     props.active &&
     css`
-      color: var(--color-text);
+      color: var(--color-fg);
     `}
 `;
 
 const SearchContainer = styled.div`
-  background: var(--color-text-lighter);
+  background: var(--color-bg-muted);
   border-radius: var(--radius-3);
   position: relative;
-  color: var(--color-text-calm);
+  color: var(--color-fg-calm);
 `;
 
 const Search = styled.input`
@@ -63,7 +63,7 @@ const Search = styled.input`
   min-height: 40px;
 
   :placeholder {
-    color: var(--color-text-calm);
+    color: var(--color-fg-calm);
   }
 `;
 
@@ -94,11 +94,11 @@ const PaginationLink = styled.a`
   transition-property: color, background-color;
   transition-duration: 0.15s;
   transition-timing-function: ease-in-out;
-  color: var(--color-text);
-  background: var(--color-text-light);
+  color: var(--color-fg);
+  background: var(--color-bg-calm);
 
   :hover {
-    background: var(--color-active-light);
+    background: var(--color-active-muted);
     color: var(--color-active);
   }
 
@@ -106,7 +106,7 @@ const PaginationLink = styled.a`
     props.active &&
     css`
       background: var(--color-active);
-      color: var(--color-on-emphasis);
+      color: var(--color-fg-on-emphasis);
     `}
 `;
 

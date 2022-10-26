@@ -8,13 +8,13 @@ import { Info } from "./Info";
 // import { createAndRedirectStripeSession } from "./utils";
 
 const PageTitle = styled.h1`
-  color: var(--color-text);
+  color: var(--color-fg);
   margin: 0 0 var(--size-4);
   font-size: var(--font-size-6);
 `;
 
 const Description = styled.div`
-  color: var(--color-text);
+  color: var(--color-fg);
   font-size: var(--font-size-3);
   line-height: var(--lineheight-4);
 `;
@@ -39,7 +39,7 @@ const AnimalName = styled.h2`
   font-size: var(--font-size-2);
   font-weight: var(--font-weight-7);
   line-height: var(--lineheight-1);
-  color: var(--color-text);
+  color: var(--color-fg);
   margin: 0;
   display: inline-block;
 `;
@@ -66,7 +66,7 @@ const ViewDetailsIcon = styled.span`
   display: inline-block;
   width: var(--size-3);
   height: var(--size-3);
-  color: var(--color-text-calm);
+  color: var(--color-fg-calm);
   transition-property: all;
   transition-duration: 0.125s;
   transition-timing-function: ease-in-out;
@@ -79,7 +79,7 @@ const ViewDetailsIcon = styled.span`
 const Card = styled.div`
   align-self: flex-start;
   box-sizing: content-box;
-  color: var(--color-text-calm);
+  color: var(--color-fg-calm);
   line-height: var(--line-height-3);
   position: relative;
   display: flex;
@@ -152,7 +152,7 @@ const AnimalImage = styled.img`
 const AnimalType = styled.span`
   font-size: var(--font-size-0);
   line-height: var(--lineheight-0);
-  color: var(--color-text-calm);
+  color: var(--color-fg-calm);
   padding-top: 6px;
   text-transform: capitalize;
   float: right;

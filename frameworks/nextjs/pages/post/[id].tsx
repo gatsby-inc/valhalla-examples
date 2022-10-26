@@ -51,7 +51,7 @@ const ArticleBody = styled.section`
 
     code {
       color: var(--color-active);
-      background: var(--color-active-light);
+      background: var(--color-active-muted);
     }
   }
 
@@ -70,7 +70,7 @@ const ArticleBody = styled.section`
   }
 
   code {
-    background: var(--color-text-lighter);
+    background: var(--color-bg-muted);
     padding: var(--size-1);
     border-radius: var(--radius-4);
     font-size: 92%;
@@ -78,7 +78,7 @@ const ArticleBody = styled.section`
 
   pre {
     overflow: scroll;
-    background: var(--color-text-lighter);
+    background: var(--color-bg-muted);
     padding: var(--size-5);
     border-radius: var(--radius-4);
   }

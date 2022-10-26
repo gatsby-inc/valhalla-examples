@@ -67,11 +67,11 @@ const result = await client.query(QUERY).toPromise()
     transition-property: color, background-color;
     transition-duration: 0.15s;
     transition-timing-function: ease-in-out;
-    color: var(--color-text);
-    background: var(--color-text-light);
+    color: var(--color-fg);
+    background: var(--color-bg-calm);
 
     :hover {
-      background: var(--color-active-light);
+      background: var(--color-active-muted);
       color: var(--color-active);
     }
   }
@@ -146,19 +146,17 @@ const result = await client.query(QUERY).toPromise()
     --size-6: 48px;
     --size-7: 64px;
 
-    --color-text: #663333;
-    --color-text-calm: #66333380;
-    --color-text-light: #66663310;
-    --color-text-lighter: #6633330f;
+    --color-fg: #663333;
+    --color-fg-calm: #66333380;
+    --color-fg-on-emphasis: #ffffff;
+    --color-bg-muted: #66663310;
+    --color-bg-calm: #6633330f;
 
-    --color-background: #ffffff;
-    --color-on-emphasis: #ffffff;
-    --color-background-rgb: 255, 255, 255;
+    --color-bg: #ffffff;
+    --color-bg-rgb: 255, 255, 255;
 
-    --color-primary: rebeccapurple;
-    --color-gatsby: #7026b9;
     --color-active: #ff6566;
-    --color-active-light: #ff656610;
+    --color-active-muted: #ff656610;
 
     --font-sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
       Cantarell, Noto Sans, sans-serif;
@@ -197,13 +195,33 @@ const result = await client.query(QUERY).toPromise()
     --radius-5: 16px;
     --radius-100: 9999px;
 
-    color: var(--color-text);
+    --shadow-color: 0deg 0% 80%;
+    --shadow-elevation-low:
+      0px 0.2px 0.2px hsl(var(--shadow-color) / 0.16),
+      0px 0.3px 0.3px -1.2px hsl(var(--shadow-color) / 0.16),
+      0px 0.7px 0.8px -2.4px hsl(var(--shadow-color) / 0.17);
+    --shadow-elevation-medium:
+      0px 0.2px 0.2px hsl(var(--shadow-color) / 0.17),
+      0px 0.6px 0.7px -0.8px hsl(var(--shadow-color) / 0.17),
+      0px 1.5px 1.7px -1.6px hsl(var(--shadow-color) / 0.18),
+      0px 3.5px 4px -2.4px hsl(var(--shadow-color) / 0.18);
+    --shadow-elevation-high:
+      0px 0.2px 0.2px hsl(var(--shadow-color) / 0.16),
+      0px 0.8px 0.9px -0.3px hsl(var(--shadow-color) / 0.16),
+      0px 1.4px 1.6px -0.7px hsl(var(--shadow-color) / 0.16),
+      0px 2.2px 2.5px -1px hsl(var(--shadow-color) / 0.16),
+      0px 3.5px 4px -1.4px hsl(var(--shadow-color) / 0.16),
+      -0.1px 5.3px 6px -1.7px hsl(var(--shadow-color) / 0.16),
+      -0.1px 8px 9.1px -2.1px hsl(var(--shadow-color) / 0.17),
+      -0.1px 11.7px 13.3px -2.4px hsl(var(--shadow-color) / 0.17);
+
+    color: var(--color-fg);
     font-family: var(--font-sans);
     line-height: var(--lineheight-3);
 
     input,
     button {
-      color: var(--color-text);
+      color: var(--color-fg);
       font-family: var(--font-sans);
       font-size: 1rem;
     }

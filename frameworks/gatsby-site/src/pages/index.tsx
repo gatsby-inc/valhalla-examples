@@ -95,7 +95,7 @@ const PaginationLink = styled.button`
   transition-property: color, background-color;
   transition-duration: 0.15s;
   transition-timing-function: ease-in-out;
-  color: var(--color-fg);
+  color: var(--color-fg-calm);
   background: var(--color-bg-calm);
 
   :hover {

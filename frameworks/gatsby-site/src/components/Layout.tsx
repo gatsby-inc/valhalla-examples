@@ -117,7 +117,7 @@ export function Layout({ children, isDogs, active }) {
               </PoweredByLink>{" "}
               and <b style={{ fontWeight: "var(--font-weight-6)" }}>Gatsby</b>
             </span>{" "}
-            <img src={framework} />
+            <img src={framework} alt="Gatsby" />
           </PoweredBy>
         </Navbar>
         <div>{children}</div>

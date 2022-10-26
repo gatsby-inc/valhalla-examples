@@ -121,7 +121,7 @@ export function Layout({ children, isDogs, active }) {
               </PoweredByLink>{" "}
               and <b style={{ fontWeight: "var(--font-weight-6)" }}>Next.js</b>
             </span>
-            <Framework />
+            <Framework title="Next.js" />
           </PoweredBy>
         </Navbar>
         <div>{children}</div>

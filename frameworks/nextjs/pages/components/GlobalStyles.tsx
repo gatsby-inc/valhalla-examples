@@ -19,7 +19,6 @@ const GlobalStyles = createGlobalStyle`
     --color-on-emphasis:     #ffffff;
     --color-background-rgb:  255, 255, 255;
 
-    --color-gatsby:          #7026b9;
     --color-active:          #ff6566;
     --color-active-light:    #ff656610;
 

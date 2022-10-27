@@ -26,6 +26,23 @@ const result = await client.query(QUERY).toPromise()
 ---
 
 <Layout title="Welcome to Astro.">
+  <div class="filter-and-search">
+    <div class="filters">
+      <button class="filter-button">All Snugglers</button>
+      <button class="filter-button">Dogs</button>
+      <button class="filter-button">Cats</button>
+      <button class="filter-button">Exotics</button>
+    </div>
+    <div class="search-container">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="search-icon-svg">
+        <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 19.1758C15.4183 19.1758 19 15.5941 19 11.1758C19 6.7575 15.4183 3.17578 11 3.17578C6.58172 3.17578 3 6.7575 3 11.1758C3 15.5941 6.58172 19.1758 11 19.1758Z"></path>
+          <path d="M21.0004 21.1742L16.6504 16.8242"></path>
+        </g>
+      </svg>
+      <input type="search" placeholder="Search pets" class="search">
+    </div>
+  </div>
   <section class="animals-list">
     {
       result.data.allContentfulAnimal.nodes.map((an) => {
@@ -135,6 +152,89 @@ const result = await client.query(QUERY).toPromise()
     grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
     gap: 1rem;
     padding: 0;
+  }
+
+  .filter-and-search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-image: linear-gradient(to bottom, rgba(var(--color-bg-rgb), 1), rgba(var(--color-bg-rgb), 0.95));
+  }
+
+  .filters {
+    display: flex;
+    margin: var(--size-3) 0;
+    gap: var(--size-3);
+    align-items: center;
+  }
+
+  .filter-button {
+    background: transparent;
+    border-radius: var(--radius-5);
+    border: none;
+    font-size: var(--font-size-2);
+    cursor: pointer;
+    font-weight: var(--font-weight-7);
+    padding: var(--size-1) calc(var(--size-1) + var(--size-2));
+    color: var(--color-fg-calm);
+
+    :hover {
+      background: var(--color-accent-muted);
+      color: var(--color-accent);
+      box-shadow: var(--shadow-elevation-low);
+    }
+
+    .active {
+      background: var(--color-bg);
+      color: var(--color-accent);
+      box-shadow: var(--shadow-elevation-large);
+    }
+  }
+
+  .search-container {
+    background: var(--color-bg-muted);
+    border-radius: var(--radius-100);
+    position: relative;
+    color: var(--color-fg-calm);
+    border: 1px solid #0000;
+
+    :hover {
+      border: 1px solid #00000010;
+    }
+
+    :focus-within {
+      border: 1px solid #00000015;
+      background: var(--color-bg);
+    }
+  }
+
+  .search {
+    border-radius: var(--radius-3);
+    border: none;
+    background: none;
+    padding: var(--size-2) var(--size-3) var(--size-2) calc(var(--size-4) + var(--size-2) + var(--size-2));
+    min-height: 40px;
+    outline: none;
+    min-width: 280px;
+
+    ::placeholder {
+      color: var(--color-fg-calm);
+    }
+
+    ::-webkit-search-cancel-button {
+      display: none;
+    }
+  }
+
+  .search-icon-svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: calc(var(--size-1) + var(--size-2));
   }
 
   html {

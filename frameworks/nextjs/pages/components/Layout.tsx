@@ -5,7 +5,6 @@ import "@fontsource/inter";
 
 import LogoComp from "../assets/logo.svg";
 import Framework from "../assets/framework.svg";
-import GlobalStyles from "./GlobalStyles";
 
 const PageWrapper = styled.div`
   max-width: 1024px;
@@ -89,7 +88,6 @@ const PoweredByLink = styled.a`
 export function Layout({ children, isDogs, active }) {
   return (
     <>
-      <GlobalStyles />
       <PageWrapper>
         <Navbar>
           <Link href="/" passHref>

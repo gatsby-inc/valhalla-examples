@@ -58,20 +58,36 @@ const FilterButton = styled.button`
 
 const SearchContainer = styled.div`
   background: var(--color-bg-muted);
-  border-radius: var(--radius-3);
+  border-radius: var(--radius-100);
   position: relative;
   color: var(--color-fg-calm);
+  border: 1px solid #0000;
+
+  :hover {
+    border: 1px solid #00000010;
+  }
+
+  :focus-within {
+    border: 1px solid #00000015;
+    background: var(--color-bg);
+  }
 `;
 
 const Search = styled.input`
   border-radius: var(--radius-3);
   border: none;
   background: none;
-  padding: var(--size-2) var(--size-3) var(--size-2) 36px;
+  padding: var(--size-2) var(--size-3) var(--size-2) calc(var(--size-4) + var(--size-2) + var(--size-2));
   min-height: 40px;
+  outline: none;
+  min-width: 280px;
 
-  :placeholder {
+  ::placeholder {
     color: var(--color-fg-calm);
+  }
+
+  ::-webkit-search-cancel-button {
+    display: none;
   }
 `;
 
@@ -79,7 +95,7 @@ const SearchIconSvg = styled.svg`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: var(--size-2);
+  left: calc(var(--size-1) + var(--size-2));
 `;
 
 const Pagination = styled.nav`

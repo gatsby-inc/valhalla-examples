@@ -182,13 +182,13 @@ const result = await client.query(QUERY).toPromise()
     padding: var(--size-1) calc(var(--size-1) + var(--size-2));
     color: var(--color-fg-calm);
 
-    :hover {
+    &:hover {
       background: var(--color-accent-muted);
       color: var(--color-accent);
       box-shadow: var(--shadow-elevation-low);
     }
 
-    .active {
+    &.active {
       background: var(--color-bg);
       color: var(--color-accent);
       box-shadow: var(--shadow-elevation-large);
@@ -202,11 +202,11 @@ const result = await client.query(QUERY).toPromise()
     color: var(--color-fg-calm);
     border: 1px solid #0000;
 
-    :hover {
+    &:hover {
       border: 1px solid #00000010;
     }
 
-    :focus-within {
+    &:focus-within {
       border: 1px solid #00000015;
       background: var(--color-bg);
     }
@@ -221,11 +221,11 @@ const result = await client.query(QUERY).toPromise()
     outline: none;
     min-width: 280px;
 
-    ::placeholder {
+    &::placeholder {
       color: var(--color-fg-calm);
     }
 
-    ::-webkit-search-cancel-button {
+    &::-webkit-search-cancel-button {
       display: none;
     }
   }

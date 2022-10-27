@@ -189,16 +189,15 @@ const DetailLink = ({ children, href }) => (
 );
 
 export function AnimalDisplay({ animal, type, disableDetails = false }) {
-  const [animalState, setAnimalState] = useState(animal);
   const [name, setName] = useState(animal?.name);
 
   return (
     <Card disableDetails={disableDetails}>
       <ImageWrapper>
-        {animalState?.image?.gatsbyImageData ? (
+        {animal?.image?.gatsbyImageData ? (
           <GatsbyImage
-            image={animalState?.image?.gatsbyImageData}
-            alt={animalState?.name}
+            image={animal?.image?.gatsbyImageData}
+            alt={animal?.name}
             style={{
               borderRadius: "var(--radius-5)",
               height: disableDetails ? 400 : 200,
@@ -207,8 +206,8 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
           />
         ) : (
           <Image
-            src={animalState?.image?.url}
-            alt={animalState?.name}
+            src={animal?.image?.url}
+            alt={animal?.name}
             height={disableDetails ? 400 : 200}
             width={disableDetails ? 400 : 200}
             layout="fixed"
@@ -217,15 +216,15 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
       </ImageWrapper>
       <div>
         {disableDetails ? (
-          <PageTitle>{animalState?.name || `Good Boy`}</PageTitle>
+          <PageTitle>{animal?.name || `Good Boy`}</PageTitle>
         ) : (
-          <DetailLink href={`/${type}/${animalState?.id}/`}>
-            {animalState?.name || `Good Boy`}
+          <DetailLink href={`/${type}/${animal?.id}/`}>
+            {animal?.name || `Good Boy`}
           </DetailLink>
         )}
         {type && <AnimalType>{type}</AnimalType>}
-        {disableDetails && animalState?.about?.about && (
-          <Description>{animalState?.about?.about}</Description>
+        {disableDetails && animal?.about?.about && (
+          <Description>{animal?.about?.about}</Description>
         )}
       </div>
     </Card>

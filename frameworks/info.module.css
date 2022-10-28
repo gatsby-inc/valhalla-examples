@@ -1,0 +1,24 @@
+.logo {
+  height: var(--size-4);
+  width: var(--size-4);
+}
+
+.logos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--size-1);
+}
+
+.container {
+  align-items: center;
+  background: var(--color-bg-calm);
+  border-radius: var(--radius-4);
+  color: var(--color-fg-calm);
+  display: flex;
+  font-size: var(--font-size-1);
+  flex-direction: row;
+  font-weight: var(--font-weight-5);
+  gap: var(--size-3);
+  padding: var(--size-2);
+}

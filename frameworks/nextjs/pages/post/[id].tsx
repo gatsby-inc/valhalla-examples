@@ -2,7 +2,7 @@ import React from "react";
 import parse from "html-react-parser";
 import Head from 'next/head'
 
-import { Layout } from "../components/Layout";
+import { Layout } from "../../components/Layout";
 import * as styles from "../../../styles/article.module.css"
 
 export default function PostTemplate({ data }) {

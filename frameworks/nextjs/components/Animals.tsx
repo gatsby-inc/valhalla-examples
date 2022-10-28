@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
 
-import styles from "../../../styles/animals.module.css"
+import styles from "../../styles/animals.module.css"
 
 const DetailLink = ({ children, href }) => (
   <Link passHref href={href}>

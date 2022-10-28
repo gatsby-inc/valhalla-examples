@@ -1,4 +1,4 @@
-import { client } from '../lib/client'
+import { client } from '../../lib/client'
  
 export default async function getAnimals(req, res) {
   const { searchText } = req.query

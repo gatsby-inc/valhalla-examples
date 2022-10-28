@@ -1,10 +1,10 @@
 import React from "react";
 import Head from 'next/head'
 
-import { Layout } from "../components/Layout";
-import { AnimalDisplay } from "../components/Animals";
+import { Layout } from "../../components/Layout";
+import { AnimalDisplay } from "../../components/Animals";
 
-import { client } from "../lib/client";
+import { client } from "../../lib/client";
 
 export default function AnimalTemplate({ contentfulAnimal }) {
   return (

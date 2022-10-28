@@ -3,12 +3,12 @@ import Link from "next/link";
 import Head from "next/head";
 import clsx from "clsx";
 
-import { Layout } from "./components/Layout";
-import { Animals } from "./components/Animals";
+import { Layout } from "../components/Layout";
+import { Animals } from "../components/Animals";
 import * as paginationStyles from "../../styles/pagination.module.css";
 import * as filterStyles from "../../styles/filter.module.css";
 
-import { client } from "./lib/client"
+import { client } from "../lib/client"
 
 const SearchIcon = () => (
   <svg

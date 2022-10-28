@@ -5,8 +5,8 @@ import { GatsbyImage  } from "gatsby-plugin-image";
 import parse from "html-react-parser";
 import clsx from "clsx";
 
-import { client } from './lib/client'
-import { Layout } from "./components/Layout";
+import { client } from '../lib/client'
+import { Layout } from "../components/Layout";
 import styles from "../../styles/blog.module.css"
 
 const BlogIndex = ({

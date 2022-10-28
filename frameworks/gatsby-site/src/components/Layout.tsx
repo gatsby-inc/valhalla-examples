@@ -26,14 +26,14 @@ export function Layout({ children }) {
           <div className={styles.poweredBy}>
             <span>
               Powered by{" "}
-              <Link
+              <a
                 href="https://www.gatsbyjs.com/"
                 target="_blank"
                 rel="noreferrer"
                 className={styles.poweredByLink}
               >
                 Valhalla
-              </Link>{" "}
+              </a>{" "}
               and <b style={{ fontWeight: "var(--font-weight-6)" }}>Gatsby</b>
             </span>{" "}
             <img src={framework} alt="Gatsby" />

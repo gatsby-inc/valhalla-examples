@@ -86,10 +86,6 @@
   width: auto;
 }
 
-.card .imageWrapper {
-  box-shadow: var(--shadow-elevation-high);
-}
-
 .cardDetails {
   flex-direction: column;
   gap: calc(var(--size-2) + var(--size-2));

@@ -64,17 +64,16 @@ export default function Catalog({ data }) {
       <div className={filterStyles.filterAndSearch}>
         <div className={filterStyles.filters}>
           <button
-            className={filterStyles.filterButton}
+            className={clsx(filterStyles.filterButton, animalState === `` && filterStyles.filterButtonActive)}
             onClick={() => {
               setAnimalState("");
               setAnimals(data?.allContentfulAnimal?.nodes);
             }}
-            active={animalState === ``}
           >
             All Snugglers
           </button>
           <button
-            className={filterStyles.filterButton}
+            className={clsx(filterStyles.filterButton, animalState === `dog` && filterStyles.filterButtonActive)}
             onClick={() => {
               setAnimalState("dog");
               window
@@ -92,12 +91,11 @@ export default function Catalog({ data }) {
                   setAnimals(data?.animals);
                 });
             }}
-            active={animalState === `dog`}
           >
             Dogs
           </button>
           <button
-            className={filterStyles.filterButton}
+            className={clsx(filterStyles.filterButton, animalState === `cat` && filterStyles.filterButtonActive)}
             onClick={() => {
               setAnimalState("cat");
               window
@@ -115,12 +113,11 @@ export default function Catalog({ data }) {
                   setAnimals(data?.animals);
                 });
             }}
-            active={animalState === `cat`}
           >
             Cats
           </button>
           <button
-            className={filterStyles.filterButton}
+            className={clsx(filterStyles.filterButton, animalState === `exotic` && filterStyles.filterButtonActive)}
             onClick={() => {
               setAnimalState("exotic");
               window
@@ -138,7 +135,6 @@ export default function Catalog({ data }) {
                   setAnimals(data?.animals);
                 });
             }}
-            active={animalState === `exotic`}
           >
             Exotics
           </button>

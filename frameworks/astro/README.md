@@ -1,6 +1,6 @@
 # Welcome to [Valhalla + Astro](https://astro.build)
 
-[View the live site](https://valhalla-astro.netlify.app)
+[View the live site](https://astro-valhalla.netlify.app/)
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 

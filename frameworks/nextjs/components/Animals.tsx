@@ -53,7 +53,6 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
             alt={animal?.name}
             height={disableDetails ? 400 : 200}
             width={disableDetails ? 400 : 200}
-            layout="fixed"
           />
         )}
       </div>

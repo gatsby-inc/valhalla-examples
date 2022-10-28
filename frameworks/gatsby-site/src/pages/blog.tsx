@@ -6,7 +6,7 @@ import clsx from "clsx";
 
 import { Layout } from "../components/Layout";
 import { Info } from "../components/Info";
-import * as styles from "../../../blog.module.css"
+import * as styles from "../../../styles/blog.module.css"
 
 const BlogIndex = ({
   data,

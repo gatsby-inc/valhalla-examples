@@ -3,7 +3,7 @@ import parse from "html-react-parser";
 
 import { Layout } from "../../components/Layout";
 import { Info } from "../../components/Info";
-import * as styles from "../../../../article.module.css"
+import * as styles from "../../../../styles/article.module.css"
 
 export default function PostTemplate({ serverData }) {
   const featuredImage = {

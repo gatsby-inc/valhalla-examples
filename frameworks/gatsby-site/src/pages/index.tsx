@@ -4,8 +4,8 @@ import clsx from "clsx";
 
 import { Layout } from "../components/Layout";
 import { Animals } from "../components/Animals";
-import * as paginationStyles from "../../../pagination.module.css";
-import * as filterStyles from "../../../filter.module.css";
+import * as paginationStyles from "../../../styles/pagination.module.css";
+import * as filterStyles from "../../../styles/filter.module.css";
 
 const SearchIcon = () => (
   <svg
@@ -66,7 +66,7 @@ export default function Catalog({ data }) {
   return (
     <Layout title="Our Snugglers">
       <div className={filterStyles.filterAndSearch}>
-        <div className={filterStyles.filter}>
+        <div className={filterStyles.filters}>
           <button
             className={clsx(filterStyles.filterButton, animalState === `` && filterStyles.filterButtonActive)}
             onClick={() => {

@@ -4,8 +4,8 @@ import { graphql } from "gatsby";
 import { Layout } from "../components/Layout";
 import { Info } from "../components/Info";
 import { Animal } from "../components/Animals";
-import { animalList } from "../../../animals.module.css";
-import { pageTitle } from "../../../common.module.css";
+import { animalList } from "../../../styles/animals.module.css";
+import { pageTitle } from "../../../styles/common.module.css";
 
 export default function Catalog({ data }) {
   return (

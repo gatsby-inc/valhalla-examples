@@ -5,7 +5,7 @@ import { gql, useMutation, useSubscription } from "@apollo/client";
 import clsx from 'clsx';
 
 import { Info } from "./Info";
-import * as styles from "../../../animals.module.css"
+import * as styles from "../../../styles/animals.module.css"
 
 // import { createAndRedirectStripeSession } from "./utils";
 

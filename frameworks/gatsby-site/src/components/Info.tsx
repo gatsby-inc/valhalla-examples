@@ -1,6 +1,6 @@
 import React from "react";
 
-import * as styles from "../../../info.module.css"
+import * as styles from "../../../styles/info.module.css"
 import contentful from "../assets/contentful.svg";
 import wordpress from "../assets/wordpress.svg";
 import shopify from "../assets/shopify.svg";

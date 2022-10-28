@@ -4,7 +4,7 @@ import "@fontsource/inter";
 
 import logo from "../assets/logo.svg";
 import framework from "../assets/framework.svg";
-import * as styles from "../../../layout.module.css";
+import * as styles from "../../../styles/layout.module.css";
 
 export function Layout({ children }) {
   return (

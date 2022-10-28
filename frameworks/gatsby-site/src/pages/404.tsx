@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "gatsby";
 
 import { Layout } from "../components/Layout";
-import { pageTitle } from "../../../common.module.css"
+import { pageTitle } from "../../../styles/common.module.css"
 
 const NotFoundPage = () => {
   return (

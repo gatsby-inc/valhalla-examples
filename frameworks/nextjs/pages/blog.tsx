@@ -61,8 +61,8 @@ const BlogIndex = ({
                 )}
                 <div>
                   <h2 className={styles.postTitle}>
-                    <Link href={`/post/${post.id}/`} passHref={true}>
-                      <a itemProp="headline">{parse(title)}</a>
+                    <Link href={`/post/${post.id}/`} passHref={true} itemProp="headline">
+                      {parse(title)}
                     </Link>
                   </h2>
                   <small>{post.date}</small>

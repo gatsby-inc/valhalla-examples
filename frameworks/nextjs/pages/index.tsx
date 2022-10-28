@@ -182,10 +182,7 @@ export default function Catalog({ data }) {
         {new Array(data?.allContentfulAnimal?.pageInfo?.pageCount).fill(undefined).map(
           (_, i) => {
             return (
-              <Link
-                passHref href="/"
-                key={`catalog-pagination-link-${i}`}
-              >
+              <Link passHref href="/" key={`catalog-pagination-link-${i}`} legacyBehavior>
                 <button
                   className={clsx(paginationStyles.link, page === i && paginationStyles.linkActive)}
                   onClick={() => {

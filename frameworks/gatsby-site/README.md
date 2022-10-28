@@ -8,7 +8,7 @@
 </h1>
 
 
-This repository shows Valhalla powering a Gatsby website.
+This repository shows Valhalla powering a Gatsby website
 
 
 3.  **Open the code and start customizing!**

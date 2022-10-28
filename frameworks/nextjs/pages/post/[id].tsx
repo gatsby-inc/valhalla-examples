@@ -96,7 +96,7 @@ export async function getStaticPaths() {
       }
     `;
 
-  const { data } = await client.query(QUERY).toPromise()
+  const { data } = await client.query(QUERY, {}).toPromise()
 
   return {
     paths: data.allWpPost.nodes.map(node => ({

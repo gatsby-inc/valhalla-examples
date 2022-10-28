@@ -6,7 +6,7 @@ import Logo from "../assets/logo.svg";
 import Framework from "../assets/framework.svg";
 import * as styles from "../../../styles/layout.module.css";
 
-export function Layout({ children, isDogs, active }) {
+export function Layout({ children }) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>

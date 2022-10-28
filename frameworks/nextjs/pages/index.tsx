@@ -57,7 +57,7 @@ export default function Catalog({ data }) {
   }, [page]);
 
   return (
-    <Layout title="Our Snugglers" isDogs active="home">
+    <Layout>
       <Head>
         <title>Pet Snuggles (Next.js)</title>
       </Head>
@@ -177,11 +177,10 @@ export default function Catalog({ data }) {
         </div>
       </div>
 
-      <Animals type={animalState || `dogs`} data={animals || []} />
-
+      <Animals data={animals || []} />
       <nav className={paginationStyles.container}>
-        {[...Array(data?.allContentfulAnimal?.pageInfo?.pageCount).keys()].map(
-          (i) => {
+        {new Array(data?.allContentfulAnimal?.pageInfo?.pageCount).fill(undefined).map(
+          (_, i) => {
             return (
               <Link
                 passHref href="/"
@@ -189,7 +188,6 @@ export default function Catalog({ data }) {
               >
                 <button
                   className={clsx(paginationStyles.link, page === i && paginationStyles.linkActive)}
-                  to="/"
                   onClick={() => {
                     setPage(i);
                   }}

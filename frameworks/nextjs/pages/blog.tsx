@@ -1,6 +1,7 @@
 import React from "react";
 import Link from 'next/link'
 import Head from 'next/head'
+import { GatsbyImage  } from "gatsby-plugin-image";
 import parse from "html-react-parser";
 import clsx from "clsx";
 
@@ -18,7 +19,7 @@ const BlogIndex = ({
     return (
       <Layout>
         <p>
-          No blog posts found. Add posts to your WordPress site and they'll
+          No blog posts found. Add posts to your WordPress site and they will
           appear here!
         </p>
       </Layout>
@@ -60,7 +61,7 @@ const BlogIndex = ({
                 )}
                 <div>
                   <h2 className={styles.postTitle}>
-                    <Link href={`/post/${post.id}/`} passHref itemProp="url">
+                    <Link href={`/post/${post.id}/`} passHref={true}>
                       <a itemProp="headline">{parse(title)}</a>
                     </Link>
                   </h2>
@@ -115,7 +116,7 @@ export async function getStaticProps() {
   }
   `
 
-  const { data } = await client.query(query).toPromise()
+  const { data } = await client.query(query, {}).toPromise()
 
   return {
     props: {

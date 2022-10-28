@@ -1,0 +1,86 @@
+.filterAndSearch {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(var(--color-bg-rgb), 1),
+    rgba(var(--color-bg-rgb), 0.95)
+  );
+}
+
+.filters {
+  display: flex;
+  margin: var(--size-3) 0;
+  gap: var(--size-3);
+  align-items: center;
+}
+
+.filterButton {
+  background: transparent;
+  border-radius: var(--radius-5);
+  border: none;
+  font-size: var(--font-size-2);
+  cursor: pointer;
+  font-weight: var(--font-weight-7);
+  padding: var(--size-1) calc(var(--size-1) + var(--size-2));
+  color: var(--color-fg-calm);
+}
+
+.filterButton:hover {
+  background: var(--color-accent-muted);
+  color: var(--color-accent);
+  box-shadow: var(--shadow-elevation-low);
+}
+
+.filterButtonActive {
+  background: var(--color-bg);
+  color: var(--color-accent);
+  box-shadow: var(--shadow-elevation-large);
+}
+
+.searchContainer {
+  background: var(--color-bg-muted);
+  border-radius: var(--radius-100);
+  position: relative;
+  color: var(--color-fg-calm);
+  border: 1px solid #0000;
+}
+
+.searchContainer:hover {
+  border: 1px solid #00000010;
+}
+
+.searchContainer:focus-within {
+  border: 1px solid #00000015;
+  background: var(--color-bg);
+}
+
+.search {
+  border-radius: var(--radius-3);
+  border: none;
+  background: none;
+  padding: var(--size-2) var(--size-3) var(--size-2) calc(var(--size-4) + var(--size-2) + var(--size-2));
+  min-height: 40px;
+  outline: none;
+  min-width: 280px;
+}
+
+.search::placeholder {
+  color: var(--color-fg-calm);
+}
+
+.search::-webkit-search-cancel-button {
+  display: none;
+}
+
+.searchIconSvg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: calc(var(--size-1) + var(--size-2));
+}

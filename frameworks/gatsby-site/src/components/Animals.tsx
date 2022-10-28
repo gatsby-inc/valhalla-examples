@@ -6,7 +6,6 @@ import clsx from 'clsx';
 
 import { Info } from "./Info";
 import * as styles from "../../../animals.module.css"
-import * as commonStyles from "../../../common.module.css"
 
 // import { createAndRedirectStripeSession } from "./utils";
 
@@ -83,7 +82,7 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
       </div>
       <div>
         {disableDetails ? (
-          <h1 className={commonStyles.pageTitle}>{animalState?.name || `Good Boy`}</h1>
+          <h1 className={styles.pageTitle}>{animalState?.name || `Good Boy`}</h1>
         ) : (
           <DetailLink to={`/${type}/${animalState?.id}/`}>
             {animalState?.name || `Good Boy`}

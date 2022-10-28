@@ -1,3 +1,9 @@
+.pageTitle {
+  color: var(--color-fg);
+  margin: 0 0 var(--size-4);
+  font-size: var(--font-size-6);
+}
+
 .description {
   color: var(--color-fg);
   font-size: var(--font-size-3);

@@ -20,12 +20,12 @@ export const rendererIcons = {
 
 export function Info({ cms, renderer }) {
   return (
-    <p class={styles.container}>
-      <span class={styles.logos}>
-        <img src={cmsIcons[cms]} alt={`${cms} logo`} class={styles.logo} />
+    <p className={styles.container}>
+      <span className={styles.logos}>
+        <img src={cmsIcons[cms]} alt={`${cms} logo`} className={styles.logo} />
         {renderer && (
           <>
-            + <img src={rendererIcons[renderer]} alt="" class={styles.logo} />
+            + <img src={rendererIcons[renderer]} alt="" className={styles.logo} />
           </>
         )}
       </span>{" "}

@@ -6,7 +6,7 @@
 
 #### Gatsby
 
-https://valhallaexamples.staging-gatsbyjs.io/
+[View live site](https://valhallaexamples.staging-gatsbyjs.io/)
 
 ```bash
 cd frameworks/gatsby-site
@@ -14,6 +14,8 @@ yarn start
 ```
 
 #### Next.js
+
+[View live site](https://valhalla-nextjs.vercel.app/)
 
 ```bash
 cd frameworks/nextjs

@@ -1,6 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 
+import * as styles from "../../../styles/info.module.css"
 import contentful from "../assets/contentful.svg";
 import wordpress from "../assets/wordpress.svg";
 import shopify from "../assets/shopify.svg";
@@ -18,46 +18,21 @@ export const rendererIcons = {
   ssr: ssr,
 };
 
-const Logo = styled.img`
-  height: var(--size-4);
-  width: var(--size-4);
-`;
-
-const Logos = styled.span`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: var(--size-1);
-`;
-
-const Container = styled.p`
-  align-items: center;
-  background: var(--color-bg-calm);
-  border-radius: var(--radius-4);
-  color: var(--color-fg-calm);
-  display: flex;
-  font-size: var(--font-size-1);
-  flex-direction: row;
-  font-weight: var(--font-weight-5);
-  gap: var(--size-3);
-  padding: var(--size-2);
-`;
-
 export function Info({ cms, renderer }) {
   return (
-    <Container>
-      <Logos>
-        <Logo src={cmsIcons[cms]} alt={`${cms} logo`} />
+    <p className={styles.container}>
+      <span className={styles.logos}>
+        <img src={cmsIcons[cms]} alt={`${cms} logo`} className={styles.logo} />
         {renderer && (
           <>
-            + <Logo src={rendererIcons[renderer]} alt="" />
+            + <img src={rendererIcons[renderer]} alt="" className={styles.logo} />
           </>
         )}
-      </Logos>{" "}
+      </span>{" "}
       <span>
         Rendered <b>{renderer === "ssg" ? "at build time" : "server-side"}</b>{" "}
         using data from <b>{cms}</b>.
       </span>
-    </Container>
+    </p>
   );
 }

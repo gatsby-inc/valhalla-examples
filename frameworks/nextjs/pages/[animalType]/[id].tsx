@@ -1,19 +1,18 @@
 import React from "react";
-import styled from "styled-components";
 import Head from 'next/head'
 
-import { Layout } from "../components/Layout";
-import { AnimalDisplay } from "../components/Animals";
+import { Layout } from "../../components/Layout";
+import { AnimalDisplay } from "../../components/Animals";
 
-import { client } from "../lib/client";
+import { client } from "../../lib/client";
 
 export default function AnimalTemplate({ contentfulAnimal }) {
   return (
-    <Layout isDogs={true}>
+    <Layout>
       <Head>
         <title>{contentfulAnimal?.name ? contentfulAnimal.name : "Pet"} / Pet Snuggles (Next.js)</title>
       </Head>
-      <AnimalDisplay animal={contentfulAnimal} disableDetails />
+      <AnimalDisplay animal={contentfulAnimal} type={contentfulAnimal.type} disableDetails />
     </Layout>
   );
 }
@@ -24,6 +23,7 @@ export async function getStaticProps(context) {
       contentfulAnimal(id: { eq: $id }) {
         id
         name
+        animalType
         about {
           about
         }

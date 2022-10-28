@@ -1,59 +1,12 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import styled, { css } from "styled-components";
 import parse from "html-react-parser";
+import clsx from "clsx";
 
 import { Layout } from "../components/Layout";
 import { Info } from "../components/Info";
-
-const Posts = styled.ol`
-  padding: 0;
-  list-style: none;
-`;
-
-const PostTitle = styled.h2`
-  margin: 0;
-
-  a {
-    color: var(--color-text);
-    text-decoration: none;
-
-    :hover {
-      color: var(--color-accent);
-    }
-  }
-`;
-
-const Article = styled.article`
-  display: flex;
-  flex-direction: row;
-`;
-
-const PageTitle = styled.h1`
-  margin: var(--size-6) 0;
-  font-size: var(--font-size-6);
-`;
-
-const Post = styled.li`
-  margin: var(--size-6) 0;
-`;
-
-const Thumbnail = styled.div`
-  width: 192px;
-  flex: 0 0 auto;
-  border-radius: var(--radius-4);
-  overflow: hidden;
-  float: left;
-  margin-right: var(--size-5);
-
-  ${(props) =>
-    props.$placeholder &&
-    css`
-      background: var(--color-bg-calm);
-      height: 192px;
-    `}
-`;
+import * as styles from "../../../styles/blog.module.css"
 
 const BlogIndex = ({
   data,
@@ -74,9 +27,9 @@ const BlogIndex = ({
 
   return (
     <Layout>
-      <PageTitle>Blog</PageTitle>
+      <h1 className={styles.pageTitle}>Blog</h1>
       <Info cms="WordPress" renderer="ssg" />
-      <Posts>
+      <ol className={styles.posts}>
         {posts.map((post) => {
           const title = post.title;
 
@@ -87,38 +40,38 @@ const BlogIndex = ({
           };
 
           return (
-            <Post key={post.uri}>
-              <Article
-                className="post-list-item"
+            <li key={post.uri} className={styles.post}>
+              <article
+                className={styles.article}
                 itemScope
-                itemType="http://schema.org/Article"
+                itemType="http://schema.org/article"
               >
                 {featuredImage?.data ? (
-                  <Thumbnail>
+                  <div className={styles.thumbnail}>
                     <GatsbyImage
                       image={featuredImage.data}
                       alt={featuredImage.alt}
                     />
-                  </Thumbnail>
+                  </div>
                 ) : (
-                  <Thumbnail $placeholder />
+                  <div className={clsx(styles.thumbnail, styles.placeholder)} />
                 )}
                 <div>
-                  <PostTitle>
+                  <h2 className={styles.postTitle}>
                     <Link to={`/post/${post.id}/`} itemProp="url">
                       <span itemProp="headline">{parse(title)}</span>
                     </Link>
-                  </PostTitle>
+                  </h2>
                   <small>{post.date}</small>
                   <section itemProp="description">
                     {parse(post.excerpt)}
                   </section>
                 </div>
-              </Article>
-            </Post>
+              </article>
+            </li>
           );
         })}
-      </Posts>
+      </ol>
 
       {previousPagePath && (
         <>

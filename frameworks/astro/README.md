@@ -1,6 +1,6 @@
-# Welcome to [Astro](https://astro.build)
+# Welcome to [Valhalla + Astro](https://astro.build)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
+[View the live site](https://astro-valhalla.netlify.app/)
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 

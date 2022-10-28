@@ -1,143 +1,23 @@
 import React from "react";
-import styled, { css } from "styled-components";
 import Link from "next/link";
 import Head from "next/head";
+import clsx from "clsx";
 
-import { Layout } from "./components/Layout";
-import { Animals } from "./components/Animals";
+import { Layout } from "../components/Layout";
+import { Animals } from "../components/Animals";
+import * as paginationStyles from "../../styles/pagination.module.css";
+import * as filterStyles from "../../styles/filter.module.css";
 
-import { client } from "./lib/client"
-
-const FilterAndSearch = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(var(--color-bg-rgb), 1),
-    rgba(var(--color-bg-rgb), 0.95)
-  );
-`;
-
-const Filters = styled.div`
-  display: flex;
-  margin: var(--size-5) 0;
-  gap: var(--size-3);
-  align-items: center;
-`;
-
-const FilterButton = styled.button`
-  background: transparent;
-  border-radius: var(--radius-2);
-  border: none;
-  font-size: var(--font-size-3);
-  cursor: pointer;
-  font-weight: var(--font-weight-7);
-  color: var(--color-fg-calm);
-
-  :hover {
-    color: var(--color-accent);
-  }
-
-  ${(props) =>
-    props.active &&
-    css`
-      color: var(--color-fg);
-    `}
-`;
-
-const SearchContainer = styled.div`
-  background: var(--color-bg-muted);
-  border-radius: var(--radius-100);
-  position: relative;
-  color: var(--color-fg-calm);
-  border: 1px solid #0000;
-
-  :hover {
-    border: 1px solid #00000010;
-  }
-
-  :focus-within {
-    border: 1px solid #00000015;
-    background: var(--color-bg);
-  }
-`;
-
-const Search = styled.input`
-  border-radius: var(--radius-3);
-  border: none;
-  background: none;
-  padding: var(--size-2) var(--size-3) var(--size-2) calc(var(--size-4) + var(--size-2) + var(--size-2));
-  min-height: 40px;
-  outline: none;
-  min-width: 280px;
-
-  ::placeholder {
-    color: var(--color-fg-calm);
-  }
-
-  ::-webkit-search-cancel-button {
-    display: none;
-  }
-`;
-
-const SearchIconSvg = styled.svg`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: calc(var(--size-1) + var(--size-2));
-`;
-
-const Pagination = styled.nav`
-  margin: var(--size-6) 0;
-  display: flex;
-  flex-direction: row;
-  gap: var(--size-3);
-  list-style: none;
-  padding: 0;
-`;
-
-const PaginationLink = styled.button`
-  appearance: none;
-  border: none;
-  border-radius: var(--radius-2);
-  cursor: pointer;
-  text-decoration: none;
-  font-weight: var(--font-weight-5);
-  position: relative;
-  display: block;
-  padding: var(--size-2) var(--size-3);
-  font-size: var(--font-size-2);
-  transition-property: color, background-color;
-  transition-duration: 0.15s;
-  transition-timing-function: ease-in-out;
-  color: var(--color-fg-calm);
-  background: var(--color-bg-calm);
-
-  :hover {
-    background: var(--color-accent-muted);
-    color: var(--color-accent);
-  }
-
-  ${(props) =>
-    props.active &&
-    css`
-      background: var(--color-accent);
-      color: var(--color-fg-on-emphasis);
-    `}
-`;
+import { client } from "../lib/client"
 
 const SearchIcon = () => (
-  <SearchIconSvg
+  <svg
     width="20"
     height="20"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className={filterStyles.searchIconSvg}
   >
     <g
       stroke="currentColor"
@@ -148,7 +28,7 @@ const SearchIcon = () => (
       <path d="M11 19.1758C15.4183 19.1758 19 15.5941 19 11.1758C19 6.7575 15.4183 3.17578 11 3.17578C6.58172 3.17578 3 6.7575 3 11.1758C3 15.5941 6.58172 19.1758 11 19.1758Z" />
       <path d="M21.0004 21.1742L16.6504 16.8242" />
     </g>
-  </SearchIconSvg>
+  </svg>
 );
 
 export default function Catalog({ data }) {
@@ -177,22 +57,23 @@ export default function Catalog({ data }) {
   }, [page]);
 
   return (
-    <Layout title="Our Snugglers" isDogs active="home">
+    <Layout>
       <Head>
         <title>Pet Snuggles (Next.js)</title>
       </Head>
-      <FilterAndSearch>
-        <Filters>
-          <FilterButton
+      <div className={filterStyles.filterAndSearch}>
+        <div className={filterStyles.filters}>
+          <button
+            className={clsx(filterStyles.filterButton, animalState === `` && filterStyles.filterButtonActive)}
             onClick={() => {
               setAnimalState("");
               setAnimals(data?.allContentfulAnimal?.nodes);
             }}
-            active={animalState === ``}
           >
             All Snugglers
-          </FilterButton>
-          <FilterButton
+          </button>
+          <button
+            className={clsx(filterStyles.filterButton, animalState === `dog` && filterStyles.filterButtonActive)}
             onClick={() => {
               setAnimalState("dog");
               window
@@ -210,11 +91,11 @@ export default function Catalog({ data }) {
                   setAnimals(data?.animals);
                 });
             }}
-            active={animalState === `dog`}
           >
             Dogs
-          </FilterButton>
-          <FilterButton
+          </button>
+          <button
+            className={clsx(filterStyles.filterButton, animalState === `cat` && filterStyles.filterButtonActive)}
             onClick={() => {
               setAnimalState("cat");
               window
@@ -232,11 +113,11 @@ export default function Catalog({ data }) {
                   setAnimals(data?.animals);
                 });
             }}
-            active={animalState === `cat`}
           >
             Cats
-          </FilterButton>
-          <FilterButton
+          </button>
+          <button
+            className={clsx(filterStyles.filterButton, animalState === `exotic` && filterStyles.filterButtonActive)}
             onClick={() => {
               setAnimalState("exotic");
               window
@@ -254,15 +135,15 @@ export default function Catalog({ data }) {
                   setAnimals(data?.animals);
                 });
             }}
-            active={animalState === `exotic`}
           >
             Exotics
-          </FilterButton>
-        </Filters>
+          </button>
+        </div>
 
-        <SearchContainer>
+        <div className={filterStyles.searchContainer}>
           <SearchIcon />
-          <Search
+          <input
+            className={filterStyles.search}
             type="search"
             placeholder="Search pets"
             onChange={(e: any) => {
@@ -293,32 +174,31 @@ export default function Catalog({ data }) {
                 });
             }}
           />
-        </SearchContainer>
-      </FilterAndSearch>
+        </div>
+      </div>
 
-      <Animals type={animalState || `dogs`} data={animals || []} />
-      <Pagination>
-        {[...Array(data?.allContentfulAnimal?.pageInfo?.pageCount).keys()].map(
-          (i) => {
+      <Animals data={animals || []} />
+      <nav className={paginationStyles.container}>
+        {new Array(data?.allContentfulAnimal?.pageInfo?.pageCount).fill(undefined).map(
+          (_, i) => {
             return (
               <Link
                 passHref href="/"
                 key={`catalog-pagination-link-${i}`}
               >
-                <PaginationLink
-                  active={page === i}
-                  to="/"
+                <button
+                  className={clsx(paginationStyles.link, page === i && paginationStyles.linkActive)}
                   onClick={() => {
                     setPage(i);
                   }}
                 >
                   {i + 1}
-                </PaginationLink>
+                </button>
               </Link>
             );
           }
         )}
-      </Pagination>
+      </nav>
     </Layout>
   );
 }

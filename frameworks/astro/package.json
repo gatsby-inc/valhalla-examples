@@ -13,6 +13,7 @@
   "dependencies": {
     "@urql/core": "^3.0.4",
     "astro": "^1.4.6",
-    "graphql": "^16.6.0"
+    "graphql": "^16.6.0",
+    "postcss-nested": "^6.0.0"
   }
 }

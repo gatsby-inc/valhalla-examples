@@ -1,22 +1,18 @@
 import React from "react";
 import { graphql } from "gatsby";
-import styled, { css } from "styled-components";
 
 import { Layout } from "../components/Layout";
 import { Info } from "../components/Info";
-import { Animal, AnimalList } from "../components/Animals";
-
-const PageTitle = styled.h1`
-  margin: var(--size-6) 0;
-  font-size: var(--font-size-6);
-`;
+import { Animal } from "../components/Animals";
+import { animalList } from "../../../animals.module.css";
+import { pageTitle } from "../../../common.module.css";
 
 export default function Catalog({ data }) {
   return (
     <Layout title="Our Swag" isDogs active="Store">
-      <PageTitle>Swag</PageTitle>
+      <h1 className={pageTitle}>Swag</h1>
       <Info cms="Shopify" renderer="ssg" />
-      <AnimalList>
+      <div className={animalList}>
         {data.allShopifyProduct?.nodes?.map(
           ({ shopifyId, title, featuredMedia, description }) => {
             return (
@@ -35,7 +31,7 @@ export default function Catalog({ data }) {
             );
           }
         )}
-      </AnimalList>
+      </div>
     </Layout>
   );
 }

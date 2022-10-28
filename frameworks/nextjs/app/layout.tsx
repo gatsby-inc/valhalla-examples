@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
+
 import "@fontsource/inter";
+import "../../styles/global.css";
 
 import Logo from "../assets/logo.svg";
 import Framework from "../assets/framework.svg";
@@ -10,29 +12,29 @@ export default function Layout({ children }) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <Link href="/" passHref>
-          <a className={styles.homeLink}>
-            <Logo alt="Pet Snuggles" className={styles.homeLink} />
-            <h1 className={styles.navTitle}>
-              Pet
-              <br />
-              Snuggles
-            </h1>
-          </a>
+        <Link href="/" passHref className={styles.homeLink}>
+
+          <Logo alt="Pet Snuggles" className={styles.homeLink} />
+          <h1 className={styles.navTitle}>
+            Pet
+            <br />
+            Snuggles
+          </h1>
+
         </Link>
         <nav className={styles.navLinks}>
-          <Link href="/" passHref>
-            <a className={styles.navLink}>Pets</a>
+          <Link href="/" passHref className={styles.navLink}>
+            Pets
           </Link>
-          <Link href="/blog/" passHref>
-            <a className={styles.navLink}>
+          <Link href="/blog/" passHref className={styles.navLink}>
+            
               Blog
-            </a>
+            
           </Link>
-          <Link href="/store/" passHref>
-            <a className={styles.navLink}>
+          <Link href="/store/" passHref className={styles.navLink}>
+            
               Swag
-            </a>
+            
           </Link>
         </nav>
         <div className={styles.poweredBy}>

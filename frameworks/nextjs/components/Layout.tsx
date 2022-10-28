@@ -10,7 +10,7 @@ export function Layout({ children }) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <Link href="/" passHref className={styles.homeLink}>
+        <Link href="/" passHref className={styles.homeLink} legacyBehavior>
 
           <Logo alt="Pet Snuggles" className={styles.homeLink} />
           <h1 className={styles.navTitle}>

@@ -7,7 +7,7 @@ import clsx from "clsx";
 import styles from "../../styles/animals.module.css"
 
 const DetailLink = ({ children, href }) => (
-  (<Link passHref href={href} className={styles.viewDetailsLink}>
+  (<Link passHref href={href} className={styles.viewDetailsLink} legacyBehavior>
 
     <h2 className={styles.animalName}>
       {children}

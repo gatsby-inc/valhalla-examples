@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
-import { gql, useMutation, useSubscription } from "@apollo/client";
 import clsx from 'clsx';
 
 import { Info } from "./Info";
 import * as styles from "../../../styles/animals.module.css"
-
-// import { createAndRedirectStripeSession } from "./utils";
 
 const DetailLink = ({ children, to }) => (
   <Link to={to} className={styles.viewDetailsLink}>
@@ -33,21 +30,6 @@ const DetailLink = ({ children, to }) => (
     </h2>
   </Link>
 );
-
-const DOG_SUB = gql`
-  subscription ($id: ID!) {
-    contentfulDogsChanged(id: $id) {
-      id
-      name
-      about {
-        about
-      }
-      image {
-        url
-      }
-    }
-  }
-`;
 
 export function AnimalDisplay({ animal, type, disableDetails = false }) {
   const [animalState, setAnimalState] = useState(animal);

@@ -34,16 +34,13 @@ const DetailLink = ({ children, href }) => (
 );
 
 export function AnimalDisplay({ animal, type, disableDetails = false }) {
-  const [animalState, setAnimalState] = useState(animal);
-  const [name, setName] = useState(animal?.name);
-
   return (
     <div className={clsx(styles.card, !disableDetails && styles.cardDetails)}>
       <div className={styles.imageWrapper}>
-        {animalState?.image?.gatsbyImageData ? (
+        {animal?.image?.gatsbyImageData ? (
           <GatsbyImage
-            image={animalState?.image?.gatsbyImageData}
-            alt={animalState?.name}
+            image={animal?.image?.gatsbyImageData}
+            alt={animal?.name}
             style={{
               borderRadius: "var(--radius-5)",
               height: disableDetails ? 400 : 200,
@@ -52,8 +49,8 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
           />
         ) : (
           <Image
-            src={animalState?.image?.url}
-            alt={animalState?.name}
+            src={animal?.image?.url}
+            alt={animal?.name}
             height={disableDetails ? 400 : 200}
             width={disableDetails ? 400 : 200}
             layout="fixed"
@@ -62,15 +59,15 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
       </div>
       <div>
         {disableDetails ? (
-          <h1 className={styles.pageTitle}>{animalState?.name || `Good Boy`}</h1>
+          <h1 className={styles.pageTitle}>{animal?.name || `Good Boy`}</h1>
           ) : (
-          <DetailLink href={`/${type}/${animalState?.id}/`}>
-            {animalState?.name || `Good Boy`}
+          <DetailLink href={`/${type}/${animal?.id}/`}>
+            {animal?.name || `Good Boy`}
           </DetailLink>
         )}
         {type && <span className={styles.animalType}>{type}</span>}
-        {disableDetails && animalState?.about?.about && (
-          <div className={styles.description}>{animalState?.about?.about}</div>
+        {disableDetails && animal?.about?.about && (
+          <div className={styles.description}>{animal?.about?.about}</div>
         )}
       </div>
     </div>

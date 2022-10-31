@@ -33,7 +33,7 @@ export async function getServerData({ params }) {
           }
           image {
             url
-            gatsbyImageData(height: 200, width: 200)
+            gatsbyImage(height: 200, width: 200)
           }
         }
       }

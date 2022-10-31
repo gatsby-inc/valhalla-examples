@@ -38,9 +38,9 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
   return (
     <div className={clsx(styles.card, !disableDetails && styles.cardDetails)}>
       <div className={styles.imageWrapper}>
-        {animalState?.image?.gatsbyImageData ? (
+        {animalState?.image?.gatsbyImage ? (
           <GatsbyImage
-            image={animalState?.image?.gatsbyImageData}
+            image={animalState?.image?.gatsbyImage}
             alt={animalState?.name}
             style={{
               borderRadius: "var(--radius-5)",

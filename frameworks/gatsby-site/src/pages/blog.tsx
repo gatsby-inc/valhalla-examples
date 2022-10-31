@@ -34,10 +34,11 @@ const BlogIndex = ({
           const title = post.title;
 
           const featuredImage = {
-            data: post.featuredImage?.node?.localFile?.childImageSharp
-              ?.gatsbyImageData,
+            data: post.featuredImage?.node?.gatsbyImage,
             alt: post.featuredImage?.node?.alt || ``,
           };
+
+          console.log(post.featuredImage)
 
           return (
             <li key={post.uri} className={styles.post}>
@@ -99,12 +100,10 @@ export const pageQuery = graphql`
         title
         featuredImage {
           node {
+            id
             altText
-            localFile {
-              childImageSharp {
-                gatsbyImageData(quality: 100, layout: FULL_WIDTH, placeholder: NONE)
-              }
-            }
+            mediaItemUrl
+            gatsbyImage(width: 192, placeholder: NONE)
           }
         }
       }

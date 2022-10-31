@@ -11,6 +11,8 @@ export default function PostTemplate({ serverData }) {
     alt: serverData?.data?.featuredImage?.node?.altText || ``,
   };
 
+  console.log(featuredImage, '##')
+
   return (
     <Layout>
       <Info cms="WordPress" renderer="ssr" />
@@ -60,6 +62,7 @@ export async function getServerData({ params }) {
           content
           featuredImage {
             node {
+              id
               mediaItemUrl
               altText
             }

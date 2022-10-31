@@ -220,7 +220,7 @@ export const catalogQuery = graphql`
         }
         image {
           url
-          gatsbyImageData(height: 200, width: 200, placeholder: NONE)
+          gatsbyImage(height: 200, width: 200, placeholder: NONE)
         }
       }
       pageInfo {

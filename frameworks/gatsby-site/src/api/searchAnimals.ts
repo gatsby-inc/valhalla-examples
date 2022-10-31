@@ -25,7 +25,7 @@ export default async function searchAnimals(req, res) {
             image {
               __typename
               url
-              gatsbyImageData(height: 200, width: 200, placeholder: NONE)
+              gatsbyImage(height: 200, width: 200, placeholder: NONE)
             }
           }
         }

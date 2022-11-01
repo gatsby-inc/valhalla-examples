@@ -5,7 +5,8 @@ import parse from "html-react-parser";
 import clsx from "clsx";
 
 import { client } from '../../lib/client'
-import styles from "../../../styles/blog.module.css"
+
+const styles: any = {}
 
 async function getData() {
   const query = `

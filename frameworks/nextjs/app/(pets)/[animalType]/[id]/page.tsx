@@ -26,11 +26,12 @@ async function getData(params) {
     })
     .toPromise();
 
-  return data.contentfulAnimal
+  return data?.contentfulAnimal || {}
 }
 
 export default async function AnimalTemplate({ params }) {
   const animal = await getData(params)
+
   return (
     <AnimalDisplay animal={animal} type={animal.type} disableDetails />
   );

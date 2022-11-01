@@ -4,16 +4,16 @@
 
 ### Frameworks
 
-#### Gatsby
+#### [Gatsby](./frameworks/gatsby)
 
 [View live site](https://valhallaexamples.staging-gatsbyjs.io/)
 
 ```bash
-cd frameworks/gatsby-site
+cd frameworks/gatsby
 yarn start
 ```
 
-#### Next.js
+#### [Next.js](./frameworks/nextjs)
 
 [View live site](https://valhalla-nextjs.vercel.app/)
 
@@ -23,7 +23,7 @@ yarn dev
 
 ```
 
-#### Astro
+#### [Astro](./frameworks/astro)
 
 [Link to Site](https://astro-valhalla.netlify.app/)
 

@@ -1,4 +1,3 @@
-import { Info } from "../../components/Info";
 import { Animal } from "../../components/Animals";
 
 import { client } from "../../lib/client"
@@ -31,22 +30,24 @@ async function getData() {
 
 export default async function Catalog() {
   const products = await getData()
+
   return (
     <>
-      <h1 className={commonStyles.pageTitle}>Swag</h1>
-      <Info cms="Shopify" renderer="ssg" />
+      <h1 className={commonStyles.pageTitle}>Store</h1>
       <div className={animalStyles.animalList}>
         {products?.map(
-          ({ shopifyId, title, featuredMedia, description }) => {
+          ({ shopifyId, title, featuredImage, description }) => {
+            const id = shopifyId.replace("gid://shopify/Product/", "")
             return (
               <Animal
                 animal={{
-                  id: shopifyId.replace("gid://shopify/Product/", ""),
+                  id,
                   name: title,
-                  image: { url: featuredMedia?.preview?.image?.originalSrc },
+                  image: { url: featuredImage?.src },
                   about: {
                     about: description,
                   },
+                  href: `/store/${id}`,
                   animalType: "products",
                 }}
                 key={shopifyId}

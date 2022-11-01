@@ -1,4 +1,3 @@
-import React from 'react'
 import { client } from "../../../lib/client";
 
 import { AnimalDisplay } from "../../../components/Animals";

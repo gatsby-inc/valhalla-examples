@@ -34,7 +34,7 @@ export default function Layout({ children }) {
             </Link>
             <Link href="/store/" passHref className={styles.navLink}>
               
-                Swag
+                Store
               
             </Link>
           </nav>

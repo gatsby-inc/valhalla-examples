@@ -34,30 +34,18 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
   return (
     <div className={clsx(styles.card, !disableDetails && styles.cardDetails)}>
       <div className={styles.imageWrapper}>
-        {animal?.image?.gatsbyImageData ? (
-          <GatsbyImage
-            image={animal?.image?.gatsbyImageData}
-            alt={animal?.name}
-            style={{
-              borderRadius: "var(--radius-5)",
-              height: disableDetails ? 400 : 200,
-              width: disableDetails ? 400 : 200,
-            }}
-          />
-        ) : (
-          <Image
-            src={animal?.image?.url}
-            alt={animal?.name}
-            height={disableDetails ? 400 : 200}
-            width={disableDetails ? 400 : 200}
-          />
-        )}
+        <Image
+          src={animal?.image?.url}
+          alt={animal?.name}
+          height={disableDetails ? 400 : 200}
+          width={disableDetails ? 400 : 200}
+        />
       </div>
       <div>
         {disableDetails ? (
           <h1 className={styles.pageTitle}>{animal?.name || `Good Boy`}</h1>
           ) : (
-          <DetailLink href={`/${type}/${animal?.id}/`}>
+          <DetailLink href={animal.href || `/${type}/${animal?.id}/`}>
             {animal?.name || `Good Boy`}
           </DetailLink>
         )}

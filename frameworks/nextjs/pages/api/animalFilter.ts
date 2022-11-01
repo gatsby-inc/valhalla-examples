@@ -27,7 +27,5 @@ export default async function getAnimalFilter(req, res) {
     .query(QUERY, { animalType: { eq: req.body.type } })
     .toPromise();
 
-  console.log(result);
-
   return res.json({ animals: result?.data?.allContentfulAnimal?.nodes });
 }

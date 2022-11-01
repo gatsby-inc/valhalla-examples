@@ -59,6 +59,10 @@ export default async function PostTemplate({ params }) {
     alt: post?.featuredImage?.node?.altText || ``,
   };
 
+  if (!post || !post.title) {
+    return <h1>404: Not Found</h1>
+  }
+
   return (
     <>
       <article

@@ -22,7 +22,14 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/lib/*": ["lib/*"],
+      "@/assets/*": ["assets/*"],
+      "@/styles/*": ["../styles/*"]
+    },
   },
   "include": [
     "*.d.ts",

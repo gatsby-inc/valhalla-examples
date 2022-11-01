@@ -1,11 +1,11 @@
 import Link from "next/link";
 import clsx from "clsx";
 
-import { Animals } from "../../components/Animals"
+import { Animals } from "@/components/Animals"
 
-import * as paginationStyles from "../../../styles/pagination.module.css";
+import * as paginationStyles from "@/styles/pagination.module.css";
 
-import { client } from "../../lib/client"
+import { client } from "@/lib/client"
 
 async function getData() {
   const QUERY = `

@@ -1,6 +1,6 @@
-import { client } from "../../../../lib/client"
+import { client } from "@/lib/client"
 
-import { AnimalDisplay } from "../../../../components/Animals";
+import { AnimalDisplay } from "@/components/Animals";
 
 async function getData(params) {
   const query = `

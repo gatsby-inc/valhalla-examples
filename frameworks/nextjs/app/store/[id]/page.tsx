@@ -1,8 +1,8 @@
-import { AnimalDisplay as Animal } from "../../../components/Animals";
+import { AnimalDisplay as Animal } from "@/components/Animals";
 
-import { client } from "../../../lib/client"
+import { client } from "@/lib/client"
 
-import * as commonStyles from "../../../../styles/common.module.css"
+import * as commonStyles from "@/styles/common.module.css"
 
 export async function generateStaticParams() {
   const QUERY = `

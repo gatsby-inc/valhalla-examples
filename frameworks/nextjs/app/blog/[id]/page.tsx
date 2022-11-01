@@ -1,8 +1,8 @@
 import parse from "html-react-parser";
 
-import { client } from "../../../lib/client"
+import { client } from "@/lib/client"
 
-import * as styles from "../../../../styles/article.module.css"
+import * as styles from "@/styles/article.module.css"
 import Content from './content'
 
 export async function generateStaticParams() {

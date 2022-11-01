@@ -1,9 +1,9 @@
-import { Animal } from "../../components/Animals";
+import { Animal } from "@/components/Animals";
 
-import { client } from "../../lib/client"
+import { client } from "@/lib/client"
 
-import * as animalStyles from "../../../styles/animals.module.css"
-import * as commonStyles from "../../../styles/common.module.css"
+import * as animalStyles from "@/styles/animals.module.css"
+import * as commonStyles from "@/styles/common.module.css"
 
 async function getData() {
   const QUERY = `

@@ -35,7 +35,7 @@ async function getData() {
 
   const { data } = await client.query(query, {}).toPromise()
 
-  return data.allWpPost?.nodes
+  return data?.allWpPost?.nodes || []
 }
 
 export default async function BlogIndex() {

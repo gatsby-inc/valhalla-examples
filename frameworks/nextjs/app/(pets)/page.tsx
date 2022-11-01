@@ -30,32 +30,25 @@ async function getData() {
   }
   `;
 
-  const result = await client.query(QUERY, {}).toPromise();
+  const { data } = await client.query(QUERY, {}).toPromise();
 
-  return result.data
+  return [data?.allContentfulAnimal?.nodes || [], data?.allContentfulAnimal?.pageInfo]
 }
 
 export default async function Page() {
-  const data = await getData()
-
-  const animals = data?.allContentfulAnimal?.nodes || []
-  const setAnimals = () => data.animals
-  const page = {}
-  const setPage = () => page
+  const [animals, pageInfo] = await getData()
+  const currentPage = 0
 
   return (
     <>
       <Animals data={animals} />
       <nav className={paginationStyles.container}>
-        {new Array(data?.allContentfulAnimal?.pageInfo?.pageCount).fill(undefined).map(
+        {new Array(pageInfo?.pageCount).fill(undefined).map(
           (_, i) => {
+            const page = i + 1
             return (
-              <Link passHref href="/" key={`catalog-pagination-link-${i}`} legacyBehavior>
-                <button
-                  className={clsx(paginationStyles.link, page === i && paginationStyles.linkActive)}
-                >
-                  {i + 1}
-                </button>
+              <Link passHref href={`/page/${page}`} key={`catalog-pagination-link-${i}`} legacyBehavior>
+                  <a className={clsx(paginationStyles.link, page === currentPage && paginationStyles.linkActive)}>{page}</a>
               </Link>
             );
           }

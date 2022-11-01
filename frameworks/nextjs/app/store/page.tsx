@@ -24,7 +24,7 @@ async function getData() {
 
   const { data } = await client.query(QUERY, {}).toPromise()
 
-  return data.allShopifyProduct?.nodes || []
+  return data?.allShopifyProduct?.nodes || []
 
 }
 

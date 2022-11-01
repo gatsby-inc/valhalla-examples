@@ -6,7 +6,9 @@ import "../../styles/global.css";
 
 import Logo from "../assets/logo.svg";
 import Framework from "../assets/framework.svg";
-import * as styles from "../../styles/layout.module.css";
+// import * as styles from "../../styles/layout.module.css";
+
+const styles: any = {}
 
 export default function Layout({ children }) {
   return (

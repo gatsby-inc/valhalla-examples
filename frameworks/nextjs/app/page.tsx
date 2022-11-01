@@ -56,30 +56,13 @@ const SearchIcon = () => (
   </svg>
 );
 
-export default async function Catalog() {
+export default async function Page() {
   const data = await getData()
 
   const animals = data?.allContentfulAnimal?.nodes || []
   const setAnimals = () => data.animals
   const page = {}
   const setPage = () => page
-
-  // React.useEffect(() => {
-  //   window
-  //     .fetch(`/api/get-animal?limit=8&skip=${page * 8}`, {
-  //       method: `GET`,
-  //       headers: {
-  //         "Content-Type": `application/json`,
-  //       },
-  //     })
-  //     .then((res) => {
-  //       return res.json();
-  //     })
-  //     .then((data: any) => {
-  //       console.log(data);
-  //       setAnimals(data?.animals);
-  //     });
-  // }, [page]);
 
   return (
     <>

@@ -5649,7 +5649,7 @@ gatsby-plugin-catch-links@^5.0.0-next.1:
     "@babel/runtime" "^7.15.4"
     escape-string-regexp "^1.0.5"
 
-gatsby-plugin-image@next:
+gatsby-plugin-image@^3.0.0-next.4:
   version "3.0.0-next.4"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-3.0.0-next.4.tgz#1bacc79535eeec20a89cb1088e4c6baa1a348c2c"
   integrity sha512-CgQEDCzZZP67R6Qe8LUczq/kBZ+AA3YrF0rafXOZWTDwZ3OD2IhBhu/AoJS6A/TqBF+sLf3wCP1FkTlOtSzlSg==
@@ -5669,7 +5669,7 @@ gatsby-plugin-image@next:
     objectFitPolyfill "^2.3.5"
     prop-types "^15.8.1"
 
-gatsby-plugin-manifest@next:
+gatsby-plugin-manifest@^5.0.0-next.3:
   version "5.0.0-next.3"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-5.0.0-next.3.tgz#e9d55eec4ffbf2f3d554794b09a8398ad10c168f"
   integrity sha512-3G7GLOXpJlILTNf1zKC/Es8nG2izpMPYfNVRPlG0U/GcTLP0Xfg0ItKchZswK8PJigdoBkVL+jRMa8ltyNXnpA==
@@ -5698,7 +5698,7 @@ gatsby-plugin-page-creator@^5.0.0-next.4:
     globby "^11.1.0"
     lodash "^4.17.21"
 
-gatsby-plugin-sharp@next:
+gatsby-plugin-sharp@^5.0.0-next.4:
   version "5.0.0-next.4"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-5.0.0-next.4.tgz#c8e9d153d0ca25b15bb3b6b8ac86bdd93780a7a2"
   integrity sha512-MfloOUHlZ7lYhUQ1mGV51uUkn0ctuJWvPG/BLz9KBGFb5vDo3TccL5qyPNHlO4kcodTldY38SSxK6fesG40O6A==
@@ -5771,7 +5771,7 @@ gatsby-sharp@^1.0.0-next.0:
     "@types/sharp" "^0.30.5"
     sharp "^0.30.7"
 
-gatsby-source-contentful@next:
+gatsby-source-contentful@^8.0.0-next.3:
   version "8.0.0-next.3"
   resolved "https://registry.yarnpkg.com/gatsby-source-contentful/-/gatsby-source-contentful-8.0.0-next.3.tgz#3ff91420a9a7de1896ee44cc0182197a32bb71d4"
   integrity sha512-d53Hv+ho8864VvYFRYz8TwkxGNLJMvElvvOzcnT19tKYZnbyIA3GPYGSas0jjvdw5he7FWndEMSIpRyiwNVFzw==
@@ -5811,7 +5811,7 @@ gatsby-source-filesystem@^5.0.0-next.2:
     valid-url "^1.0.9"
     xstate "4.32.1"
 
-gatsby-source-shopify@next:
+gatsby-source-shopify@^8.0.0-next.4:
   version "8.0.0-next.4"
   resolved "https://registry.yarnpkg.com/gatsby-source-shopify/-/gatsby-source-shopify-8.0.0-next.4.tgz#3381b6150ee4f07af2b09a0af1cb06a65dd861e4"
   integrity sha512-jg2W8yE5bsSvAGzrYnQgaka+DqXIipcZNWrrQO8zoHPCgkX5sbAO8NfIJNCzV3q7rDWKZQIAx1YuetqdrsdqHA==
@@ -5824,7 +5824,7 @@ gatsby-source-shopify@next:
     sharp "^0.30.7"
     shift-left "^0.1.5"
 
-gatsby-source-wordpress@next:
+gatsby-source-wordpress@^7.0.0-next.5:
   version "7.0.0-next.5"
   resolved "https://registry.yarnpkg.com/gatsby-source-wordpress/-/gatsby-source-wordpress-7.0.0-next.5.tgz#94b1959d4b81b76b629ee2f6eb46870878192a60"
   integrity sha512-CfkK+F93pFAMxvw8ISY8m1GlcW9ZqWEO/56+IGySiqqKFbze0JJXjCfNA369JX5t6z2lxvwc4CZbssfriRnUTQ==
@@ -5883,7 +5883,7 @@ gatsby-telemetry@^4.0.0-next.2:
     lodash "^4.17.21"
     node-fetch "^2.6.7"
 
-gatsby-transformer-sharp@next:
+gatsby-transformer-sharp@^5.0.0-next.4:
   version "5.0.0-next.4"
   resolved "https://registry.yarnpkg.com/gatsby-transformer-sharp/-/gatsby-transformer-sharp-5.0.0-next.4.tgz#9636c191c9769274ee3e0d7b3ac45fcabf21a42a"
   integrity sha512-SUjoYPbdPWE5GFfP0/Aft7C0YH1TCXVHllBCg0CDCS8eAE+b93gN878SfqtkVizyesUgzFV0adKfCp+rznL0kg==
@@ -5906,7 +5906,7 @@ gatsby-worker@^2.0.0-next.1:
     "@babel/core" "^7.15.5"
     "@babel/runtime" "^7.15.4"
 
-gatsby@next:
+gatsby@^5.0.0-next.10:
   version "5.0.0-next.10"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-5.0.0-next.10.tgz#05705ba9ac92487da80e2148f189efe7af71a1df"
   integrity sha512-stgAg7bN9PrSJHy5vJgYN84DGwWCfoS7XjmKZorvfY6QyhmKteeXtT7u4220HuF6EJ3gE1RomEZXz5kp+qO2Jw==
@@ -8858,14 +8858,13 @@ react-dev-utils@^12.0.1:
     strip-ansi "^6.0.1"
     text-table "^0.2.0"
 
-react-dom@^17.0.1:
-  version "17.0.2"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
-  integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
+react-dom@^18.2.0:
+  version "18.2.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
+  integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
   dependencies:
     loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    scheduler "^0.20.2"
+    scheduler "^0.23.0"
 
 react-error-overlay@^6.0.11:
   version "6.0.11"
@@ -8896,13 +8895,12 @@ react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825:
     loose-envify "^1.1.0"
     neo-async "^2.6.1"
 
-react@^17.0.1:
-  version "17.0.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
-  integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
+react@^18.2.0:
+  version "18.2.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
+  integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
   dependencies:
     loose-envify "^1.1.0"
-    object-assign "^4.1.1"
 
 read-chunk@^3.2.0:
   version "3.2.0"
@@ -9263,13 +9261,12 @@ sax@^1.2.4:
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
 
-scheduler@^0.20.2:
-  version "0.20.2"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.20.2.tgz#4baee39436e34aa93b4874bddcbf0fe8b8b50e91"
-  integrity sha512-2eWfGgAqqWFGqtdMmcL5zCMK1U8KlXv8SQFGglL3CEtd0aDVDWgeF/YoCmvln55m5zSk3J/20hTaSBeSObsQDQ==
+scheduler@^0.23.0:
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.23.0.tgz#ba8041afc3d30eb206a487b6b384002e4e61fdfe"
+  integrity sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==
   dependencies:
     loose-envify "^1.1.0"
-    object-assign "^4.1.1"
 
 schema-utils@2.7.0:
   version "2.7.0"

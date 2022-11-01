@@ -30,15 +30,13 @@ const BlogIndex = ({
       <h1 className={styles.pageTitle}>Blog</h1>
       <Info cms="WordPress" renderer="ssg" />
       <ol className={styles.posts}>
-        {posts.map((post) => {
+        {posts.map(post => {
           const title = post.title;
 
           const featuredImage = {
             data: post.featuredImage?.node?.gatsbyImage,
             alt: post.featuredImage?.node?.alt || ``,
           };
-
-          console.log(post.featuredImage)
 
           return (
             <li key={post.uri} className={styles.post}>
@@ -89,9 +87,7 @@ export default BlogIndex;
 
 export const pageQuery = graphql`
   query WordPressPostArchive {
-    allWpPost(
-      sort: { fields: [date], order: DESC } #   limit: $postsPerPage #   skip: $offset
-    ) {
+    allWpPost(sort: {date: DESC}) {
       nodes {
         excerpt
         uri

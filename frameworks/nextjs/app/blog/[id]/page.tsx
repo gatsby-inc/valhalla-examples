@@ -1,9 +1,9 @@
 import parse from "html-react-parser";
 
-import { client } from "@/lib/client"
+import { client } from "@/lib/client";
 
-import * as styles from "@/styles/article.module.css"
-import Content from './content'
+import * as styles from "@/styles/article.module.css";
+import Content from "./content";
 
 export async function generateStaticParams() {
   const QUERY = `
@@ -16,11 +16,10 @@ export async function generateStaticParams() {
       }
     `;
 
-  const { data } = await client.query(QUERY, {}).toPromise()
-  
-  return data?.allWpPost?.nodes || []
-}
+  const { data } = await client.query(QUERY, {}).toPromise();
 
+  return data?.allWpPost?.nodes || [];
+}
 
 async function getData(params) {
   const QUERY = `
@@ -42,17 +41,17 @@ async function getData(params) {
 
   const { data } = await client.query(QUERY, { id: params?.id }).toPromise();
 
-  let post = Object.assign({}, data?.wpPost || {})
+  let post = Object.assign({}, data?.wpPost || {});
 
   if (!post.featuredImage || !post.featuredImage.node) {
-    delete post.featuredImage
+    delete post.featuredImage;
   }
 
-  return post
+  return post;
 }
 
 export default async function PostTemplate({ params }) {
-  const post = await getData(params)
+  const post = await getData(params);
 
   const featuredImage = {
     data: post?.featuredImage?.node?.mediaItemUrl,
@@ -60,15 +59,12 @@ export default async function PostTemplate({ params }) {
   };
 
   if (!post || !post.title) {
-    return <h1>404: Not Found</h1>
+    return <h1>404: Not Found</h1>;
   }
 
   return (
     <>
-      <article
-        itemScope
-        itemType="http://schema.org/Article"
-      >
+      <article itemScope itemType="http://schema.org/Article">
         <header>
           <h1 itemProp="headline" className={styles.title}>
             {parse(post?.title)}

@@ -29,24 +29,16 @@ export default async function Layout({ children }) {
     <>
       <div className={filterStyles.filterAndSearch}>
         <div className={filterStyles.filters}>
-          <Link href="/"
-            className={clsx(filterStyles.filterButton)}
-          >
+          <Link href="/" className={clsx(filterStyles.filterButton)}>
             All Snugglers
           </Link>
-          <Link href="/dogs"
-            className={clsx(filterStyles.filterButton)}
-          >
+          <Link href="/dogs" className={clsx(filterStyles.filterButton)}>
             Dogs
           </Link>
-          <Link href="/cats"
-            className={clsx(filterStyles.filterButton)}
-          >
+          <Link href="/cats" className={clsx(filterStyles.filterButton)}>
             Cats
           </Link>
-          <Link href="/exotics"
-            className={clsx(filterStyles.filterButton)}
-          >
+          <Link href="/exotics" className={clsx(filterStyles.filterButton)}>
             Exotics
           </Link>
         </div>

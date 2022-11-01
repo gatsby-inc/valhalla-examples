@@ -1,4 +1,4 @@
-import { client } from '@/lib/client'
+import { client } from "@/lib/client";
 
 async function getData(params) {
   const QUERY = `
@@ -11,18 +11,18 @@ async function getData(params) {
 
   const { data } = await client.query(QUERY, { id: params?.id }).toPromise();
 
-  let post = Object.assign({}, data?.wpPost || {})
+  let post = Object.assign({}, data?.wpPost || {});
 
-  return post
+  return post;
 }
 
 export default async function Head({ params }) {
-  const post = await getData(params)
+  const post = await getData(params);
 
   return (
     <>
       <title>Pet Snuggles | Blog Post | Valhalla Content Hub and Next.js</title>
       <meta name="description" content={`Valhalla and ${post.description}`} />
     </>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-import { client } from "@/lib/client"
+import { client } from "@/lib/client";
 
 import { AnimalDisplay } from "@/components/Animals";
 
@@ -26,15 +26,13 @@ async function getData(params) {
     })
     .toPromise();
 
-  return data?.contentfulAnimal || {}
+  return data?.contentfulAnimal || {};
 }
 
 export default async function AnimalTemplate({ params }) {
-  const animal = await getData(params)
+  const animal = await getData(params);
 
-  return (
-    <AnimalDisplay animal={animal} type={animal.type} disableDetails />
-  );
+  return <AnimalDisplay animal={animal} type={animal.type} disableDetails />;
 }
 
 export async function generateStaticParams() {
@@ -52,5 +50,5 @@ export async function generateStaticParams() {
     )
     .toPromise();
 
-  return data?.allContfulAnimal?.nodes || []
+  return data?.allContfulAnimal?.nodes || [];
 }

@@ -1,10 +1,10 @@
-import Link from 'next/link'
-import { GatsbyImage  } from "gatsby-plugin-image";
+import Link from "next/link";
+import { GatsbyImage } from "gatsby-plugin-image";
 import parse from "html-react-parser";
 import clsx from "clsx";
 
-import { client } from '@/lib/client'
-import * as styles from '@/styles/blog.module.css'
+import { client } from "@/lib/client";
+import * as styles from "@/styles/blog.module.css";
 
 async function getData() {
   const query = `
@@ -31,11 +31,11 @@ async function getData() {
       }
     }
   }
-  `
+  `;
 
-  const { data } = await client.query(query, {}).toPromise()
+  const { data } = await client.query(query, {}).toPromise();
 
-  return data?.allWpPost?.nodes || []
+  return data?.allWpPost?.nodes || [];
 }
 
 export default async function BlogIndex() {
@@ -77,7 +77,8 @@ export default async function BlogIndex() {
                       href={`/blog/${post.id}/`}
                       passHref={true}
                       itemProp="headline"
-                      legacyBehavior>
+                      legacyBehavior
+                    >
                       {parse(title)}
                     </Link>
                   </h2>
@@ -93,4 +94,4 @@ export default async function BlogIndex() {
       </ol>
     </>
   );
-};
+}

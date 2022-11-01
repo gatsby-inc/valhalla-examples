@@ -1,6 +1,6 @@
-import { Animals } from "@/components/Animals"
+import { Animals } from "@/components/Animals";
 
-import { client } from "@/lib/client"
+import { client } from "@/lib/client";
 
 async function getData(params) {
   const QUERY = `
@@ -27,15 +27,20 @@ async function getData(params) {
     }
   `;
 
-  const { data, error } = await client.query(QUERY, {
-    animalType: params.animalType.slice(0, -1) // remove the "s"
-  }).toPromise();
+  const { data, error } = await client
+    .query(QUERY, {
+      animalType: params.animalType.slice(0, -1), // remove the "s"
+    })
+    .toPromise();
 
-  return [data?.allContentfulAnimal?.nodes, data?.allContentfulAnimal?.pageInfo || {}]
+  return [
+    data?.allContentfulAnimal?.nodes,
+    data?.allContentfulAnimal?.pageInfo || {},
+  ];
 }
 
 export default async function Page({ params }) {
-  const [animals, pageInfo] = await getData(params)
+  const [animals, pageInfo] = await getData(params);
 
   return (
     <>

@@ -3,5 +3,5 @@ export default function Head() {
     <>
       <title>Pet Snuggles | Blog | Valhalla Content Hub and Next.js</title>
     </>
-  )
+  );
 }

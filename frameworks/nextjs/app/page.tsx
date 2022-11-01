@@ -59,7 +59,7 @@ const SearchIcon = () => (
 export default async function Catalog() {
   const data = await getData()
 
-  const animals = data.animals
+  const animals = data?.allContentfulAnimal?.nodes || []
   const setAnimals = () => data.animals
   const page = {}
   const setPage = () => page
@@ -116,8 +116,7 @@ export default async function Catalog() {
           />
         </div>
       </div>
-
-      <Animals data={animals || []} />
+      <Animals data={animals} />
       <nav className={paginationStyles.container}>
         {new Array(data?.allContentfulAnimal?.pageInfo?.pageCount).fill(undefined).map(
           (_, i) => {

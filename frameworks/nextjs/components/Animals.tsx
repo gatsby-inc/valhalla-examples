@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,8 +6,7 @@ import clsx from "clsx";
 import styles from "../../styles/animals.module.css"
 
 const DetailLink = ({ children, href }) => (
-  (<Link passHref href={href} className={styles.viewDetailsLink} legacyBehavior>
-
+  <Link href={href} className={styles.viewDetailsLink}>
     <h2 className={styles.animalName}>
       {children}
       <span className={styles.viewDetailsIcon}>
@@ -29,8 +27,7 @@ const DetailLink = ({ children, href }) => (
         </svg>
       </span>
     </h2>
-
-  </Link>)
+  </Link>
 );
 
 export function AnimalDisplay({ animal, type, disableDetails = false }) {

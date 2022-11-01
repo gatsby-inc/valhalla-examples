@@ -1,12 +1,10 @@
-import React from "react";
 import Link from 'next/link'
 import { GatsbyImage  } from "gatsby-plugin-image";
 import parse from "html-react-parser";
 import clsx from "clsx";
 
 import { client } from '../../lib/client'
-
-const styles: any = {}
+import * as styles from '../../../styles/blog.module.css'
 
 async function getData() {
   const query = `

@@ -5,6 +5,23 @@ import { client } from "../../../lib/client"
 import * as styles from "../../../../styles/article.module.css"
 import Content from './content'
 
+export async function generateStaticParams() {
+  const QUERY = `
+      {
+        allWpPost {
+          nodes {
+            id
+          }
+        }
+      }
+    `;
+
+  const { data } = await client.query(QUERY, {}).toPromise()
+  
+  return data.allWpPost.nodes
+}
+
+
 async function getData(params) {
   const QUERY = `
       query PostQuery($id: String!) {
@@ -65,20 +82,4 @@ export default async function PostTemplate({ params }) {
       </article>
     </>
   );
-}
-
-export async function generateStaticParams() {
-  const QUERY = `
-      {
-        allWpPost {
-          nodes {
-            id
-          }
-        }
-      }
-    `;
-
-  const { data } = await client.query(QUERY, {}).toPromise()
-  
-  return data.allWpPost.nodes
 }

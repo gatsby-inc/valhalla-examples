@@ -17,7 +17,7 @@ export async function generateStaticParams() {
 
   const { data } = await client.query(QUERY, {}).toPromise()
   
-  return data.allShopifyProduct.nodes.map(node => {
+  return (data?.allShopifyProduct?.nodes || []).map(node => {
     return Object.assign({}, node, {
       id: node.shopifyId.replace("gid://shopify/Product/", "")
     })
@@ -65,6 +65,7 @@ export default async function PetStore({ params }) {
             animalType: "products",
           }}
           key={pet.id}
+          type={"product"}
           disableDetails={true}
         />
     </>

@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 
   const { data } = await client.query(QUERY, {}).toPromise()
   
-  return data.allWpPost.nodes
+  return data?.allWpPost?.nodes || []
 }
 
 
@@ -42,7 +42,7 @@ async function getData(params) {
 
   const { data } = await client.query(QUERY, { id: params?.id }).toPromise();
 
-  let post = Object.assign({}, data.wpPost)
+  let post = Object.assign({}, data?.wpPost || {})
 
   if (!post.featuredImage || !post.featuredImage.node) {
     delete post.featuredImage

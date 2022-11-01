@@ -1,6 +1,7 @@
 import { Animal } from "@/components/Animals";
 
 import { client } from "@/lib/client";
+import { Info } from '@/components/Info'
 
 import * as animalStyles from "@/styles/animals.module.css";
 import * as commonStyles from "@/styles/common.module.css";
@@ -33,6 +34,7 @@ export default async function Catalog() {
   return (
     <>
       <h1 className={commonStyles.pageTitle}>Store</h1>
+      <Info cms="Shopify" renderer="ssg" />
       <div className={animalStyles.animalList}>
         {products?.map(({ shopifyId, title, featuredImage, description }) => {
           const id = shopifyId.replace("gid://shopify/Product/", "");

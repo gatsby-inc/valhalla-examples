@@ -1,6 +1,7 @@
 import { Animals } from "@/components/Animals";
 
 import { client } from "@/lib/client";
+import { Info } from '@/components/Info'
 
 async function getData(params) {
   const QUERY = `
@@ -44,6 +45,7 @@ export default async function Page({ params }) {
 
   return (
     <>
+      <Info cms="Contentful" renderer="ssg" />
       <Animals data={animals} />
     </>
   );

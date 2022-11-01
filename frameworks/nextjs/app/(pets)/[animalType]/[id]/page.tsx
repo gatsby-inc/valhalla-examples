@@ -1,6 +1,7 @@
 import { client } from "@/lib/client";
 
 import { AnimalDisplay } from "@/components/Animals";
+import { Info } from '@/components/Info'
 
 async function getData(params) {
   const query = `
@@ -32,7 +33,12 @@ async function getData(params) {
 export default async function AnimalTemplate({ params }) {
   const animal = await getData(params);
 
-  return <AnimalDisplay animal={animal} type={animal.type} disableDetails />;
+  return (
+    <>
+      <Info cms="Contentful" renderer="ssg" />
+      <AnimalDisplay animal={animal} type={animal.type} disableDetails />;
+    </>
+  )
 }
 
 export async function generateStaticParams() {

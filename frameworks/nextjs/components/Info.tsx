@@ -1,11 +1,10 @@
-'use client'
-import * as styles from "../../styles/info.module.css"
+import * as styles from "@/styles/info.module.css"
 
-import contentful from "../assets/contentful.svg";
-import wordpress from "../assets/wordpress.svg";
-import shopify from "../assets/shopify.svg";
-import ssr from "../assets/ssr.svg";
-import ssg from "../assets/ssg.svg";
+import contentful from "@/assets/contentful.svg";
+import wordpress from "@/assets/wordpress.svg";
+import shopify from "@/assets/shopify.svg";
+import ssr from "@/assets/ssr.svg";
+import ssg from "@/assets/ssg.svg";
 
 export const cmsIcons = {
   Contentful: contentful,
@@ -19,13 +18,15 @@ export const rendererIcons = {
 };
 
 export function Info({ cms, renderer }) {
+  const CmsIcon = cmsIcons[cms]
+  const Renderer = rendererIcons[renderer]
   return (
     <p className={styles.container}>
       <span className={styles.logos}>
-        <img src={cmsIcons[cms]} alt={`${cms} logo`} className={styles.logo} />
+        <CmsIcon alt={`${cms} logo`} className={styles.logo} />
         {renderer && (
           <>
-            + <img src={rendererIcons[renderer]} alt="" className={styles.logo} />
+            + <Renderer alt="" className={styles.logo} />
           </>
         )}
       </span>{" "}

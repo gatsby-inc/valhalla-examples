@@ -3,8 +3,10 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import parse from "html-react-parser";
 import clsx from "clsx";
 
-import { client } from "@/lib/client";
 import * as styles from "@/styles/blog.module.css";
+
+import { client } from "@/lib/client";
+import { Info } from '@/components/Info'
 
 async function getData() {
   const query = `
@@ -44,6 +46,7 @@ export default async function BlogIndex() {
   return (
     <>
       <h1 className={styles.pageTitle}>Blog</h1>
+      <Info cms="WordPress" renderer="ssg" />
       <ol className={styles.posts}>
         {posts.map((post) => {
           const title = post.title;

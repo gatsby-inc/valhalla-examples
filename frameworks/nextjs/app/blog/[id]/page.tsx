@@ -4,6 +4,7 @@ import { client } from "@/lib/client";
 
 import * as styles from "@/styles/article.module.css";
 import Content from "./content";
+import { Info } from "@/components/Info"
 
 export async function generateStaticParams() {
   const QUERY = `
@@ -64,6 +65,7 @@ export default async function PostTemplate({ params }) {
 
   return (
     <>
+      <Info cms="WordPress" renderer="ssg" />
       <article itemScope itemType="http://schema.org/Article">
         <header>
           <h1 itemProp="headline" className={styles.title}>

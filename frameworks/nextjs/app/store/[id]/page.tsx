@@ -1,6 +1,7 @@
 import { AnimalDisplay as Animal } from "@/components/Animals";
 
 import { client } from "@/lib/client";
+import { Info } from '@/components/Info'
 
 import * as commonStyles from "@/styles/common.module.css";
 
@@ -55,6 +56,7 @@ export default async function PetStore({ params }) {
   return (
     <>
       <h1 className={commonStyles.pageTitle}>{pet.title}</h1>
+      <Info cms="Shopify" renderer="ssg" />
       <Animal
         animal={{
           id: pet.id,

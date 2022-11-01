@@ -2,6 +2,7 @@ import Link from "next/link";
 import clsx from "clsx";
 
 import { Animals } from "@/components/Animals";
+import { Info } from '@/components/Info'
 
 import * as paginationStyles from "@/styles/pagination.module.css";
 
@@ -44,6 +45,7 @@ export default async function Page() {
 
   return (
     <>
+      <Info cms="Contentful" renderer="ssg" />
       <Animals data={animals} />
       <nav className={paginationStyles.container}>
         {new Array(pageInfo?.pageCount).fill(undefined).map((_, i) => {

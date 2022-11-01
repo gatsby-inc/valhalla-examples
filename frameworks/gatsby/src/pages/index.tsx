@@ -210,7 +210,7 @@ export default function Catalog({ data }) {
 
 export const catalogQuery = graphql`
   query {
-    allContentfulAnimal(limit: 8, skip: 0, sort: { fields: name }) {
+    allContentfulAnimal(limit: 8, skip: 0, sort: {name: ASC}) {
       nodes {
         id
         name

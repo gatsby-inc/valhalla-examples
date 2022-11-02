@@ -1,12 +1,11 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
-  compiler: {
-    // ssr and displayName are configured by default
-    styledComponents: true,
+  experimental: {
+    appDir: true
   },
   images: {
-    domains: ["images.ctfassets.net"],
+    domains: ['images.ctfassets.net', 'cdn.shopify.com']
   },
   webpack(config) {
     config.module.rules.push({

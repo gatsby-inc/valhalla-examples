@@ -30,6 +30,8 @@
   padding: var(--size-1) calc(var(--size-1) + var(--size-2));
   color: var(--color-fg-calm);
   min-height: var(--size-5);
+
+  text-decoration: none;
 }
 
 .filterButton:hover {

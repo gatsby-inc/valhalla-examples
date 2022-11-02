@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import '@fontsource/inter'
 
 import logo from '../assets/logo.svg'
 import framework from '../assets/framework.svg'

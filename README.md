@@ -6,7 +6,7 @@
 
 This repository contains a number of examples of using Valhalla and a given framework (like Next.js, Astro, and of course Gatsby). Other contributions are welcome.
 
-Please make sure that a given framework has not already been added, and if you'd like to augment existing, PRs _so_ welcome, and we'd love to make sure the code matches idiomatic standars for that given framework for data fetching, code standards, etc.
+Please make sure that a given framework has not already been added, and if you'd like to augment existing, PRs _so_ welcome, and we'd love to make sure the code matches idiomatic standards for that given framework for data fetching, code standards, etc.
 
 First, run `yarn` in the root of the repository after cloning. Then, run `yarn` in the given framework folder (or new framework) to install dependencies.
 

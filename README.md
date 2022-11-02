@@ -1,8 +1,6 @@
+<img alt="Valhalla" src="https://user-images.githubusercontent.com/21834/199619393-8862aaed-0146-49b4-9304-f9e42af48c4d.png" width="48" />
+
 # Valhalla (Examples)
-
-<img width="1300" alt="image" src="https://user-images.githubusercontent.com/21834/191885544-18934c74-a673-499b-8e54-3f6854086cdd.png">
-
-## Getting Started
 
 This repository contains a number of examples of using Valhalla and a given framework (like Next.js, Astro, and of course Gatsby). Other contributions are welcome.
 

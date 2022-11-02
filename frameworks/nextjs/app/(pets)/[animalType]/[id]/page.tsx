@@ -1,6 +1,6 @@
-import { client } from "@/lib/client";
+import { client } from '@/lib/client'
 
-import { AnimalDisplay } from "@/components/Animals";
+import { AnimalDisplay } from '@/components/Animals'
 import { Info } from '@/components/Info'
 
 async function getData(params) {
@@ -19,19 +19,19 @@ async function getData(params) {
         }
       }
     }
-  `;
+  `
 
   const { data } = await client
     .query(query, {
       id: params.id,
     })
-    .toPromise();
+    .toPromise()
 
-  return data?.contentfulAnimal || {};
+  return data?.contentfulAnimal || {}
 }
 
 export default async function AnimalTemplate({ params }) {
-  const animal = await getData(params);
+  const animal = await getData(params)
 
   return (
     <>
@@ -54,7 +54,7 @@ export async function generateStaticParams() {
     }`,
       {}
     )
-    .toPromise();
+    .toPromise()
 
-  return data?.allContfulAnimal?.nodes || [];
+  return data?.allContfulAnimal?.nodes || []
 }

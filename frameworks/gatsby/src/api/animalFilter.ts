@@ -1,13 +1,13 @@
-import fetch from "node-fetch";
-import { createClient } from "@urql/core";
+import fetch from 'node-fetch'
+import { createClient } from '@urql/core'
 
-const API_URL = process.env.GATSBY_VALHALLA_API_URL;
+const API_URL = process.env.GATSBY_VALHALLA_API_URL
 
 const client = createClient({
   url: API_URL,
   fetch,
   requestPolicy: `network-only`,
-});
+})
 
 export default async function getAnimalFilter(req, res) {
   const QUERY = `
@@ -30,13 +30,13 @@ export default async function getAnimalFilter(req, res) {
           }
         }
       }
-    `;
+    `
 
   const result = await client
     .query(QUERY, { animalType: { eq: req.body.type } })
-    .toPromise();
+    .toPromise()
 
-  console.log(result);
+  console.log(result)
 
-  return res.json({ animals: result?.data?.allContentfulAnimal?.nodes });
+  return res.json({ animals: result?.data?.allContentfulAnimal?.nodes })
 }

@@ -1,11 +1,11 @@
-import Link from "next/link";
+import Link from 'next/link'
 
-import "@fontsource/inter";
-import "@/styles/global.css";
+import '@fontsource/inter'
+import '@/styles/global.css'
 
-import Logo from "@/assets/logo.svg";
-import Framework from "@/assets/framework.svg";
-import * as styles from "@/styles/layout.module.css";
+import Logo from '@/assets/logo.svg'
+import Framework from '@/assets/framework.svg'
+import * as styles from '@/styles/layout.module.css'
 
 export default function Layout({ children }) {
   return (
@@ -34,7 +34,7 @@ export default function Layout({ children }) {
             </nav>
             <div className={styles.poweredBy}>
               <span>
-                Powered by{" "}
+                Powered by{' '}
                 <a
                   href="https://www.gatsbyjs.com/"
                   target="_blank"
@@ -42,9 +42,9 @@ export default function Layout({ children }) {
                   className={styles.poweredByLink}
                 >
                   Valhalla
-                </a>{" "}
-                and{" "}
-                <b style={{ fontWeight: "var(--font-weight-6)" }}>Next.js</b>
+                </a>{' '}
+                and{' '}
+                <b style={{ fontWeight: 'var(--font-weight-6)' }}>Next.js</b>
               </span>
               <Framework alt="Gatsby" />
             </div>
@@ -53,5 +53,5 @@ export default function Layout({ children }) {
         </div>
       </body>
     </html>
-  );
+  )
 }

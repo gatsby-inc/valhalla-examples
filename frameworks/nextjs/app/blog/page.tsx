@@ -1,11 +1,11 @@
-import Link from "next/link";
-import { GatsbyImage } from "gatsby-plugin-image";
-import parse from "html-react-parser";
-import clsx from "clsx";
+import Link from 'next/link'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import parse from 'html-react-parser'
+import clsx from 'clsx'
 
-import * as styles from "@/styles/blog.module.css";
+import * as styles from '@/styles/blog.module.css'
 
-import { client } from "@/lib/client";
+import { client } from '@/lib/client'
 import { Info } from '@/components/Info'
 
 async function getData() {
@@ -33,15 +33,15 @@ async function getData() {
       }
     }
   }
-  `;
+  `
 
-  const { data } = await client.query(query, {}).toPromise();
+  const { data } = await client.query(query, {}).toPromise()
 
-  return data?.allWpPost?.nodes || [];
+  return data?.allWpPost?.nodes || []
 }
 
 export default async function BlogIndex() {
-  const posts = await getData();
+  const posts = await getData()
 
   return (
     <>
@@ -49,13 +49,13 @@ export default async function BlogIndex() {
       <Info cms="WordPress" renderer="ssg" />
       <ol className={styles.posts}>
         {posts.map((post) => {
-          const title = post.title;
+          const title = post.title
 
           const featuredImage = {
             data: post.featuredImage?.node?.localFile?.childImageSharp
               ?.gatsbyImageData,
             alt: post.featuredImage?.node?.alt || ``,
-          };
+          }
 
           return (
             <li key={post.uri} className={styles.post}>
@@ -92,9 +92,9 @@ export default async function BlogIndex() {
                 </div>
               </article>
             </li>
-          );
+          )
         })}
       </ol>
     </>
-  );
+  )
 }

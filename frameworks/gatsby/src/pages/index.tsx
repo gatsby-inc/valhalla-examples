@@ -1,11 +1,11 @@
-import React from "react";
-import { graphql } from "gatsby";
-import clsx from "clsx";
+import React from 'react'
+import { graphql } from 'gatsby'
+import clsx from 'clsx'
 
-import { Layout } from "../components/Layout";
-import { Animals } from "../components/Animals";
-import * as paginationStyles from "../../../styles/pagination.module.css";
-import * as filterStyles from "../../../styles/filter.module.css";
+import { Layout } from '../components/Layout'
+import { Animals } from '../components/Animals'
+import * as paginationStyles from '../../../styles/pagination.module.css'
+import * as filterStyles from '../../../styles/filter.module.css'
 
 const SearchIcon = () => (
   <svg
@@ -26,118 +26,130 @@ const SearchIcon = () => (
       <path d="M21.0004 21.1742L16.6504 16.8242" />
     </g>
   </svg>
-);
+)
 
 export default function Catalog({ data }) {
   const [animals, setAnimals] = React.useState(
     data?.allContentfulAnimal?.nodes || []
-  );
+  )
 
-  const [page, setPage] = React.useState(0);
-  const [animalState, setAnimalState] = React.useState("");
-  const ssg = React.useRef(true);
+  const [page, setPage] = React.useState(0)
+  const [animalState, setAnimalState] = React.useState('')
+  const ssg = React.useRef(true)
 
   React.useEffect(() => {
     if (ssg.current) {
-      console.log("prevent initial fetching from API + re-rendering");
-      ssg.current = false;
-      return;
+      console.log('prevent initial fetching from API + re-rendering')
+      ssg.current = false
+      return
     }
 
-    console.log("fetching from API");
-    console.log(page);
+    console.log('fetching from API')
+    console.log(page)
 
     window
       .fetch(`/api/getAnimals?limit=8&skip=${page * 8}`, {
         method: `GET`,
         headers: {
-          "Content-Type": `application/json`,
+          'Content-Type': `application/json`,
         },
       })
       .then((res) => {
-        return res.json();
+        return res.json()
       })
       .then((data: any) => {
-        console.log(data);
-        setAnimals(data?.animals);
-      });
-  }, [page]);
+        console.log(data)
+        setAnimals(data?.animals)
+      })
+  }, [page])
 
   return (
     <Layout title="Our Snugglers">
       <div className={filterStyles.filterAndSearch}>
         <div className={filterStyles.filters}>
           <button
-            className={clsx(filterStyles.filterButton, animalState === `` && filterStyles.filterButtonActive)}
+            className={clsx(
+              filterStyles.filterButton,
+              animalState === `` && filterStyles.filterButtonActive
+            )}
             onClick={() => {
-              setAnimalState("");
-              setAnimals(data?.allContentfulAnimal?.nodes);
+              setAnimalState('')
+              setAnimals(data?.allContentfulAnimal?.nodes)
             }}
           >
             All Snugglers
           </button>
           <button
-            className={clsx(filterStyles.filterButton, animalState === `dog` && filterStyles.filterButtonActive)}
+            className={clsx(
+              filterStyles.filterButton,
+              animalState === `dog` && filterStyles.filterButtonActive
+            )}
             onClick={() => {
-              setAnimalState("dog");
+              setAnimalState('dog')
               window
-                .fetch("/api/animalFilter", {
+                .fetch('/api/animalFilter', {
                   method: `POST`,
                   headers: {
-                    "Content-Type": `application/json`,
+                    'Content-Type': `application/json`,
                   },
                   body: JSON.stringify({ type: `dog` }),
                 })
                 .then((res) => {
-                  return res.json();
+                  return res.json()
                 })
                 .then((data: any) => {
-                  setAnimals(data?.animals);
-                });
+                  setAnimals(data?.animals)
+                })
             }}
           >
             Dogs
           </button>
           <button
-            className={clsx(filterStyles.filterButton, animalState === `cat` && filterStyles.filterButtonActive)}
+            className={clsx(
+              filterStyles.filterButton,
+              animalState === `cat` && filterStyles.filterButtonActive
+            )}
             onClick={() => {
-              setAnimalState("cat");
+              setAnimalState('cat')
               window
-                .fetch("/api/animalFilter", {
+                .fetch('/api/animalFilter', {
                   method: `POST`,
                   headers: {
-                    "Content-Type": `application/json`,
+                    'Content-Type': `application/json`,
                   },
                   body: JSON.stringify({ type: `cat` }),
                 })
                 .then((res) => {
-                  return res.json();
+                  return res.json()
                 })
                 .then((data: any) => {
-                  setAnimals(data?.animals);
-                });
+                  setAnimals(data?.animals)
+                })
             }}
           >
             Cats
           </button>
           <button
-            className={clsx(filterStyles.filterButton, animalState === `exotic` && filterStyles.filterButtonActive)}
+            className={clsx(
+              filterStyles.filterButton,
+              animalState === `exotic` && filterStyles.filterButtonActive
+            )}
             onClick={() => {
-              setAnimalState("exotic");
+              setAnimalState('exotic')
               window
-                .fetch("/api/animalFilter", {
+                .fetch('/api/animalFilter', {
                   method: `POST`,
                   headers: {
-                    "Content-Type": `application/json`,
+                    'Content-Type': `application/json`,
                   },
                   body: JSON.stringify({ type: `exotic` }),
                 })
                 .then((res) => {
-                  return res.json();
+                  return res.json()
                 })
                 .then((data: any) => {
-                  setAnimals(data?.animals);
-                });
+                  setAnimals(data?.animals)
+                })
             }}
           >
             Exotics
@@ -152,29 +164,26 @@ export default function Catalog({ data }) {
             placeholder="Search pets"
             onChange={(e: any) => {
               const searchText = e.currentTarget.value
-              setAnimalState("");
+              setAnimalState('')
 
               if (!searchText || searchText.length < 2) {
-                setAnimalState("");
-                return setAnimals(data?.allContentfulAnimal?.nodes);
+                setAnimalState('')
+                return setAnimals(data?.allContentfulAnimal?.nodes)
               }
 
               window
-                .fetch(
-                  `/api/searchAnimals?searchText=${searchText}`,
-                  {
-                    method: `POST`,
-                    headers: {
-                      "Content-Type": `application/json`,
-                    },
-                  }
-                )
+                .fetch(`/api/searchAnimals?searchText=${searchText}`, {
+                  method: `POST`,
+                  headers: {
+                    'Content-Type': `application/json`,
+                  },
+                })
                 .then((res) => {
-                  return res.json();
+                  return res.json()
                 })
                 .then((data: any) => {
-                  setAnimals(data?.animals);
-                });
+                  setAnimals(data?.animals)
+                })
             }}
           />
         </div>
@@ -191,26 +200,29 @@ export default function Catalog({ data }) {
           (i) => {
             return (
               <button
-                className={clsx(paginationStyles.link, page === i && paginationStyles.linkActive)}
+                className={clsx(
+                  paginationStyles.link,
+                  page === i && paginationStyles.linkActive
+                )}
                 to="/"
                 key={`catalog-pagination-link-${i}`}
                 onClick={() => {
-                  setPage(i);
+                  setPage(i)
                 }}
               >
                 {i + 1}
               </button>
-            );
+            )
           }
         )}
       </nav>
     </Layout>
-  );
+  )
 }
 
 export const catalogQuery = graphql`
   query {
-    allContentfulAnimal(limit: 8, skip: 0, sort: {name: ASC}) {
+    allContentfulAnimal(limit: 8, skip: 0, sort: { name: ASC }) {
       nodes {
         id
         name
@@ -229,10 +241,8 @@ export const catalogQuery = graphql`
       }
     }
   }
-`;
+`
 
 export function Head() {
-  return (
-    <title>Pet Snuggles (Gatsby)</title>
-  )
+  return <title>Pet Snuggles (Gatsby)</title>
 }

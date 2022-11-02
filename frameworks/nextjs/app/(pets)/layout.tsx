@@ -1,7 +1,7 @@
-import Link from "next/link";
-import clsx from "clsx";
+import Link from 'next/link'
+import clsx from 'clsx'
 
-import * as filterStyles from "../../../styles/filter.module.css";
+import * as filterStyles from '../../../styles/filter.module.css'
 
 const SearchIcon = () => (
   <svg
@@ -22,7 +22,7 @@ const SearchIcon = () => (
       <path d="M21.0004 21.1742L16.6504 16.8242" />
     </g>
   </svg>
-);
+)
 
 export default async function Layout({ children }) {
   return (
@@ -53,5 +53,5 @@ export default async function Layout({ children }) {
       </div>
       {children}
     </>
-  );
+  )
 }

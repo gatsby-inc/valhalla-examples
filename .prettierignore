@@ -1,0 +1,16 @@
+public
+node_modules
+
+# astro
+dist
+
+# next.js + gatsby
+public
+.cache
+patches
+server
+static
+
+# all
+.vscode
+

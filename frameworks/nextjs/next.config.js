@@ -2,10 +2,10 @@
 module.exports = {
   reactStrictMode: true,
   experimental: {
-    appDir: true
+    appDir: true,
   },
   images: {
-    domains: ['images.ctfassets.net', 'cdn.shopify.com']
+    domains: ['images.ctfassets.net', 'cdn.shopify.com'],
   },
   webpack(config) {
     config.module.rules.push({
@@ -13,14 +13,14 @@ module.exports = {
       issuer: { and: [/\.(js|ts|md)x?$/] },
       use: [
         {
-          loader: "@svgr/webpack",
+          loader: '@svgr/webpack',
           options: {
             prettier: false,
             svgo: true,
             svgoConfig: {
               plugins: [
                 {
-                  name: "preset-default",
+                  name: 'preset-default',
                   params: {
                     overrides: {
                       // disable plugins
@@ -34,8 +34,8 @@ module.exports = {
           },
         },
       ],
-    });
+    })
 
-    return config;
+    return config
   },
-};
+}

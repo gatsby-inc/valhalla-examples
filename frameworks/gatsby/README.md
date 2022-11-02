@@ -7,9 +7,7 @@
   Pet Snuggles -  Valhalla + Gatsby
 </h1>
 
-
 This repository shows Valhalla powering a Gatsby website
-
 
 3.  **Open the code and start customizing!**
 

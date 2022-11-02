@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
-import { Link } from "gatsby";
-import clsx from 'clsx';
+import React, { useState } from 'react'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { Link } from 'gatsby'
+import clsx from 'clsx'
 
-import { Info } from "./Info";
-import * as styles from "../../../styles/animals.module.css"
+import { Info } from './Info'
+import * as styles from '../../../styles/animals.module.css'
 
 const DetailLink = ({ children, to }) => (
   <Link to={to} className={styles.viewDetailsLink}>
@@ -29,11 +29,11 @@ const DetailLink = ({ children, to }) => (
       </span>
     </h2>
   </Link>
-);
+)
 
 export function AnimalDisplay({ animal, type, disableDetails = false }) {
-  const [animalState, setAnimalState] = useState(animal);
-  const [name, setName] = useState(animal?.name);
+  const [animalState, setAnimalState] = useState(animal)
+  const [name, setName] = useState(animal?.name)
 
   return (
     <div className={clsx(styles.card, !disableDetails && styles.cardDetails)}>
@@ -43,7 +43,7 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
             image={animalState?.image?.gatsbyImage}
             alt={animalState?.name}
             style={{
-              borderRadius: "var(--radius-5)",
+              borderRadius: 'var(--radius-5)',
               height: disableDetails ? 400 : 200,
               width: disableDetails ? 400 : 200,
             }}
@@ -64,7 +64,9 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
       </div>
       <div>
         {disableDetails ? (
-          <h1 className={styles.pageTitle}>{animalState?.name || `Good Boy`}</h1>
+          <h1 className={styles.pageTitle}>
+            {animalState?.name || `Good Boy`}
+          </h1>
         ) : (
           <DetailLink to={`/${type}/${animalState?.id}/`}>
             {animalState?.name || `Good Boy`}
@@ -76,24 +78,24 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
         )}
       </div>
     </div>
-  );
+  )
 }
 
 export function Animal({ animal }) {
   return (
     <AnimalDisplay key={animal?.id} animal={animal} type={animal.animalType} />
-  );
+  )
 }
 
 export function Animals({ data, ssg }) {
   return (
     <>
-      <Info cms="Contentful" renderer={ssg ? "ssg" : "ssr"} />
+      <Info cms="Contentful" renderer={ssg ? 'ssg' : 'ssr'} />
       <section className={styles.animalList}>
         {data?.map((animal, i) => {
-          return <Animal key={`${animal.name}${i}`} animal={animal} />;
+          return <Animal key={`${animal.name}${i}`} animal={animal} />
         })}
       </section>
     </>
-  );
+  )
 }

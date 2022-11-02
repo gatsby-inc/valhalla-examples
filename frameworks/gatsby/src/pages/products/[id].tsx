@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
-import { Layout } from "../../components/Layout";
-import { Info } from "../../components/Info";
-import { AnimalDisplay } from "../../components/Animals";
+import { Layout } from '../../components/Layout'
+import { Info } from '../../components/Info'
+import { AnimalDisplay } from '../../components/Animals'
 
 export default function AnimalTemplate({ serverData }) {
   return (
@@ -10,17 +10,17 @@ export default function AnimalTemplate({ serverData }) {
       <Info cms="Shopify" renderer="ssr" />
       <AnimalDisplay animal={serverData?.data} disableDetails />
     </Layout>
-  );
+  )
 }
 
-import { createClient } from "@urql/core";
+import { createClient } from '@urql/core'
 
-const API_URL = process.env.GATSBY_VALHALLA_API_URL;
+const API_URL = process.env.GATSBY_VALHALLA_API_URL
 
 const client = createClient({
   url: API_URL,
   requestPolicy: `network-only`,
-});
+})
 
 export async function getServerData({ params }) {
   const QUERY = `
@@ -34,15 +34,15 @@ export async function getServerData({ params }) {
             }
         }
       }
-      `;
+      `
 
   const result = await client
     .query(QUERY, { id: `gid://shopify/Product/${params?.id}` })
-    .toPromise();
+    .toPromise()
 
-  console.log(result);
+  console.log(result)
 
-  const data = result?.data?.shopifyProduct;
+  const data = result?.data?.shopifyProduct
   return {
     props: {
       data: {
@@ -52,13 +52,11 @@ export async function getServerData({ params }) {
         },
         image: { url: data?.featuredImage?.originalSrc },
       },
-      type: "products",
+      type: 'products',
     },
-  };
+  }
 }
 
 export function Head() {
-  return (
-    <title>Products / Pet Snuggles (Gatsby)</title>
-  )
+  return <title>Products / Pet Snuggles (Gatsby)</title>
 }

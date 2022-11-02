@@ -1,6 +1,6 @@
-import { Animals } from "@/components/Animals";
+import { Animals } from '@/components/Animals'
 
-import { client } from "@/lib/client";
+import { client } from '@/lib/client'
 import { Info } from '@/components/Info'
 
 async function getData(params) {
@@ -26,27 +26,27 @@ async function getData(params) {
         }
       }
     }
-  `;
+  `
 
   const { data, error } = await client
     .query(QUERY, {
       animalType: params.animalType.slice(0, -1), // remove the "s"
     })
-    .toPromise();
+    .toPromise()
 
   return [
     data?.allContentfulAnimal?.nodes,
     data?.allContentfulAnimal?.pageInfo || {},
-  ];
+  ]
 }
 
 export default async function Page({ params }) {
-  const [animals, pageInfo] = await getData(params);
+  const [animals, pageInfo] = await getData(params)
 
   return (
     <>
       <Info cms="Contentful" renderer="ssg" />
       <Animals data={animals} />
     </>
-  );
+  )
 }

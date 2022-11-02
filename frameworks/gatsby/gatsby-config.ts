@@ -1,15 +1,15 @@
-import type { GatsbyConfig } from "gatsby";
+import type { GatsbyConfig } from 'gatsby'
 
-require("dotenv").config({
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
-});
+})
 
-let accessToken = process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN;
-let host;
+let accessToken = process.env.CONTENTFUL_DELIVERY_ACCESS_TOKEN
+let host
 
 if (process.env.IS_PREVIEW === `true`) {
-  accessToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN;
-  host = process.env.CONTENTFUL_PREVIEW_HOST;
+  accessToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
+  host = process.env.CONTENTFUL_PREVIEW_HOST
 }
 
 const config: GatsbyConfig = {
@@ -24,11 +24,11 @@ const config: GatsbyConfig = {
         url:
           process.env.WPGRAPHQL_URL ||
           `https://valhallademo.wpengine.com/graphql`,
-				type: {
-					MediaItem: {
-						createFileNodes: false,
-					}
-				}
+        type: {
+          MediaItem: {
+            createFileNodes: false,
+          },
+        },
       },
     },
     {
@@ -40,11 +40,11 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: "gatsby-source-shopify",
+      resolve: 'gatsby-source-shopify',
       options: {
         password: process.env.SHOPIFY_SHOP_PASSWORD,
         storeUrl: process.env.GATSBY_SHOPIFY_STORE_URL,
-        shopifyConnections: ["collections"],
+        shopifyConnections: ['collections'],
       },
     },
     {
@@ -66,6 +66,6 @@ const config: GatsbyConfig = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
   ],
-};
+}
 
-export default config;
+export default config

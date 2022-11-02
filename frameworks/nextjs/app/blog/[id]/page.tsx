@@ -1,10 +1,10 @@
-import parse from "html-react-parser";
+import parse from 'html-react-parser'
 
-import { client } from "@/lib/client";
+import { client } from '@/lib/client'
 
-import * as styles from "@/styles/article.module.css";
-import Content from "./content";
-import { Info } from "@/components/Info"
+import * as styles from '@/styles/article.module.css'
+import Content from './content'
+import { Info } from '@/components/Info'
 
 export async function generateStaticParams() {
   const QUERY = `
@@ -15,11 +15,11 @@ export async function generateStaticParams() {
           }
         }
       }
-    `;
+    `
 
-  const { data } = await client.query(QUERY, {}).toPromise();
+  const { data } = await client.query(QUERY, {}).toPromise()
 
-  return data?.allWpPost?.nodes || [];
+  return data?.allWpPost?.nodes || []
 }
 
 async function getData(params) {
@@ -38,29 +38,29 @@ async function getData(params) {
           }
         }
       }
-      `;
+      `
 
-  const { data } = await client.query(QUERY, { id: params?.id }).toPromise();
+  const { data } = await client.query(QUERY, { id: params?.id }).toPromise()
 
-  let post = Object.assign({}, data?.wpPost || {});
+  let post = Object.assign({}, data?.wpPost || {})
 
   if (!post.featuredImage || !post.featuredImage.node) {
-    delete post.featuredImage;
+    delete post.featuredImage
   }
 
-  return post;
+  return post
 }
 
 export default async function PostTemplate({ params }) {
-  const post = await getData(params);
+  const post = await getData(params)
 
   const featuredImage = {
     data: post?.featuredImage?.node?.mediaItemUrl,
     alt: post?.featuredImage?.node?.altText || ``,
-  };
+  }
 
   if (!post || !post.title) {
-    return <h1>404: Not Found</h1>;
+    return <h1>404: Not Found</h1>
   }
 
   return (
@@ -76,12 +76,12 @@ export default async function PostTemplate({ params }) {
             <img
               src={featuredImage.data}
               alt={featuredImage.alt}
-              style={{ marginBottom: "2rem", width: "100%" }}
+              style={{ marginBottom: '2rem', width: '100%' }}
             />
           )}
         </header>
         <Content content={post.content} />
       </article>
     </>
-  );
+  )
 }

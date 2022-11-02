@@ -1,13 +1,13 @@
-import fetch from "node-fetch";
-import { createClient } from "@urql/core";
+import fetch from 'node-fetch'
+import { createClient } from '@urql/core'
 
-const API_URL = process.env.GATSBY_VALHALLA_API_URL;
+const API_URL = process.env.GATSBY_VALHALLA_API_URL
 
 const client = createClient({
   url: API_URL,
   fetch,
   requestPolicy: `network-only`,
-});
+})
 
 export default async function searchAnimals(req, res) {
   const QUERY = `
@@ -30,17 +30,17 @@ export default async function searchAnimals(req, res) {
           }
         }
       }
-    `;
+    `
 
-  const searchText = req.query.searchText;
+  const searchText = req.query.searchText
 
-  const result = await client.query(QUERY, {}).toPromise();
+  const result = await client.query(QUERY, {}).toPromise()
 
-  const nodes = result?.data?.allContentfulAnimal?.nodes;
+  const nodes = result?.data?.allContentfulAnimal?.nodes
 
   const nodesFiltered = nodes.filter(({ name }: any) => {
-    return new RegExp(searchText.toLowerCase()).test(name?.toLowerCase());
-  });
+    return new RegExp(searchText.toLowerCase()).test(name?.toLowerCase())
+  })
 
-  return res.json({ animals: nodesFiltered });
+  return res.json({ animals: nodesFiltered })
 }

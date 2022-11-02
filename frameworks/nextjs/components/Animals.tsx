@@ -1,9 +1,9 @@
-import { GatsbyImage } from "gatsby-plugin-image";
-import Link from "next/link";
-import Image from "next/image";
-import clsx from "clsx";
+import { GatsbyImage } from 'gatsby-plugin-image'
+import Link from 'next/link'
+import Image from 'next/image'
+import clsx from 'clsx'
 
-import styles from "../../styles/animals.module.css"
+import styles from '../../styles/animals.module.css'
 
 const DetailLink = ({ children, href }) => (
   <Link href={href} className={styles.viewDetailsLink}>
@@ -28,7 +28,7 @@ const DetailLink = ({ children, href }) => (
       </span>
     </h2>
   </Link>
-);
+)
 
 export function AnimalDisplay({ animal, type, disableDetails = false }) {
   return (
@@ -44,7 +44,7 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
       <div>
         {disableDetails ? (
           <h1 className={styles.pageTitle}>{animal?.name || `Good Boy`}</h1>
-          ) : (
+        ) : (
           <DetailLink href={animal.href || `/${type}/${animal?.id}/`}>
             {animal?.name || `Good Boy`}
           </DetailLink>
@@ -55,21 +55,21 @@ export function AnimalDisplay({ animal, type, disableDetails = false }) {
         )}
       </div>
     </div>
-  );
+  )
 }
 
 export function Animal({ animal }) {
   return (
     <AnimalDisplay key={animal?.id} animal={animal} type={animal.animalType} />
-  );
+  )
 }
 
 export function Animals({ data }) {
   return (
     <section className={styles.animalList}>
       {data?.map((animal, i) => {
-        return <Animal key={`${animal.name}${i}`} animal={animal} />;
+        return <Animal key={`${animal.name}${i}`} animal={animal} />
       })}
     </section>
-  );
+  )
 }

@@ -1,18 +1,18 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
-import parse from "html-react-parser";
-import clsx from "clsx";
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import parse from 'html-react-parser'
+import clsx from 'clsx'
 
-import { Layout } from "../components/Layout";
-import { Info } from "../components/Info";
-import * as styles from "../../../styles/blog.module.css"
+import { Layout } from '../components/Layout'
+import { Info } from '../components/Info'
+import * as styles from '../../../styles/blog.module.css'
 
 const BlogIndex = ({
   data,
   pageContext: { nextPagePath, previousPagePath },
 }) => {
-  const posts = data.allWpPost.nodes;
+  const posts = data.allWpPost.nodes
 
   if (!posts.length) {
     return (
@@ -22,7 +22,7 @@ const BlogIndex = ({
           appear here!
         </p>
       </Layout>
-    );
+    )
   }
 
   return (
@@ -30,13 +30,13 @@ const BlogIndex = ({
       <h1 className={styles.pageTitle}>Blog</h1>
       <Info cms="WordPress" renderer="ssg" />
       <ol className={styles.posts}>
-        {posts.map(post => {
-          const title = post.title;
+        {posts.map((post) => {
+          const title = post.title
 
           const featuredImage = {
             data: post.featuredImage?.node?.gatsbyImage,
             alt: post.featuredImage?.node?.alt || ``,
-          };
+          }
 
           return (
             <li key={post.uri} className={styles.post}>
@@ -68,7 +68,7 @@ const BlogIndex = ({
                 </div>
               </article>
             </li>
-          );
+          )
         })}
       </ol>
 
@@ -80,14 +80,14 @@ const BlogIndex = ({
       )}
       {nextPagePath && <Link to={nextPagePath}>Next page</Link>}
     </Layout>
-  );
-};
+  )
+}
 
-export default BlogIndex;
+export default BlogIndex
 
 export const pageQuery = graphql`
   query WordPressPostArchive {
-    allWpPost(sort: {date: DESC}) {
+    allWpPost(sort: { date: DESC }) {
       nodes {
         excerpt
         uri
@@ -105,10 +105,8 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
 
 export function Head() {
-  return (
-    <title>Blog / Pet Snuggles (Gatsby)</title>
-  )
+  return <title>Blog / Pet Snuggles (Gatsby)</title>
 }

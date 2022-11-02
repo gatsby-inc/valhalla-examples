@@ -1,4 +1,4 @@
-import { client } from "../../lib/client"
+import { client } from '../../lib/client'
 
 export default async function getAnimalFilter(req, res) {
   const QUERY = `
@@ -21,11 +21,11 @@ export default async function getAnimalFilter(req, res) {
           }
         }
       }
-    `;
+    `
 
   const result = await client
     .query(QUERY, { animalType: { eq: req.body.type } })
-    .toPromise();
+    .toPromise()
 
-  return res.json({ animals: result?.data?.allContentfulAnimal?.nodes });
+  return res.json({ animals: result?.data?.allContentfulAnimal?.nodes })
 }

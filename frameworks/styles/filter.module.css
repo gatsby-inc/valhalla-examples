@@ -67,7 +67,8 @@
   border-radius: var(--radius-3);
   border: none;
   background: none;
-  padding: var(--size-2) var(--size-3) var(--size-2) calc(var(--size-4) + var(--size-2) + var(--size-2));
+  padding: var(--size-2) var(--size-3) var(--size-2)
+    calc(var(--size-4) + var(--size-2) + var(--size-2));
   min-height: 40px;
   outline: none;
   min-width: 280px;

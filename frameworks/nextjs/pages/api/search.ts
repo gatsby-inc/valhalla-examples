@@ -5,7 +5,7 @@ export default async function getAnimals(req, res) {
 
   const QUERY = `
   query search {
-    allContentfulAnimal(sort: { fields: name }) {
+    allContentfulAnimal(sort: { name: ASC }) {
       nodes {
           __typename
           id

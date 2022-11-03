@@ -12,7 +12,7 @@ async function getData() {
   const query = `
   query WordPressPostArchive {
     allWpPost(
-      sort: { fields: [date], order: DESC }
+      sort: { date: DESC }
     ) {
       nodes {
         excerpt

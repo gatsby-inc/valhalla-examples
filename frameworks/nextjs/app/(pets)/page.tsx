@@ -11,7 +11,7 @@ import { client } from '@/lib/client'
 async function getData() {
   const QUERY = `
   query {
-    allContentfulAnimal(limit: 8, skip: 0, sort: { fields: name }) {
+    allContentfulAnimal(limit: 8, skip: 0, sort: { name: ASC }) {
       nodes {
         id
         name

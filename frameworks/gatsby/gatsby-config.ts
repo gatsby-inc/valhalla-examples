@@ -13,6 +13,7 @@ if (process.env.IS_PREVIEW === `true`) {
 }
 
 const config: GatsbyConfig = {
+  trailingSlash: `ignore`,
   siteMetadata: {
     title: `gatsby`,
     siteUrl: `https://www.yourdomain.tld`,

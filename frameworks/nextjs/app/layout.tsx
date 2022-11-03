@@ -36,7 +36,7 @@ export default function Layout({ children }) {
               <span>
                 Powered by{' '}
                 <a
-                  href="https://www.gatsbyjs.com/"
+                  href="https://gatsby.dev/valhalla"
                   target="_blank"
                   rel="noreferrer"
                   className={styles.poweredByLink}

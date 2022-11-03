@@ -12,7 +12,7 @@ const client = createClient({
 export default async function getAnimalFilter(req, res) {
   const QUERY = `
     query search {
-        allContentfulAnimal(filter: { animalType: { eq: "${req.body.type}" } }, sort: { fields: name }) {
+        allContentfulAnimal(filter: { animalType: { eq: "${req.body.type}" } }, sort: { name: ASC }) {
           nodes {
             __typename
             id

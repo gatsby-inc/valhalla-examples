@@ -12,7 +12,7 @@ const client = createClient({
 export default async function getAnimals(req, res) {
   const QUERY = `
     query search($skip: Int!, $limit: Int!) {
-        allContentfulAnimal(skip: $skip, limit: $limit, sort: { fields: name } ) {
+        allContentfulAnimal(skip: $skip, limit: $limit, sort: { name: ASC } ) {
           nodes {
             __typename
             id

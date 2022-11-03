@@ -12,7 +12,7 @@ const client = createClient({
 export default async function searchAnimals(req, res) {
   const QUERY = `
     query search {
-        allContentfulAnimal(sort: { fields: name }) {
+        allContentfulAnimal(sort: { name: ASC }) {
           nodes {
             __typename
             id

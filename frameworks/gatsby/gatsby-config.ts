@@ -19,8 +19,8 @@ const config: GatsbyConfig = {
     siteUrl: `https://www.yourdomain.tld`,
   },
   flags: {
-    GATSBY_PARTIAL_HYDRATION: false,
-    GATSBY_SLICES: false,
+    PARTIAL_HYDRATION: false,
+    SLICES: false,
   },
   plugins: [
     {

@@ -12,7 +12,7 @@ First, run `yarn` in the root of the repository after cloning. Then, run `yarn` 
 
 ### [Gatsby](./frameworks/gatsby)
 
-[View live site](https://valhallaexamples.staging-gatsbyjs.io/)
+[View live site](https://petsnugglesgatsby.gatsbyjs.io/)
 
 ```bash
 cd frameworks/gatsby

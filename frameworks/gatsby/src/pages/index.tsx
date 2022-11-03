@@ -86,6 +86,7 @@ export default function Catalog({ data }) {
             )}
             onClick={() => {
               setAnimalState('dog')
+              console.log(`Calling /api/animalFilter`)
               window
                 .fetch('/api/animalFilter', {
                   method: `POST`,
@@ -98,6 +99,7 @@ export default function Catalog({ data }) {
                   return res.json()
                 })
                 .then((data: any) => {
+                  console.log(`/api/animalFilter returns ${data}`)
                   setAnimals(data?.animals)
                 })
             }}

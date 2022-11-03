@@ -40,7 +40,10 @@ cd frameworks/astro
 yarn dev
 ```
 
-### CMSs
+### Content Sources
 
-- Contentful: https://app.contentful.com/spaces/rtpvd36jgw13/
-- WordPress: https://valhallademo.wpengine.com/
+- Contentful for the pups, cats, and exotics
+- WordPress for the blog
+- Shopify for the e-commerce functionality
+
+- 🚀 Valhalla API for powering them all, and producing a unified GraphQL API for use with any framework

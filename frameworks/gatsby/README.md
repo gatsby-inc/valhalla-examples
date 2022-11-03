@@ -4,7 +4,7 @@
   </a>
 </p>
 <h1 align="center">
-  Pet Snuggles -  Valhalla + Gatsby
+  [Pet Snuggles -  Valhalla + Gatsby](https://petsnugglesgatsby.gatsbyjs.io/)
 </h1>
 
 ## Getting started

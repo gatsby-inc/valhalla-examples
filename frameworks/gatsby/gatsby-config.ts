@@ -18,6 +18,10 @@ const config: GatsbyConfig = {
     title: `gatsby`,
     siteUrl: `https://www.yourdomain.tld`,
   },
+  flags: {
+    PARTIAL_HYDRATION: false,
+    SLICES: false,
+  },
   plugins: [
     {
       resolve: `gatsby-source-wordpress`,

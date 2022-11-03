@@ -23,11 +23,12 @@ async function getData() {
         featuredImage {
           node {
             altText
-            localFile {
-              childImageSharp {
-                gatsbyImageData(quality: 100, layout: FULL_WIDTH)
-              }
-            }
+            # TODO: FIX THIS
+            # localFile {
+            #   childImageSharp {
+            #     gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+            #   }
+            # }
           }
         }
       }

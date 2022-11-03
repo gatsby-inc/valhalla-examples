@@ -1,9 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Animals from "../components/Animals.astro";
-import Card from "../components/Card.astro";
 import { client } from '../lib/client'
-import '../../../global.css'
+import '../../../styles/global.css'
 
 const QUERY = `
 query {
@@ -23,7 +22,7 @@ query {
 }
 `;
 
-const result = await client.query(QUERY).toPromise()
+const result = await client.query(QUERY, {}).toPromise()
 ---
 
 <Layout title="Welcome to Astro.">

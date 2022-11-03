@@ -39,13 +39,21 @@ export async function getServerData({ params }) {
       }
       `
 
-  const result = await client.query(QUERY, { id: params?.id }).toPromise()
+  try {
+    const result = await client.query(QUERY, { id: params?.id }).toPromise()
 
-  return {
-    props: {
-      data: result?.data?.contentfulAnimal,
-      type: 'dog',
-    },
+    return {
+      props: {
+        data: result?.data?.contentfulAnimal,
+        type: 'dog',
+      },
+    }
+  } catch (e) {
+    if (e instanceof Error) {
+      console.log(`client query errored: ${e.message}`, e)
+    }
+
+    throw e
   }
 }
 

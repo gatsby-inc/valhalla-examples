@@ -31,7 +31,6 @@ async function getData(params) {
       shopifyProduct(id: {eq: $id }) {
         id
         title
-        description
         shopifyId
         createdAt
         featuredImage {

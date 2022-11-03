@@ -28,7 +28,6 @@ export async function getServerData({ params }) {
         shopifyProduct(id: { eq: $id }) {
             id
             title
-            description
             featuredImage {
               originalSrc
             }

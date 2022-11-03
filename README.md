@@ -14,6 +14,8 @@ First, run `yarn` in the root of the repository after cloning. Then, run `yarn` 
 
 [View live site](https://petsnugglesgatsby.gatsbyjs.io/)
 
+_Note: since the Gatsby site produces the GraphQL API, it currently requires additional environment variables that are internal to the Gatsby team. The other examples, however, work off of the produced GraphQL API_
+
 ```bash
 cd frameworks/gatsby
 yarn start

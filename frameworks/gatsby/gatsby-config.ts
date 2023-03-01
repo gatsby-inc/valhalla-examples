@@ -53,6 +53,16 @@ const config: GatsbyConfig = {
       },
     },
     {
+      resolve: `gatsby-source-drupal`,
+      options: {
+        baseUrl:
+          process.env.DRUPAL_BASEURL ||
+          `https://live-contentacms.pantheonsite.io/`,
+        apiBase: process.env.DRUPAL_APIBASE || `api`, // optional, defaults to `jsonapi`
+        skipFileDownloads: true,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Pet Snuggles (Gatsby)`,
